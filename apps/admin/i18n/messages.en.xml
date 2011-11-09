@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+    <file source-language="EN" target-language="en" datatype="plaintext" original="messages" date="2011-08-14T20:20:43Z" product-name="messages">
+        <header/>
+        <body>
+            <trans-unit>
+                <source>main:login</source>
+                <target>Login</target>
+            </trans-unit>
+            <trans-unit>
+                <source>main:logout</source>
+                <target>Logout</target>
+            </trans-unit>
+            <trans-unit>
+                <source>main:user</source>
+                <target>User</target>
+            </trans-unit>
+            <trans-unit>
+                <source>Username or E-Mail</source>
+                <target>User</target>
+            </trans-unit>
+            <trans-unit>
+                <source>Password</source>
+                <target>Password</target>
+            </trans-unit>
+            <trans-unit>
+                <source>Remember</source>
+                <target>Remember</target>
+            </trans-unit>
+            <!-- MENU -->
+            <trans-unit>
+                <source>menu:paranoid_users</source>
+                <target>Paranoid users</target>
+            </trans-unit>
+            <trans-unit>
+                <source>menu:asterisk_users</source>
+                <target>Asterisk users</target>
+            </trans-unit>
+            <trans-unit>
+                <source>menu:settings</source>
+                <target>Settings</target>
+            </trans-unit>
+            <!-- ADMIN -->
+            <trans-unit>
+                <source>Paranoid users list</source>
+                <target>Paranoid users list</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
