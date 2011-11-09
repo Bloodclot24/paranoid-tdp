@@ -1,0 +1,56 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/04-Settings
+
+prod:
+  .settings:
+    no_script_name:         true
+    logging_enabled:        false
+
+dev:
+  .settings:
+    error_reporting:        <?php echo (E_ALL | E_STRICT)."\n" ?>
+    web_debug:              true
+    cache:                  false
+    no_script_name:         false
+    etag:                   false
+
+test:
+  .settings:
+    error_reporting:        <?php echo ((E_ALL | E_STRICT) ^ E_NOTICE)."\n" ?>
+    cache:                  false
+    web_debug:              false
+    no_script_name:         false
+    etag:                   false
+
+all:
+  .settings:
+    # Form security secret (CSRF protection)
+    csrf_secret:            a43971e189b0c5fb24dc54cbeec44333efd9e4f9
+
+    # Output escaping settings
+    escaping_strategy:      true
+    escaping_method:        ESC_SPECIALCHARS
+
+    # Enable the database manager
+    use_database:           true
+
+    enabled_modules:      [default, sfGuardAuth, sfGuardGroup, sfGuardPermission, sfGuardUser]
+
+    #definición del charset para todos los ambientes
+    charset: utf-8
+
+    #seguridad
+    login_module:           sfGuardAuth
+    login_action:           signin
+
+    secure_module:          sfGuardAuth
+    secure_action:          secure
+
+    #activamos el I18N como helper estándar, para no tener que incluir la línea use_helper('I18N') en todas las páginas
+    standard_helpers: [Partial, Cache, I18N]
+
+    #Activa el procesamiento del template para su internacionalizacion
+    i18n: true
+
+    default_culture: es
+
