@@ -1,0 +1,7 @@
+PBXUser:
+  tableName: usuario_pbx
+  columns:
+    extension: string
+    tecnologia: string
+    ultimo_registro: date
+    estado: integer
