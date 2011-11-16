@@ -7,6 +7,7 @@ sfGuardUser:
     password:       admin
     is_super_admin: true
     Groups:         [Group_admin]
+    PBXUser:        user_1
 
 sfGuardGroup:
   Group_admin:
@@ -18,3 +19,16 @@ sfGuardPermission:
   Permission_admin:
     name:           admin
     description:    Administrator permission
+
+
+PBXUser:
+  user_1:
+    extension: extension1
+    tecnologia: tecnologia1
+    ultimo_registro: 1987-04-12
+    estado: 1
+  user_2:
+    extension: extension2
+    tecnologia: tecnologia2
+    ultimo_registro: 1997-04-13
+    estado: 2

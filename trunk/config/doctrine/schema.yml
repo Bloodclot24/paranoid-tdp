@@ -1,7 +1,25 @@
 PBXUser:
   tableName: usuario_pbx
   columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
     extension: string
     tecnologia: string
     ultimo_registro: date
     estado: integer
+
+
+
+sfGuardUser:
+  columns:
+    pbxuser_id: integer(4)
+  relations:
+    PBXUser:
+      class: PBXUser
+      local: pbxuser_id
+      foreign: id
+      type: one
+
+    
