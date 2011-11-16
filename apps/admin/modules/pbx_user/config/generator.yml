@@ -1,0 +1,25 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           PBXUser
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          pbx_user
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        #solo queremos que sea un listado para ver usuarios y no para editarlos
+        actions: {}
+        object_actions: {}
+        batch_actions: {}
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~
