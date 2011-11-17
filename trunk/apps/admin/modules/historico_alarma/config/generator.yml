@@ -1,21 +1,23 @@
 generator:
   class: sfDoctrineGenerator
   param:
-    model_class:           PBXUser
+    model_class:           HistoricoAlarma
     theme:                 admin
     non_verbose_templates: true
     with_show:             false
     singular:              ~
     plural:                ~
-    route_prefix:          pbx_user
+    route_prefix:          historico_alarma
     with_doctrine_route:   true
     actions_base_class:    sfActions
 
     config:
       actions: ~
-      fields:  ~
+      fields:
+        sfGuardUser: {label: Paranoid Username}
       list:
-        title: Usuarios PBX
+        title: Historico alarmas
+        display: [nombre, origen, detalle, fecha, sfGuardUser]
         #solo queremos que sea un listado para ver usuarios y no para editarlos
         actions: {}
         object_actions: {}

@@ -13,4 +13,22 @@ require_once dirname(__FILE__).'/../lib/sf_guard_userGeneratorHelper.class.php';
  */
 class sf_guard_userActions extends autoSf_guard_userActions
 {
+
+    public function executeListAlarmasHistoricas(sfWebRequest $request) {
+        $user = $this->getRoute()->getObject();
+
+        // create a context, and load the helper
+        $configuration = sfContext::getInstance()->getConfiguration();
+        $configuration->loadHelpers('Url');
+
+
+        $url = url_for("@historico_alarma");
+        $url = $url."?user_id=".$user->getId();
+
+        $this->redirect($url);
+        
+    }
+
+    
+
 }

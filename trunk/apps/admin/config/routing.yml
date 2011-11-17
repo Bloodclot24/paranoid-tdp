@@ -1,3 +1,21 @@
+historico_alarma:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                HistoricoAlarma
+    module:               historico_alarma
+    prefix_path:          /historico_alarma
+    column:               id
+    with_wildcard_routes: true
+
+perfil:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Perfil
+    module:               perfil
+    prefix_path:          /perfil
+    column:               id
+    with_wildcard_routes: true
+
 sf_guard_user:
   class: sfDoctrineRouteCollection
   options:

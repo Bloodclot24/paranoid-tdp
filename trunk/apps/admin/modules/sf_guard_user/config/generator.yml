@@ -14,9 +14,14 @@ generator:
     config:
       actions: ~
       fields:  ~
-      list:    ~
-      filter:
-        fields: [username]
+      list:
+        display: [=username, name, PBXUser]
+        title: Usuarios Paranoid
+        object_actions:
+          _edit: ~
+          _delete: ~
+          alarmas_historicas: ~
+      filter:  ~
       form:
         class: sfGuardUserAdminForm
       edit:

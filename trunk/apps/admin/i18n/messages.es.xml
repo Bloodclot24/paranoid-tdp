@@ -41,8 +41,8 @@
                 <target>Usuarios Asterisk</target>
             </trans-unit>
             <trans-unit>
-                <source>menu:settings</source>
-                <target>Configuración</target>
+                <source>menu:profiles</source>
+                <target>Perfiles</target>
             </trans-unit>
         </body>
     </file>
