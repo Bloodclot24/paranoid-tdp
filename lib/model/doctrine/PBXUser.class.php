@@ -12,4 +12,8 @@
  */
 class PBXUser extends BasePBXUser
 {
+
+    public function __toString() {
+        return $this->getExtension();
+    }
 }

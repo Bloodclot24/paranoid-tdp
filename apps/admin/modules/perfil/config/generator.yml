@@ -1,0 +1,35 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Perfil
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          perfil
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        prefijosPermitidos:
+          label: Pref. Permitidos
+          help: Use coma como separador
+        prefijosProhibidos:
+          label: Pref. Prohibidos
+          help: Use coma como separador
+        llamadasInternacionales:
+          label: Internacionales
+          help: El usuario puede realizar llamadas internacionales
+        llamadasLocales:
+          label: Locales
+          help: El usuario puede realizar llamadas hacia destinos nacionales
+      list:
+        title: Perfiles
+        display: [=nombre]
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~

@@ -38,8 +38,8 @@
                 <target>Asterisk users</target>
             </trans-unit>
             <trans-unit>
-                <source>menu:settings</source>
-                <target>Settings</target>
+                <source>menu:profiles</source>
+                <target>Profiles</target>
             </trans-unit>
             <!-- ADMIN -->
             <trans-unit>

@@ -1,3 +1,24 @@
+sfGuardUser:
+  columns:
+    pbxuser_id: integer(4)
+    perfil_id: integer(4)
+  relations:
+    PBXUser:
+      class: PBXUser
+      local: pbxuser_id
+      foreign: id
+      type: one
+    Perfil:
+      class: Perfil
+      local: perfil_id
+      foreign: id
+      type: one
+    HistoricoAlarma:
+      type: many
+      class: HistoricoAlarma
+      local: id
+      foreign: user_id
+
 PBXUser:
   tableName: usuario_pbx
   columns:
@@ -10,16 +31,47 @@ PBXUser:
     ultimo_registro: date
     estado: integer
 
-
-
-sfGuardUser:
+Perfil:
+  tableName: perfil
   columns:
-    pbxuser_id: integer(4)
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    nombre: string
+    descripcion: string
+    prefijosProhibidos: string
+    prefijosPermitidos: string
+    llamadasLocales: boolean
+    llamadasInternacionales: boolean
+    
+HistoricoAlarma:
+  tableName: historico_alarmas
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    nombre: string
+    fecha: date
+    detalle: string
+    origen: string
+    user_id: integer
   relations:
-    PBXUser:
-      class: PBXUser
-      local: pbxuser_id
+    sfGuardUser:
+      class: sfGuardUser
+      local: user_id
       foreign: id
-      type: one
+
+Prefijo:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    descripcion: string
+    numero: integer
+
+
 
     

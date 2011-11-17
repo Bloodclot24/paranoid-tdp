@@ -10,4 +10,13 @@
  */
 class sf_guard_userGeneratorHelper extends BaseSf_guard_userGeneratorHelper
 {
+
+    public function linkToHistoricoAlarma($object, $params)
+    {
+        if ($object->isNew()) {
+            return '';
+        }
+
+        return link_to("Historia","@historico_alarma");
+    }
 }
