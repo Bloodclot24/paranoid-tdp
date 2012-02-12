@@ -7,4 +7,13 @@ all:
     param:
       dsn:      mysql:host=localhost;dbname=paranoid
       username: root
-      password: 
+      password:
+
+
+prod:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn:      mysql:host=localhost;dbname=paranoid
+      username: root
+      password: my123
