@@ -2,6 +2,7 @@ CREATE TABLE historico_alarmas (id INT AUTO_INCREMENT, nombre TEXT, fecha DATE, 
 CREATE TABLE usuario_pbx (id INT AUTO_INCREMENT, extension TEXT, tecnologia TEXT, ultimo_registro DATE, estado BIGINT, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE perfil (id INT AUTO_INCREMENT, nombre TEXT, descripcion TEXT, prefijosprohibidos TEXT, prefijospermitidos TEXT, llamadaslocales TINYINT(1), llamadasinternacionales TINYINT(1), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE prefijo (id INT AUTO_INCREMENT, descripcion TEXT, numero BIGINT, PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE regla (id INT AUTO_INCREMENT, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE sf_guard_forgot_password (id BIGINT AUTO_INCREMENT, user_id BIGINT NOT NULL, unique_key VARCHAR(255), expires_at DATETIME NOT NULL, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX user_id_idx (user_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE sf_guard_group (id BIGINT AUTO_INCREMENT, name VARCHAR(255) UNIQUE, description TEXT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE sf_guard_group_permission (group_id BIGINT, permission_id BIGINT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(group_id, permission_id)) ENGINE = INNODB;

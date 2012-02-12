@@ -44,7 +44,13 @@ Perfil:
     prefijosPermitidos: string
     llamadasLocales: boolean
     llamadasInternacionales: boolean
-    
+  relations:
+    Reglas:
+      type: many
+      class: Regla
+      local: id
+      foreign:
+
 HistoricoAlarma:
   tableName: historico_alarmas
   columns:
@@ -62,6 +68,16 @@ HistoricoAlarma:
       class: sfGuardUser
       local: user_id
       foreign: id
+
+
+Regla:
+    columns:
+      id:
+        type: integer(4)
+        primary: true
+        autoincrement: true
+
+
 
 Prefijo:
   columns:
