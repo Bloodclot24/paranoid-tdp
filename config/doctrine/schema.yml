@@ -46,10 +46,24 @@ Perfil:
     llamadasInternacionales: boolean
   relations:
     Reglas:
-      type: many
       class: Regla
-      local: id
-      foreign:
+      type: many
+      refClass: ReglaPerfil
+      local: perfil_id
+      foreign: regla_id
+      foreignAlias: Perfiles
+
+
+ReglaPerfil:
+  tableName: regla_perfil
+  columns:
+    regla_id:
+      type: integer(4)
+      primary: true
+    perfil_id:
+      type: integer(4)
+      primary: true
+
 
 HistoricoAlarma:
   tableName: historico_alarmas
@@ -71,13 +85,40 @@ HistoricoAlarma:
 
 
 Regla:
-    columns:
-      id:
-        type: integer(4)
-        primary: true
-        autoincrement: true
+  columns:ç
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
 
+ReglaDias:
+  inheritance:
+    extends: Regla
+    type: simple
+  columns:
+    lunes: boolean
+    martes: boolean
+    miercoles: boolean
+    jueves: boolean
+    viernes: boolean
+    sabado: boolean
+    domingo: boolean
+    desde: time
+    hasta: time
 
+ReglaLlamadasSimultaneas:
+  inheritance:
+    extends: Regla
+    type: simple
+  columns:
+    cantidadLlamadas: integer
+
+ReglaCostoPorMinuto:
+  inheritance:
+    extends: Regla
+    type: simple
+  columns:
+    costoMaximo: float
 
 Prefijo:
   columns:
@@ -87,7 +128,4 @@ Prefijo:
       autoincrement: true
     descripcion: string
     numero: integer
-
-
-
     

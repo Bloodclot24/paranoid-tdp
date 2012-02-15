@@ -56,10 +56,11 @@ body {
 /* BUTTONS */
 
 #buttons {
-    position: relative;
-    left: 3em;
-    top: -2em;
+    position: absolute;
+    left: 18em;
+    top: 0.8em;
     display: inline;
+    font-size: 10pt;
 }
 
 #buttons ul {
@@ -70,7 +71,6 @@ body {
 
 #buttons ul li {
     display: inline;
-    background-color: #ffffcc;
     padding: 5px;
 }
 

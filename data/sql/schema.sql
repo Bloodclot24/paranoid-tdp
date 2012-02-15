@@ -2,7 +2,8 @@ CREATE TABLE historico_alarmas (id INT AUTO_INCREMENT, nombre TEXT, fecha DATE, 
 CREATE TABLE usuario_pbx (id INT AUTO_INCREMENT, extension TEXT, tecnologia TEXT, ultimo_registro DATE, estado BIGINT, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE perfil (id INT AUTO_INCREMENT, nombre TEXT, descripcion TEXT, prefijosprohibidos TEXT, prefijospermitidos TEXT, llamadaslocales TINYINT(1), llamadasinternacionales TINYINT(1), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE prefijo (id INT AUTO_INCREMENT, descripcion TEXT, numero BIGINT, PRIMARY KEY(id)) ENGINE = INNODB;
-CREATE TABLE regla (id INT AUTO_INCREMENT, PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE regla (id INT AUTO_INCREMENT, lunes TINYINT(1), martes TINYINT(1), miercoles TINYINT(1), jueves TINYINT(1), viernes TINYINT(1), sabado TINYINT(1), domingo TINYINT(1), desde TIME, hasta TIME, cantidadllamadas BIGINT, costomaximo FLOAT(18, 2), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE regla_perfil (regla_id INT, perfil_id INT, PRIMARY KEY(regla_id, perfil_id)) ENGINE = INNODB;
 CREATE TABLE sf_guard_forgot_password (id BIGINT AUTO_INCREMENT, user_id BIGINT NOT NULL, unique_key VARCHAR(255), expires_at DATETIME NOT NULL, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX user_id_idx (user_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE sf_guard_group (id BIGINT AUTO_INCREMENT, name VARCHAR(255) UNIQUE, description TEXT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE sf_guard_group_permission (group_id BIGINT, permission_id BIGINT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(group_id, permission_id)) ENGINE = INNODB;
@@ -12,6 +13,8 @@ CREATE TABLE sf_guard_user (id BIGINT AUTO_INCREMENT, first_name VARCHAR(255), l
 CREATE TABLE sf_guard_user_group (user_id BIGINT, group_id BIGINT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(user_id, group_id)) ENGINE = INNODB;
 CREATE TABLE sf_guard_user_permission (user_id BIGINT, permission_id BIGINT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(user_id, permission_id)) ENGINE = INNODB;
 ALTER TABLE historico_alarmas ADD CONSTRAINT historico_alarmas_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id);
+ALTER TABLE regla_perfil ADD CONSTRAINT regla_perfil_regla_id_regla_id FOREIGN KEY (regla_id) REFERENCES regla(id);
+ALTER TABLE regla_perfil ADD CONSTRAINT regla_perfil_perfil_id_perfil_id FOREIGN KEY (perfil_id) REFERENCES perfil(id);
 ALTER TABLE sf_guard_forgot_password ADD CONSTRAINT sf_guard_forgot_password_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE;
 ALTER TABLE sf_guard_group_permission ADD CONSTRAINT sf_guard_group_permission_permission_id_sf_guard_permission_id FOREIGN KEY (permission_id) REFERENCES sf_guard_permission(id) ON DELETE CASCADE;
 ALTER TABLE sf_guard_group_permission ADD CONSTRAINT sf_guard_group_permission_group_id_sf_guard_group_id FOREIGN KEY (group_id) REFERENCES sf_guard_group(id) ON DELETE CASCADE;
