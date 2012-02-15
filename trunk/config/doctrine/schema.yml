@@ -40,10 +40,6 @@ Perfil:
       autoincrement: true
     nombre: string
     descripcion: string
-    prefijosProhibidos: string
-    prefijosPermitidos: string
-    llamadasLocales: boolean
-    llamadasInternacionales: boolean
   relations:
     Reglas:
       class: Regla
@@ -85,16 +81,17 @@ HistoricoAlarma:
 
 
 Regla:
-  columns:ç
+  columns:
     id:
       type: integer(4)
       primary: true
       autoincrement: true
+    nombre: string
 
 ReglaDias:
   inheritance:
     extends: Regla
-    type: simple
+    type: concrete
   columns:
     lunes: boolean
     martes: boolean
@@ -109,14 +106,14 @@ ReglaDias:
 ReglaLlamadasSimultaneas:
   inheritance:
     extends: Regla
-    type: simple
+    type: concrete
   columns:
     cantidadLlamadas: integer
 
 ReglaCostoPorMinuto:
   inheritance:
     extends: Regla
-    type: simple
+    type: concrete
   columns:
     costoMaximo: float
 
@@ -128,4 +125,4 @@ Prefijo:
       autoincrement: true
     descripcion: string
     numero: integer
-    
+    costoPorMinuto: float

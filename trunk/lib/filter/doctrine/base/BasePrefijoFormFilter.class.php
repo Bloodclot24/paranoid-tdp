@@ -13,13 +13,15 @@ abstract class BasePrefijoFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'descripcion' => new sfWidgetFormFilterInput(),
-      'numero'      => new sfWidgetFormFilterInput(),
+      'descripcion'    => new sfWidgetFormFilterInput(),
+      'numero'         => new sfWidgetFormFilterInput(),
+      'costoPorMinuto' => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
-      'descripcion' => new sfValidatorPass(array('required' => false)),
-      'numero'      => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'descripcion'    => new sfValidatorPass(array('required' => false)),
+      'numero'         => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'costoPorMinuto' => new sfValidatorSchemaFilter('text', new sfValidatorNumber(array('required' => false))),
     ));
 
     $this->widgetSchema->setNameFormat('prefijo_filters[%s]');
@@ -39,9 +41,10 @@ abstract class BasePrefijoFormFilter extends BaseFormFilterDoctrine
   public function getFields()
   {
     return array(
-      'id'          => 'Number',
-      'descripcion' => 'Text',
-      'numero'      => 'Number',
+      'id'             => 'Number',
+      'descripcion'    => 'Text',
+      'numero'         => 'Number',
+      'costoPorMinuto' => 'Number',
     );
   }
 }

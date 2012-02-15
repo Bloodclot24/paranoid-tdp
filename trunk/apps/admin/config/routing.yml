@@ -1,3 +1,30 @@
+regla_costo_por_minuto:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ReglaCostoPorMinuto
+    module:               regla_costo_minuto
+    prefix_path:          /regla_costo_minuto
+    column:               id
+    with_wildcard_routes: true
+
+regla_llamadas_simultaneas:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ReglaLlamadasSimultaneas
+    module:               regla_llamadas_simultaneas
+    prefix_path:          /regla_llamadas_simultaneas
+    column:               id
+    with_wildcard_routes: true
+
+regla_dias:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ReglaDias
+    module:               regla_horario
+    prefix_path:          /regla_horario
+    column:               id
+    with_wildcard_routes: true
+
 historico_alarma:
   class: sfDoctrineRouteCollection
   options:
