@@ -5,7 +5,7 @@
  *
  * @package    paranoid-web
  * @subpackage filter
- * @author     Your name here
+ * @author     Paranoid Team
  * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 29570 2010-05-21 14:49:47Z Kris.Wallsmith $
  */
 abstract class BaseHistoricoAlarmaFormFilter extends BaseFormFilterDoctrine
