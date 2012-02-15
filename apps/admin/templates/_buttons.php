@@ -1,16 +1,17 @@
 <div id="buttons">
     <ul class="sf-menu">
+        <li><?php echo link_to("Notificaciones (1)", 'sf_guard_user/index') ?></li>
         <li><?php echo link_to("Usuarios", 'sf_guard_user/index') ?></li>
         <li><?php echo link_to("Usuarios PBX", 'pbx_user/index') ?></li>
         <li><?php echo link_to("Perfiles", 'perfil/index') ?></li>
+        <li><?php echo link_to("Prefijos", 'prefijos/index') ?></li>
         <li>
             <a href="#">Reglas</a>
             <ul>
-                <li><a href="#">Regla 1</a></li>
-                <li>Regla 2</li>
-                <li>Regla 3</li>
+                <li><?php echo link_to("Horarios", "regla_horario/index") ?></li>
+                <li><?php echo link_to("Costo por minuto", "regla_costo_minuto/index") ?></li>
+                <li><?php echo link_to("Llamadas simultáneas", "regla_llamadas_simultaneas/index") ?></li>
             </ul>
         </li>
     </ul>
 </div>
- 

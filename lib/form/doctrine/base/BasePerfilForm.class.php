@@ -15,25 +15,17 @@ abstract class BasePerfilForm extends BaseFormDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'id'                      => new sfWidgetFormInputHidden(),
-      'nombre'                  => new sfWidgetFormTextarea(),
-      'descripcion'             => new sfWidgetFormTextarea(),
-      'prefijosProhibidos'      => new sfWidgetFormTextarea(),
-      'prefijosPermitidos'      => new sfWidgetFormTextarea(),
-      'llamadasLocales'         => new sfWidgetFormInputCheckbox(),
-      'llamadasInternacionales' => new sfWidgetFormInputCheckbox(),
-      'reglas_list'             => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Regla')),
+      'id'          => new sfWidgetFormInputHidden(),
+      'nombre'      => new sfWidgetFormTextarea(),
+      'descripcion' => new sfWidgetFormTextarea(),
+      'reglas_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Regla')),
     ));
 
     $this->setValidators(array(
-      'id'                      => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'nombre'                  => new sfValidatorString(array('required' => false)),
-      'descripcion'             => new sfValidatorString(array('required' => false)),
-      'prefijosProhibidos'      => new sfValidatorString(array('required' => false)),
-      'prefijosPermitidos'      => new sfValidatorString(array('required' => false)),
-      'llamadasLocales'         => new sfValidatorBoolean(array('required' => false)),
-      'llamadasInternacionales' => new sfValidatorBoolean(array('required' => false)),
-      'reglas_list'             => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Regla', 'required' => false)),
+      'id'          => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
+      'nombre'      => new sfValidatorString(array('required' => false)),
+      'descripcion' => new sfValidatorString(array('required' => false)),
+      'reglas_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Regla', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('perfil[%s]');

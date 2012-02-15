@@ -14,22 +14,15 @@ generator:
     config:
       actions: ~
       fields:
-        prefijosPermitidos:
-          label: Pref. Permitidos
-          help: Use coma como separador
-        prefijosProhibidos:
-          label: Pref. Prohibidos
-          help: Use coma como separador
-        llamadasInternacionales:
-          label: Internacionales
-          help: El usuario puede realizar llamadas internacionales
-        llamadasLocales:
-          label: Locales
-          help: El usuario puede realizar llamadas hacia destinos nacionales
+        Reglas:
+          label: Reglas
+          help: Reglas asociadas a este perfil
       list:
         title: Perfiles
         display: [=nombre]
       filter:  ~
       form:    ~
-      edit:    ~
-      new:     ~
+      edit:
+        title: Editar perfil
+      new:
+        title: Nuevo perfil

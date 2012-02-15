@@ -15,15 +15,17 @@ abstract class BasePrefijoForm extends BaseFormDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'id'          => new sfWidgetFormInputHidden(),
-      'descripcion' => new sfWidgetFormTextarea(),
-      'numero'      => new sfWidgetFormInputText(),
+      'id'             => new sfWidgetFormInputHidden(),
+      'descripcion'    => new sfWidgetFormTextarea(),
+      'numero'         => new sfWidgetFormInputText(),
+      'costoPorMinuto' => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
-      'id'          => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'descripcion' => new sfValidatorString(array('required' => false)),
-      'numero'      => new sfValidatorInteger(array('required' => false)),
+      'id'             => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
+      'descripcion'    => new sfValidatorString(array('required' => false)),
+      'numero'         => new sfValidatorInteger(array('required' => false)),
+      'costoPorMinuto' => new sfValidatorNumber(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('prefijo[%s]');

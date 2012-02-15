@@ -48,14 +48,10 @@ PBXUser:
 Perfil:
   perfil_nacional:
     nombre: Nacional
-    llamadasLocales: true
-    llamadasInternacionales: false
-    prefijosPermitidos: 011, 0221
+
   perfil_internacional:
     nombre: Internacional
-    llamadasLocales: true
-    llamadasInternacionales: true
-    prefijosProhibidos: 0800, 0600
+
 
 
 HistoricoAlarma:

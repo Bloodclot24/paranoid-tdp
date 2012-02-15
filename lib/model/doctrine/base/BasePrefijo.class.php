@@ -8,13 +8,16 @@
  * @property integer $id
  * @property string $descripcion
  * @property integer $numero
+ * @property float $costoPorMinuto
  * 
- * @method integer getId()          Returns the current record's "id" value
- * @method string  getDescripcion() Returns the current record's "descripcion" value
- * @method integer getNumero()      Returns the current record's "numero" value
- * @method Prefijo setId()          Sets the current record's "id" value
- * @method Prefijo setDescripcion() Sets the current record's "descripcion" value
- * @method Prefijo setNumero()      Sets the current record's "numero" value
+ * @method integer getId()             Returns the current record's "id" value
+ * @method string  getDescripcion()    Returns the current record's "descripcion" value
+ * @method integer getNumero()         Returns the current record's "numero" value
+ * @method float   getCostoPorMinuto() Returns the current record's "costoPorMinuto" value
+ * @method Prefijo setId()             Sets the current record's "id" value
+ * @method Prefijo setDescripcion()    Sets the current record's "descripcion" value
+ * @method Prefijo setNumero()         Sets the current record's "numero" value
+ * @method Prefijo setCostoPorMinuto() Sets the current record's "costoPorMinuto" value
  * 
  * @package    paranoid-web
  * @subpackage model
@@ -37,6 +40,9 @@ abstract class BasePrefijo extends sfDoctrineRecord
              ));
         $this->hasColumn('numero', 'integer', null, array(
              'type' => 'integer',
+             ));
+        $this->hasColumn('costoPorMinuto', 'float', null, array(
+             'type' => 'float',
              ));
     }
 

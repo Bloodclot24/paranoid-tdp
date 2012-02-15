@@ -8,31 +8,19 @@
  * @property integer $id
  * @property string $nombre
  * @property string $descripcion
- * @property string $prefijosProhibidos
- * @property string $prefijosPermitidos
- * @property boolean $llamadasLocales
- * @property boolean $llamadasInternacionales
  * @property Doctrine_Collection $Reglas
  * @property Doctrine_Collection $sfGuardUser
  * 
- * @method integer             getId()                      Returns the current record's "id" value
- * @method string              getNombre()                  Returns the current record's "nombre" value
- * @method string              getDescripcion()             Returns the current record's "descripcion" value
- * @method string              getPrefijosProhibidos()      Returns the current record's "prefijosProhibidos" value
- * @method string              getPrefijosPermitidos()      Returns the current record's "prefijosPermitidos" value
- * @method boolean             getLlamadasLocales()         Returns the current record's "llamadasLocales" value
- * @method boolean             getLlamadasInternacionales() Returns the current record's "llamadasInternacionales" value
- * @method Doctrine_Collection getReglas()                  Returns the current record's "Reglas" collection
- * @method Doctrine_Collection getSfGuardUser()             Returns the current record's "sfGuardUser" collection
- * @method Perfil              setId()                      Sets the current record's "id" value
- * @method Perfil              setNombre()                  Sets the current record's "nombre" value
- * @method Perfil              setDescripcion()             Sets the current record's "descripcion" value
- * @method Perfil              setPrefijosProhibidos()      Sets the current record's "prefijosProhibidos" value
- * @method Perfil              setPrefijosPermitidos()      Sets the current record's "prefijosPermitidos" value
- * @method Perfil              setLlamadasLocales()         Sets the current record's "llamadasLocales" value
- * @method Perfil              setLlamadasInternacionales() Sets the current record's "llamadasInternacionales" value
- * @method Perfil              setReglas()                  Sets the current record's "Reglas" collection
- * @method Perfil              setSfGuardUser()             Sets the current record's "sfGuardUser" collection
+ * @method integer             getId()          Returns the current record's "id" value
+ * @method string              getNombre()      Returns the current record's "nombre" value
+ * @method string              getDescripcion() Returns the current record's "descripcion" value
+ * @method Doctrine_Collection getReglas()      Returns the current record's "Reglas" collection
+ * @method Doctrine_Collection getSfGuardUser() Returns the current record's "sfGuardUser" collection
+ * @method Perfil              setId()          Sets the current record's "id" value
+ * @method Perfil              setNombre()      Sets the current record's "nombre" value
+ * @method Perfil              setDescripcion() Sets the current record's "descripcion" value
+ * @method Perfil              setReglas()      Sets the current record's "Reglas" collection
+ * @method Perfil              setSfGuardUser() Sets the current record's "sfGuardUser" collection
  * 
  * @package    paranoid-web
  * @subpackage model
@@ -55,18 +43,6 @@ abstract class BasePerfil extends sfDoctrineRecord
              ));
         $this->hasColumn('descripcion', 'string', null, array(
              'type' => 'string',
-             ));
-        $this->hasColumn('prefijosProhibidos', 'string', null, array(
-             'type' => 'string',
-             ));
-        $this->hasColumn('prefijosPermitidos', 'string', null, array(
-             'type' => 'string',
-             ));
-        $this->hasColumn('llamadasLocales', 'boolean', null, array(
-             'type' => 'boolean',
-             ));
-        $this->hasColumn('llamadasInternacionales', 'boolean', null, array(
-             'type' => 'boolean',
              ));
     }
 
