@@ -13,7 +13,10 @@ generator:
 
     config:
       actions: ~
-      fields:  ~
+      fields:
+        informarAlertas:
+          label: Informar
+          help: Si está activado, se alertará al usuario sobre infracciones cometidas
       list:
         display: [=username, name, PBXUser]
         title: Usuarios Paranoid

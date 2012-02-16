@@ -89,6 +89,7 @@ Regla:
       primary: true
       autoincrement: true
     nombre: string
+    importante: boolean
 
 ReglaDias:
   inheritance:
