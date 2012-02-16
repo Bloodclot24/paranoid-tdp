@@ -17,6 +17,8 @@
  * @property timestamp $last_login
  * @property integer $pbxuser_id
  * @property integer $perfil_id
+ * @property boolean $informarAlertas
+ * @property string $telefono
  * @property Doctrine_Collection $Groups
  * @property Doctrine_Collection $Permissions
  * @property PBXUser $PBXUser
@@ -39,6 +41,8 @@
  * @method timestamp             getLastLogin()             Returns the current record's "last_login" value
  * @method integer               getPbxuserId()             Returns the current record's "pbxuser_id" value
  * @method integer               getPerfilId()              Returns the current record's "perfil_id" value
+ * @method boolean               getInformarAlertas()       Returns the current record's "informarAlertas" value
+ * @method string                getTelefono()              Returns the current record's "telefono" value
  * @method Doctrine_Collection   getGroups()                Returns the current record's "Groups" collection
  * @method Doctrine_Collection   getPermissions()           Returns the current record's "Permissions" collection
  * @method PBXUser               getPBXUser()               Returns the current record's "PBXUser" value
@@ -60,6 +64,8 @@
  * @method sfGuardUser           setLastLogin()             Sets the current record's "last_login" value
  * @method sfGuardUser           setPbxuserId()             Sets the current record's "pbxuser_id" value
  * @method sfGuardUser           setPerfilId()              Sets the current record's "perfil_id" value
+ * @method sfGuardUser           setInformarAlertas()       Sets the current record's "informarAlertas" value
+ * @method sfGuardUser           setTelefono()              Sets the current record's "telefono" value
  * @method sfGuardUser           setGroups()                Sets the current record's "Groups" collection
  * @method sfGuardUser           setPermissions()           Sets the current record's "Permissions" collection
  * @method sfGuardUser           setPBXUser()               Sets the current record's "PBXUser" value
@@ -132,6 +138,12 @@ abstract class BasesfGuardUser extends sfDoctrineRecord
         $this->hasColumn('perfil_id', 'integer', 4, array(
              'type' => 'integer',
              'length' => 4,
+             ));
+        $this->hasColumn('informarAlertas', 'boolean', null, array(
+             'type' => 'boolean',
+             ));
+        $this->hasColumn('telefono', 'string', null, array(
+             'type' => 'string',
              ));
 
 

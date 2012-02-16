@@ -2,6 +2,8 @@ sfGuardUser:
   columns:
     pbxuser_id: integer(4)
     perfil_id: integer(4)
+    informarAlertas: boolean
+    telefono: string
   relations:
     PBXUser:
       class: PBXUser
