@@ -53,6 +53,14 @@ Perfil:
     nombre: Internacional
 
 
+ReglaLlamadasSimultaneas:
+  una_llamada:
+    cantidadLlamadas: 1
+    nombre: Una llamada
+  dos_llamada:
+      cantidadLlamadas: 2
+      nombre: Dos llamada
+
 
 HistoricoAlarma:
   hitorico_1:

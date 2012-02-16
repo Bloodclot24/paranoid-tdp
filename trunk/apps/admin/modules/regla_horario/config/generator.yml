@@ -1,0 +1,27 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           ReglaDias
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          regla_dias
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        display: [nombre, lunes, martes, miercoles, jueves, viernes, sabado, domingo, desde, hasta]
+        title: Reglas horarias
+      filter:  ~
+      form:    ~
+      edit:
+        title: Editar regla
+        display: [nombre, lunes, martes, miercoles, jueves, viernes, sabado, domingo, desde, hasta]
+      new:
+        title: Nueva regla
+        display: [nombre, lunes, martes, miercoles, jueves, viernes, sabado, domingo, desde, hasta]

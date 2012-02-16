@@ -1,0 +1,30 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           ReglaCostoPorMinuto
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          regla_costo_por_minuto
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        costoMaximo:
+          label: Costo
+          help: Costo máximo por minuto
+      list:
+        display: [nombre, costoMaximo]
+        title: Costo por minuto
+      filter:  ~
+      form:    ~
+      edit:
+        display: [nombre, costoMaximo]
+        title: Editar regla
+      new:
+        display: [nombre, costoMaximo]
+        title: Nueva regla

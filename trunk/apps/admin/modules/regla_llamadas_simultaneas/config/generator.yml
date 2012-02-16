@@ -1,0 +1,30 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           ReglaLlamadasSimultaneas
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          regla_llamadas_simultaneas
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        cantidadLlamadas:
+          label: Llamadas
+          help: Cantidad de llamadas simultáneas
+      list:
+        display: [nombre, cantidadLlamadas]
+        title: Llamadas simultáneas
+      filter:  ~
+      form:    ~
+      edit:
+        display: [nombre, cantidadLlamadas]
+        title: Editar regla
+      new:
+        display: [nombre, cantidadLlamadas]
+        title: Nueva regla
