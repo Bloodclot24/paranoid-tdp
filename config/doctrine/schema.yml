@@ -91,7 +91,9 @@ Regla:
 ReglaDias:
   inheritance:
     extends: Regla
-    type: concrete
+    type: column_aggregation
+    keyField: type
+    keyValue: 1
   columns:
     lunes: boolean
     martes: boolean
@@ -106,14 +108,18 @@ ReglaDias:
 ReglaLlamadasSimultaneas:
   inheritance:
     extends: Regla
-    type: concrete
+    type: column_aggregation
+    keyField: type
+    keyValue: 2
   columns:
     cantidadLlamadas: integer
 
 ReglaCostoPorMinuto:
   inheritance:
     extends: Regla
-    type: concrete
+    type: column_aggregation
+    keyField: type
+    keyValue: 3
   columns:
     costoMaximo: float
 
