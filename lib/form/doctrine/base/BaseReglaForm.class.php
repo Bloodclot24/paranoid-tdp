@@ -56,8 +56,6 @@ abstract class BaseReglaForm extends BaseFormDoctrine
 
     $this->setupInheritance();
 
-    unset($this['type']);
-
     parent::setup();
   }
 

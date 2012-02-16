@@ -20,6 +20,7 @@
  * @property integer $cantidadLlamadas
  * @property float $costoMaximo
  * @property Doctrine_Collection $Perfiles
+ * @property Doctrine_Collection $Notificaciones
  * 
  * @method integer             getId()               Returns the current record's "id" value
  * @method string              getNombre()           Returns the current record's "nombre" value
@@ -36,6 +37,7 @@
  * @method integer             getCantidadLlamadas() Returns the current record's "cantidadLlamadas" value
  * @method float               getCostoMaximo()      Returns the current record's "costoMaximo" value
  * @method Doctrine_Collection getPerfiles()         Returns the current record's "Perfiles" collection
+ * @method Doctrine_Collection getNotificaciones()   Returns the current record's "Notificaciones" collection
  * @method Regla               setId()               Sets the current record's "id" value
  * @method Regla               setNombre()           Sets the current record's "nombre" value
  * @method Regla               setType()             Sets the current record's "type" value
@@ -51,6 +53,7 @@
  * @method Regla               setCantidadLlamadas() Sets the current record's "cantidadLlamadas" value
  * @method Regla               setCostoMaximo()      Sets the current record's "costoMaximo" value
  * @method Regla               setPerfiles()         Sets the current record's "Perfiles" collection
+ * @method Regla               setNotificaciones()   Sets the current record's "Notificaciones" collection
  * 
  * @package    paranoid-web
  * @subpackage model
@@ -132,5 +135,9 @@ abstract class BaseRegla extends sfDoctrineRecord
              'refClass' => 'ReglaPerfil',
              'local' => 'regla_id',
              'foreign' => 'perfil_id'));
+
+        $this->hasMany('Notificaciones', array(
+             'local' => 'id',
+             'foreign' => 'regla_id'));
     }
 }
