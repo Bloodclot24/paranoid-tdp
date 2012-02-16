@@ -132,3 +132,22 @@ Prefijo:
     descripcion: string
     numero: integer
     costoPorMinuto: float
+
+Notificaciones:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    fecha: date
+    accion: string
+    masInfoURL: string
+    regla_id: integer(4)
+  relations:
+    Regla:
+      class: Regla
+      local: regla_id
+      foreign: id
+      type: one
+
+

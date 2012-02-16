@@ -1,0 +1,27 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Prefijo
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          prefijo
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        costoPorMinuto:
+          label: Costo
+          help: Costo por minuto
+      list:
+        title: Prefijos
+      filter:  ~
+      form:    ~
+      edit:
+        title: Editar prefijo
+      new:
+        title: Nuevo prefijo

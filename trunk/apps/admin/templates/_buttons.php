@@ -4,7 +4,7 @@
         <li><?php echo link_to("Usuarios", 'sf_guard_user/index') ?></li>
         <li><?php echo link_to("Usuarios PBX", 'pbx_user/index') ?></li>
         <li><?php echo link_to("Perfiles", 'perfil/index') ?></li>
-        <li><?php echo link_to("Prefijos", 'prefijos/index') ?></li>
+        <li><?php echo link_to("Prefijos", 'prefijo/index') ?></li>
         <li>
             <a href="#">Reglas</a>
             <ul>

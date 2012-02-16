@@ -1,4 +1,5 @@
 CREATE TABLE historico_alarmas (id INT AUTO_INCREMENT, nombre TEXT, fecha DATE, detalle TEXT, origen TEXT, user_id BIGINT, INDEX user_id_idx (user_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE notificaciones (id INT AUTO_INCREMENT, fecha DATE, accion TEXT, masinfourl TEXT, regla_id INT, INDEX regla_id_idx (regla_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE usuario_pbx (id INT AUTO_INCREMENT, extension TEXT, tecnologia TEXT, ultimo_registro DATE, estado BIGINT, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE perfil (id INT AUTO_INCREMENT, nombre TEXT, descripcion TEXT, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE prefijo (id INT AUTO_INCREMENT, descripcion TEXT, numero BIGINT, costoporminuto FLOAT(18, 2), PRIMARY KEY(id)) ENGINE = INNODB;
@@ -14,6 +15,7 @@ CREATE TABLE sf_guard_user (id BIGINT AUTO_INCREMENT, first_name VARCHAR(255), l
 CREATE TABLE sf_guard_user_group (user_id BIGINT, group_id BIGINT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(user_id, group_id)) ENGINE = INNODB;
 CREATE TABLE sf_guard_user_permission (user_id BIGINT, permission_id BIGINT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(user_id, permission_id)) ENGINE = INNODB;
 ALTER TABLE historico_alarmas ADD CONSTRAINT historico_alarmas_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id);
+ALTER TABLE notificaciones ADD CONSTRAINT notificaciones_regla_id_regla_id FOREIGN KEY (regla_id) REFERENCES regla(id);
 ALTER TABLE regla_perfil ADD CONSTRAINT regla_perfil_regla_id_regla_id FOREIGN KEY (regla_id) REFERENCES regla(id);
 ALTER TABLE regla_perfil ADD CONSTRAINT regla_perfil_perfil_id_perfil_id FOREIGN KEY (perfil_id) REFERENCES perfil(id);
 ALTER TABLE sf_guard_forgot_password ADD CONSTRAINT sf_guard_forgot_password_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE;

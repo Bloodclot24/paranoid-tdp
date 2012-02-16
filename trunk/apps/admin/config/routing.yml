@@ -1,3 +1,12 @@
+prefijo:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Prefijo
+    module:               prefijo
+    prefix_path:          /prefijo
+    column:               id
+    with_wildcard_routes: true
+
 regla_costo_por_minuto:
   class: sfDoctrineRouteCollection
   options:
