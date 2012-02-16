@@ -17,6 +17,7 @@ abstract class BaseReglaForm extends BaseFormDoctrine
     $this->setWidgets(array(
       'id'               => new sfWidgetFormInputHidden(),
       'nombre'           => new sfWidgetFormTextarea(),
+      'importante'       => new sfWidgetFormInputCheckbox(),
       'type'             => new sfWidgetFormInputText(),
       'lunes'            => new sfWidgetFormInputCheckbox(),
       'martes'           => new sfWidgetFormInputCheckbox(),
@@ -35,6 +36,7 @@ abstract class BaseReglaForm extends BaseFormDoctrine
     $this->setValidators(array(
       'id'               => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'nombre'           => new sfValidatorString(array('required' => false)),
+      'importante'       => new sfValidatorBoolean(array('required' => false)),
       'type'             => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'lunes'            => new sfValidatorBoolean(array('required' => false)),
       'martes'           => new sfValidatorBoolean(array('required' => false)),

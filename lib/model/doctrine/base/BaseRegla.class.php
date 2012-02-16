@@ -7,6 +7,7 @@
  * 
  * @property integer $id
  * @property string $nombre
+ * @property boolean $importante
  * @property string $type
  * @property boolean $lunes
  * @property boolean $martes
@@ -24,6 +25,7 @@
  * 
  * @method integer             getId()               Returns the current record's "id" value
  * @method string              getNombre()           Returns the current record's "nombre" value
+ * @method boolean             getImportante()       Returns the current record's "importante" value
  * @method string              getType()             Returns the current record's "type" value
  * @method boolean             getLunes()            Returns the current record's "lunes" value
  * @method boolean             getMartes()           Returns the current record's "martes" value
@@ -40,6 +42,7 @@
  * @method Doctrine_Collection getNotificaciones()   Returns the current record's "Notificaciones" collection
  * @method Regla               setId()               Sets the current record's "id" value
  * @method Regla               setNombre()           Sets the current record's "nombre" value
+ * @method Regla               setImportante()       Sets the current record's "importante" value
  * @method Regla               setType()             Sets the current record's "type" value
  * @method Regla               setLunes()            Sets the current record's "lunes" value
  * @method Regla               setMartes()           Sets the current record's "martes" value
@@ -73,6 +76,9 @@ abstract class BaseRegla extends sfDoctrineRecord
              ));
         $this->hasColumn('nombre', 'string', null, array(
              'type' => 'string',
+             ));
+        $this->hasColumn('importante', 'boolean', null, array(
+             'type' => 'boolean',
              ));
         $this->hasColumn('type', 'string', 255, array(
              'type' => 'string',

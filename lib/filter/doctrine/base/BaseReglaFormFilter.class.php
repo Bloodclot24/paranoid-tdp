@@ -14,6 +14,7 @@ abstract class BaseReglaFormFilter extends BaseFormFilterDoctrine
   {
     $this->setWidgets(array(
       'nombre'           => new sfWidgetFormFilterInput(),
+      'importante'       => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'type'             => new sfWidgetFormFilterInput(),
       'lunes'            => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'martes'           => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
@@ -31,6 +32,7 @@ abstract class BaseReglaFormFilter extends BaseFormFilterDoctrine
 
     $this->setValidators(array(
       'nombre'           => new sfValidatorPass(array('required' => false)),
+      'importante'       => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
       'type'             => new sfValidatorPass(array('required' => false)),
       'lunes'            => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
       'martes'           => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
@@ -83,6 +85,7 @@ abstract class BaseReglaFormFilter extends BaseFormFilterDoctrine
     return array(
       'id'               => 'Number',
       'nombre'           => 'Text',
+      'importante'       => 'Boolean',
       'type'             => 'Text',
       'lunes'            => 'Boolean',
       'martes'           => 'Boolean',
