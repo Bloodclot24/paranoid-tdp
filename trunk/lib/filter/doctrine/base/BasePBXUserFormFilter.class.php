@@ -16,14 +16,14 @@ abstract class BasePBXUserFormFilter extends BaseFormFilterDoctrine
       'extension'       => new sfWidgetFormFilterInput(),
       'tecnologia'      => new sfWidgetFormFilterInput(),
       'ultimo_registro' => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
-      'estado'          => new sfWidgetFormFilterInput(),
+      'conectado'       => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
     ));
 
     $this->setValidators(array(
       'extension'       => new sfValidatorPass(array('required' => false)),
       'tecnologia'      => new sfValidatorPass(array('required' => false)),
       'ultimo_registro' => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDateTime(array('required' => false)))),
-      'estado'          => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'conectado'       => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
     ));
 
     $this->widgetSchema->setNameFormat('pbx_user_filters[%s]');
@@ -47,7 +47,7 @@ abstract class BasePBXUserFormFilter extends BaseFormFilterDoctrine
       'extension'       => 'Text',
       'tecnologia'      => 'Text',
       'ultimo_registro' => 'Date',
-      'estado'          => 'Number',
+      'conectado'       => 'Boolean',
     );
   }
 }

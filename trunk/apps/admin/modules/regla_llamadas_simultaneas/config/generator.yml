@@ -17,14 +17,17 @@ generator:
         cantidadLlamadas:
           label: Llamadas
           help: Cantidad de llamadas simultáneas
+        importante:
+          label: Máxima seguridad
+          help: Si la regla es de máxima seguridad manda un SMS como alerta
       list:
-        display: [nombre, cantidadLlamadas]
+        display: [nombre, importante, cantidadLlamadas]
         title: Llamadas simultáneas
       filter:  ~
       form:    ~
       edit:
-        display: [nombre, cantidadLlamadas]
+        display: [nombre, importante, cantidadLlamadas]
         title: Editar regla
       new:
-        display: [nombre, cantidadLlamadas]
+        display: [nombre, importante, cantidadLlamadas]
         title: Nueva regla

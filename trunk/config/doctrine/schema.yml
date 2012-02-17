@@ -31,7 +31,7 @@ PBXUser:
     extension: string
     tecnologia: string
     ultimo_registro: date
-    estado: integer
+    conectado: boolean
 
 Perfil:
   tableName: perfil
