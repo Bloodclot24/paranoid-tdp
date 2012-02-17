@@ -17,14 +17,17 @@ generator:
         costoMaximo:
           label: Costo
           help: Costo máximo por minuto
+        importante:
+          label: Máxima seguridad
+          help: Si la regla es de máxima seguridad manda un SMS como alerta
       list:
-        display: [nombre, costoMaximo]
+        display: [nombre, importante, costoMaximo]
         title: Costo por minuto
       filter:  ~
       form:    ~
       edit:
-        display: [nombre, costoMaximo]
+        display: [nombre, importante, costoMaximo]
         title: Editar regla
       new:
-        display: [nombre, costoMaximo]
+        display: [nombre, importante, costoMaximo]
         title: Nueva regla

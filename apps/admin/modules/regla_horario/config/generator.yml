@@ -13,15 +13,18 @@ generator:
 
     config:
       actions: ~
-      fields:  ~
+      fields:
+        importante:
+          label: Máxima seguridad
+          help: Si la regla es de máxima seguridad manda un SMS como alerta
       list:
-        display: [nombre, lunes, martes, miercoles, jueves, viernes, sabado, domingo, desde, hasta]
+        display: [nombre, importante, lunes, martes, miercoles, jueves, viernes, sabado, domingo, desde, hasta]
         title: Reglas horarias
       filter:  ~
       form:    ~
       edit:
         title: Editar regla
-        display: [nombre, lunes, martes, miercoles, jueves, viernes, sabado, domingo, desde, hasta]
+        display: [nombre, importante, lunes, martes, miercoles, jueves, viernes, sabado, domingo, desde, hasta]
       new:
         title: Nueva regla
-        display: [nombre, lunes, martes, miercoles, jueves, viernes, sabado, domingo, desde, hasta]
+        display: [nombre, importante, lunes, martes, miercoles, jueves, viernes, sabado, domingo, desde, hasta]

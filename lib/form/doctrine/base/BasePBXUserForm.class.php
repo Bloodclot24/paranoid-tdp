@@ -19,7 +19,7 @@ abstract class BasePBXUserForm extends BaseFormDoctrine
       'extension'       => new sfWidgetFormTextarea(),
       'tecnologia'      => new sfWidgetFormTextarea(),
       'ultimo_registro' => new sfWidgetFormDate(),
-      'estado'          => new sfWidgetFormInputText(),
+      'conectado'       => new sfWidgetFormInputCheckbox(),
     ));
 
     $this->setValidators(array(
@@ -27,7 +27,7 @@ abstract class BasePBXUserForm extends BaseFormDoctrine
       'extension'       => new sfValidatorString(array('required' => false)),
       'tecnologia'      => new sfValidatorString(array('required' => false)),
       'ultimo_registro' => new sfValidatorDate(array('required' => false)),
-      'estado'          => new sfValidatorInteger(array('required' => false)),
+      'conectado'       => new sfValidatorBoolean(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('pbx_user[%s]');

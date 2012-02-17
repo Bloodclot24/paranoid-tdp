@@ -37,12 +37,12 @@ PBXUser:
     extension: extension1
     tecnologia: tecnologia1
     ultimo_registro: 1987/04/12
-    estado: 1
+    conectado: true
   user_2:
     extension: extension2
     tecnologia: tecnologia2
     ultimo_registro: 1997/04/13
-    estado: 2
+    conectado: false
 
 
 Perfil:
