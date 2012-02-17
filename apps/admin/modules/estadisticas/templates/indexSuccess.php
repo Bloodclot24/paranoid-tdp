@@ -258,7 +258,7 @@
 
 <div>
 	<div id="mainGraphic" style="width: 800px; height: 400px; margin: 10 auto">	</div>
-	<div id="llamadasGraphic" style="width: 300px; height: 300px; margin: 10 auto"> </div>
+	<div id="llamadasGraphic" style="width: 800px; height: 400px; margin: 10 auto"> </div>
 	<table>
 		<tr>
 			<td>Usuarios</td>
