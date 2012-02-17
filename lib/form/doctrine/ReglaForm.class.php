@@ -12,5 +12,6 @@ class ReglaForm extends BaseReglaForm
 {
   public function configure()
   {
+      unset($this['type']);
   }
 }

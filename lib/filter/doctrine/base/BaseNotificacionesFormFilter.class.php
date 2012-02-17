@@ -17,6 +17,7 @@ abstract class BaseNotificacionesFormFilter extends BaseFormFilterDoctrine
       'accion'     => new sfWidgetFormFilterInput(),
       'masInfoURL' => new sfWidgetFormFilterInput(),
       'regla_id'   => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Regla'), 'add_empty' => true)),
+      'user_id'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Usuario'), 'add_empty' => true)),
     ));
 
     $this->setValidators(array(
@@ -24,6 +25,7 @@ abstract class BaseNotificacionesFormFilter extends BaseFormFilterDoctrine
       'accion'     => new sfValidatorPass(array('required' => false)),
       'masInfoURL' => new sfValidatorPass(array('required' => false)),
       'regla_id'   => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Regla'), 'column' => 'id')),
+      'user_id'    => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Usuario'), 'column' => 'id')),
     ));
 
     $this->widgetSchema->setNameFormat('notificaciones_filters[%s]');
@@ -48,6 +50,7 @@ abstract class BaseNotificacionesFormFilter extends BaseFormFilterDoctrine
       'accion'     => 'Text',
       'masInfoURL' => 'Text',
       'regla_id'   => 'ForeignKey',
+      'user_id'    => 'ForeignKey',
     );
   }
 }

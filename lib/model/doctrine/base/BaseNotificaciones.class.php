@@ -10,20 +10,26 @@
  * @property string $accion
  * @property string $masInfoURL
  * @property integer $regla_id
+ * @property integer $user_id
  * @property Regla $Regla
+ * @property sfGuardUser $Usuario
  * 
  * @method integer        getId()         Returns the current record's "id" value
  * @method date           getFecha()      Returns the current record's "fecha" value
  * @method string         getAccion()     Returns the current record's "accion" value
  * @method string         getMasInfoURL() Returns the current record's "masInfoURL" value
  * @method integer        getReglaId()    Returns the current record's "regla_id" value
+ * @method integer        getUserId()     Returns the current record's "user_id" value
  * @method Regla          getRegla()      Returns the current record's "Regla" value
+ * @method sfGuardUser    getUsuario()    Returns the current record's "Usuario" value
  * @method Notificaciones setId()         Sets the current record's "id" value
  * @method Notificaciones setFecha()      Sets the current record's "fecha" value
  * @method Notificaciones setAccion()     Sets the current record's "accion" value
  * @method Notificaciones setMasInfoURL() Sets the current record's "masInfoURL" value
  * @method Notificaciones setReglaId()    Sets the current record's "regla_id" value
+ * @method Notificaciones setUserId()     Sets the current record's "user_id" value
  * @method Notificaciones setRegla()      Sets the current record's "Regla" value
+ * @method Notificaciones setUsuario()    Sets the current record's "Usuario" value
  * 
  * @package    paranoid-web
  * @subpackage model
@@ -54,6 +60,9 @@ abstract class BaseNotificaciones extends sfDoctrineRecord
              'type' => 'integer',
              'length' => 4,
              ));
+        $this->hasColumn('user_id', 'integer', null, array(
+             'type' => 'integer',
+             ));
     }
 
     public function setUp()
@@ -61,6 +70,10 @@ abstract class BaseNotificaciones extends sfDoctrineRecord
         parent::setUp();
         $this->hasOne('Regla', array(
              'local' => 'regla_id',
+             'foreign' => 'id'));
+
+        $this->hasOne('sfGuardUser as Usuario', array(
+             'local' => 'user_id',
              'foreign' => 'id'));
     }
 }

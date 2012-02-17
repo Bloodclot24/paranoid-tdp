@@ -75,3 +75,23 @@ HistoricoAlarma:
     fecha: 2007/10/06
     detalle: Prefijo no permitido
     sfGuardUser: User_admin
+
+
+Notificaciones:
+  not_1:
+    fecha: 2012/02/16
+    accion: Dejó seguir como Lamolina
+    masInfoURL: www.sarasa.men
+    Regla: una_llamada
+    Usuario: juan
+  not_2:
+      fecha: 2012/02/16
+      accion: Cortó como loco
+      masInfoURL: www.sarasa.men
+      Regla: dos_llamada
+      Usuario: juan
+  not_3:
+    fecha: 2012/02/16
+    accion: Cortó como loco
+    Regla: dos_llamada
+    Usuario: User_admin

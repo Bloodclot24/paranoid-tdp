@@ -1,0 +1,31 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Notificaciones
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          notificaciones
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        fecha:
+          date_format: dd/MM/yyyy hh:mm
+        masInfoURL:
+          label: + info
+      list:
+        title: Notificaciones
+        #solo queremos que sea un listado para ver usuarios y no para editarlos
+        actions: {}
+        object_actions: {}
+        batch_actions: {}
+        display: [fecha, accion, Regla, Usuario, masInfoURL]
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~
