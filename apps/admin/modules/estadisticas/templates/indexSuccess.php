@@ -215,6 +215,9 @@
 	         plotBorderWidth: null,
 	         plotShadow: false
 	      },
+	      credits: {
+		    enabled: false
+		  },
 	      title: {
 	         text: 'Estado de llamadas'
 	      },
@@ -245,10 +248,7 @@
 	            ['Fallidas',    22.5],
 	            ['Sospechosas',   7.5]
 	         ]
-	      },
-		  credits: {
-		    enabled: false
-		  }]
+	      }]
 	   });
 	
 	});
