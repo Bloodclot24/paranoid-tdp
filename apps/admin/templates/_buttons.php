@@ -13,5 +13,6 @@
                 <li><?php echo link_to("Llamadas simultáneas", "regla_llamadas_simultaneas/index") ?></li>
             </ul>
         </li>
+        <li><?php echo link_to("Estadísticas", 'estadisticas/index') ?></li>
     </ul>
 </div>
