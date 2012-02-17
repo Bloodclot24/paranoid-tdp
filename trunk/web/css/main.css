@@ -105,4 +105,12 @@ ul.error_list li {
     padding-right: 2em;
 }
 
+.download_image_icon {
+    width: 16px;
+    height:16px;
+    border: none;
+    vertical-align: bottom;
+    margin-right: 5px;
+}
+
 

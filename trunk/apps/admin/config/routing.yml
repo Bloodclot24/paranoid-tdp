@@ -1,3 +1,12 @@
+notificaciones:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Notificaciones
+    module:               notificaciones_nuevo
+    prefix_path:          /notificaciones_nuevo
+    column:               id
+    with_wildcard_routes: true
+
 sf_guard_user_user:
   class: sfDoctrineRouteCollection
   options:

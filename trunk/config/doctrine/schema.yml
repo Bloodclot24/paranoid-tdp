@@ -146,10 +146,16 @@ Notificaciones:
     accion: string
     masInfoURL: string
     regla_id: integer(4)
+    user_id: integer
   relations:
     Regla:
       class: Regla
       local: regla_id
+      foreign: id
+      type: one
+    Usuario:
+      class: sfGuardUser
+      local: user_id
       foreign: id
       type: one
 

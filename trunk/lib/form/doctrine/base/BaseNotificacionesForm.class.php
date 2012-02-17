@@ -20,6 +20,7 @@ abstract class BaseNotificacionesForm extends BaseFormDoctrine
       'accion'     => new sfWidgetFormTextarea(),
       'masInfoURL' => new sfWidgetFormTextarea(),
       'regla_id'   => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Regla'), 'add_empty' => true)),
+      'user_id'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Usuario'), 'add_empty' => true)),
     ));
 
     $this->setValidators(array(
@@ -28,6 +29,7 @@ abstract class BaseNotificacionesForm extends BaseFormDoctrine
       'accion'     => new sfValidatorString(array('required' => false)),
       'masInfoURL' => new sfValidatorString(array('required' => false)),
       'regla_id'   => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Regla'), 'required' => false)),
+      'user_id'    => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Usuario'), 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('notificaciones[%s]');
