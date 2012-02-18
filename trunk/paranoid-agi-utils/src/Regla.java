@@ -1,4 +1,3 @@
-
 public class Regla {
 
 	private String regla;
@@ -6,12 +5,8 @@ public class Regla {
 	private int horarioDesde;
 	private int horarioHasta;
 	private String[] diaSemana;
-	private int costoMin;
+	private float costoMin;
 	
-	public int getCostoMin() {
-		return this.costoMin;
-	}
-
 	public String getRegla() {
 		return this.regla;
 	}
@@ -28,7 +23,7 @@ public class Regla {
 		return this.diaSemana;
 	}
 	
-	public int getCostoMinuto() {
+	public float getCostoMinuto() {
 		return this.costoMin;
 	}
 
@@ -36,6 +31,9 @@ public class Regla {
 		return this.tipo;
 	}
 
+	public void setCostoMinuto(float costoMin) {
+		this.costoMin = costoMin;
+	}
 	public void setTipo(int tipo) {
 		this.tipo = tipo;
 	}
@@ -43,10 +41,6 @@ public class Regla {
 	
 	public void setDiaSemana(String[] diaSemana) {
 		this.diaSemana = diaSemana;
-	}
-
-	public void setCostoMin(int costoMin) {
-		this.costoMin = costoMin;
 	}
 
 	public void setRegla(String regla) {
