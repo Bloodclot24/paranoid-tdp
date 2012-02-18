@@ -6,6 +6,7 @@ public class Regla {
 	private int horarioHasta;
 	private String[] diaSemana;
 	private float costoMin;
+	private int idRegla;
 	
 	public String getRegla() {
 		return this.regla;
@@ -60,6 +61,14 @@ public class Regla {
 			
 		}
 		return true;
+	}
+
+	public int getIdRegla() {
+		return idRegla;
+	}
+
+	public void setIdRegla(int idRegla) {
+		this.idRegla = idRegla;
 	}
 
 }
