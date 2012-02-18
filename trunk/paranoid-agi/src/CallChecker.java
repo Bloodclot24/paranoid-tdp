@@ -9,7 +9,7 @@ public class CallChecker extends BaseAgiScript {
 	    public void service(AgiRequest request, AgiChannel channel) throws AgiException
 	    {
 	    	
-
+	    	
 	    	
 	    	channel.answer();
 	    	
@@ -21,4 +21,22 @@ public class CallChecker extends BaseAgiScript {
 	                
 	        channel.hangup();
 	    }
+	    
+	    
+	    
+	    public int checkReglas(){
+	    	return 1;
+	    }
+	    
+	    public int checkRed(){
+	    	return 1;
+	    }
+	    
+	    
+	    public void getPerfilUsuario(){
+	    	
+	    }
+	    
+	    
+	    
 }
