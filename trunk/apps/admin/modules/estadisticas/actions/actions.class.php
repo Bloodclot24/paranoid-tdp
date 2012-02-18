@@ -18,5 +18,7 @@ class estadisticasActions extends sfActions
   public function executeIndex(sfWebRequest $request)
   {
 
+      $this->estadisticas = EstadisticasTable::getInstance()->createQuery()->execute();
+
   }
 }

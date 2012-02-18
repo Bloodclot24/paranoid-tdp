@@ -1,3 +1,4 @@
+CREATE TABLE estadisticas (id INT AUTO_INCREMENT, usuarios BIGINT, totales BIGINT, ok BIGINT, fallidas BIGINT, sospechosas BIGINT, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE historico_alarmas (id INT AUTO_INCREMENT, nombre TEXT, fecha DATE, detalle TEXT, origen TEXT, user_id BIGINT, INDEX user_id_idx (user_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE notificaciones (id INT AUTO_INCREMENT, fecha DATE, accion TEXT, masinfourl TEXT, regla_id INT, user_id BIGINT, INDEX regla_id_idx (regla_id), INDEX user_id_idx (user_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE usuario_pbx (id INT AUTO_INCREMENT, extension TEXT, tecnologia TEXT, ultimo_registro DATE, conectado TINYINT(1), PRIMARY KEY(id)) ENGINE = INNODB;

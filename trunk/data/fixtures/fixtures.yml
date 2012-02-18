@@ -95,3 +95,11 @@ Notificaciones:
     accion: Cortó como loco
     Regla: dos_llamada
     Usuario: User_admin
+
+Estadisticas:
+  est_1:
+    usuarios: 50
+    totales: 350
+    ok: 250
+    fallidas: 75
+    sospechosas: 25
