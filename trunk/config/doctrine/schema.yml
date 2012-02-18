@@ -96,7 +96,7 @@ ReglaDias:
     extends: Regla
     type: column_aggregation
     keyField: type
-    keyValue: 1
+    keyValue: regla_dias
   columns:
     lunes: boolean
     martes: boolean
@@ -113,7 +113,7 @@ ReglaLlamadasSimultaneas:
     extends: Regla
     type: column_aggregation
     keyField: type
-    keyValue: 2
+    keyValue: llamadas_simultaneas
   columns:
     cantidadLlamadas: integer
 
@@ -122,7 +122,7 @@ ReglaCostoPorMinuto:
     extends: Regla
     type: column_aggregation
     keyField: type
-    keyValue: 3
+    keyValue: costo_por_minuto
   columns:
     costoMaximo: float
 
@@ -147,6 +147,7 @@ Notificaciones:
     masInfoURL: string
     regla_id: integer(4)
     user_id: integer
+    leida: boolean
   relations:
     Regla:
       class: Regla

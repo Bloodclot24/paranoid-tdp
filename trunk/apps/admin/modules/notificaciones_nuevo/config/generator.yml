@@ -19,6 +19,7 @@ generator:
         masInfoURL:
           label: + info
       list:
+        sort: [leida, asc]
         title: Notificaciones
         #solo queremos que sea un listado para ver usuarios y no para editarlos
         actions: {}
