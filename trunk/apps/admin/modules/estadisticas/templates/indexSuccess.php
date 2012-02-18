@@ -69,8 +69,141 @@
 			    enabled: false
 			},
 			series: [{
+         type: 'line',
+         name: 'USD to EUR',
+         pointInterval: 24 * 3600 * 1000,
+       	pointStart: Date.UTC(2011, 8, 15),
+				
+        data: [
+				35,
+				15,
+				236,
+				325,
+				437,
+				58,
+				5,
+				52,
+				66,
+				66,
+				26,
+				76,
+				146,
+				206,
+				487,
+				585,
+				642,
+				506,
+				363,
+				408,
+				458,
+				344,
+				72,
+				18,
+				14,
+				7,
+				7,
+				3,
+				2,
+				3,
+				2,
+				1,
+				3,
+				2,
+				5,
+				12,
+				2,
+				1,
+				1,
+				1,
+				1,
+				8,
+				6,
+				3,
+				5,
+				2,
+				1,
+				2,
+				1,
+				2,
+				2,
+				2,
+				2,
+				1,
+				1,
+				3,
+				7,
+				3,
+				3,
+				4,
+				37,
+				232,
+				399,
+				596,
+				584,
+				602,
+				327,
+				542,
+				496,
+				433,
+				106,
+				30,
+				9,
+				7,
+				10,
+				6,
+				6,
+				1,
+				3,
+				25,
+				209,
+				531,
+				692,
+				830,
+				571,
+				402,
+				603,
+				635,
+				370,
+				79,
+				41,
+				17,
+				7,
+				2,
+				2,
+				2,
+				2,
+				1,
+				28,
+				260,
+				538,
+				660,
+				767,
+				537,
+				462,
+				509,
+				525,
+				354,
+				55,
+				35,
+				9,
+				5,
+				3,
+				1,
+				2,
+				1,
+				1,
+				1,
+				16,
+				195,
+				467,
+				490,
+				557,
+				159
+				]
+      },
+				{
 				type: 'area',
-				name: 'Llamadas',
+				name: 'Llamadas KO',
 				pointInterval: 24 * 3600 * 1000,
 				pointStart: Date.UTC(2011, 8, 15),
 				data: [
@@ -244,9 +377,9 @@
 	         type: 'pie',
 	         name: 'Porcentaje de llamadas',
 	         data: [
-	            ['OK',   70.0],
-	            ['Fallidas',    22.5],
-	            ['Sospechosas',   7.5]
+	            ['OK',   <?php echo $estadisticas[0]->getOk(); ?>],
+	            ['Fallidas',    <?php echo $estadisticas[0]->getFallidas(); ?>],
+	            ['Sospechosas',   <?php echo $estadisticas[0]->getSospechosas(); ?>]
 	         ]
 	      }]
 	   });
@@ -283,5 +416,36 @@
 			<td><?php echo $estadistica->getSospechosas() ?></td>
 		</tr>
         <?php } ?>
+	
 	</table>
+	<?php
+
+	/*** mysql hostname ***/
+	$hostname = '10.200.200.95';
+
+	/*** mysql username ***/
+	$username = 'root';
+
+	/*** mysql password ***/
+	$password = 'my123';
+
+	try {
+	    $dbh = new PDO("mysql:host=$hostname;dbname=asteriskcdrdb", $username, $password);
+	    /*** echo a message saying we have connected ***/
+	    echo 'Connected to database';
+	    $sql = "SELECT substring(calldate, 1, 13), count(*) FROM cdr group by 1";
+	    foreach ($dbh->query($sql) as $row)
+		{
+		print $row[0] .' - '. $row[1] . '<br />';
+		}
+
+	    /*** close the database connection ***/
+	    $dbh = null;
+	    }
+	catch(PDOException $e)
+	    {
+	    echo $e->getMessage();
+	    }
+	?>
 </div>
+
