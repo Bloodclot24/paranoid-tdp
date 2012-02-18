@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 
 public class Regla {
 
@@ -52,14 +51,15 @@ public class Regla {
 	public boolean evaluar(Llamada llamada) {
 		boolean resultado = false;
 		if(tipo.equals("dias")) {
-			
+			if(horarioDesde < llamada.getHora() && llamada.getHora() < horarioHasta && diaSemana[llamada.getDia()])
+				resultado = true;
 		}
 		if(tipo.equals("llamadas_simultaneas")) {
 			
 		}
-		
 		if(tipo.equals("costo_por_minuto")) {
-			
+			if(llamada.getCostoMinuto() < costoMin)
+				resultado = true;
 		}
 		return resultado;
 	}
