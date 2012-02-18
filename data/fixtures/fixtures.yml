@@ -84,17 +84,20 @@ Notificaciones:
     masInfoURL: www.sarasa.men
     Regla: una_llamada
     Usuario: juan
+    leida: false
   not_2:
       fecha: 2012/02/16
       accion: Cortó como loco
       masInfoURL: www.sarasa.men
       Regla: dos_llamada
       Usuario: juan
+      leida: true
   not_3:
     fecha: 2012/02/16
     accion: Cortó como loco
     Regla: dos_llamada
     Usuario: User_admin
+    leida: true
 
 Estadisticas:
   est_1:
