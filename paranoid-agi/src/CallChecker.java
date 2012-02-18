@@ -9,6 +9,8 @@ public class CallChecker extends BaseAgiScript {
 	    public void service(AgiRequest request, AgiChannel channel) throws AgiException
 	    {
 	    	
+
+	    	
 	    	channel.answer();
 	    	
 	    	//channel.exec(arg0);
