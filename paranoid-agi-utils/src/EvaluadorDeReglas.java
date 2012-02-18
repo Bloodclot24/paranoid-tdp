@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import com.mysql.jdbc.Connection;
+
 
 
 public class EvaluadorDeReglas {
@@ -9,10 +11,12 @@ public class EvaluadorDeReglas {
 	
 	
 	private ArrayList<Regla> regla;
+
 	
 	private void cargarReglas() {
 		//Conexion a MYSQL y traer las reglas para el usuario
 		int idUsuario = llamada.getIdUsuario();
+		Connection conexion = ConexionBase.getInstance().getConexion();
 	}
 		
 	EvaluadorDeReglas(Llamada llamada) {
