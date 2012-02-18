@@ -39,7 +39,7 @@ public class RedNeuronal {
 		nnet.setInput(llamada.getHora()/24.0,
 					llamada.getDestino().ordinal()/4.0, 
 					llamada.getDia()/7.0, 
-					obtenerRangoCosto(llamada.getCostoMinuto()).ordinal()/4);
+					obtenerRangoCosto(llamada.getCostoMinuto()).ordinal()/4.0);
 		nnet.calculate();
 		return nnet.getOutput()[0] > nivelDecision;
 	}
