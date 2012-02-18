@@ -96,7 +96,7 @@ ReglaDias:
     extends: Regla
     type: column_aggregation
     keyField: type
-    keyValue: regla_dias
+    keyValue: dias
   columns:
     lunes: boolean
     martes: boolean
