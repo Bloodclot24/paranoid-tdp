@@ -34,8 +34,8 @@ public class EvaluadorDeReglas {
                     "where" +
                     "sgu.perfil_id=rp.perfil_id" +
                     "and rp.regla_id=r.id" +
-                    "and sgu.pbxuser_id=id" +
-                    "and extension='"+extension+"'"
+                    "and sgu.pbxuser_id=up.id" +
+                    "and up.extension='"+extension+"'"
                     );
             
             int idRegla;
@@ -82,14 +82,9 @@ public class EvaluadorDeReglas {
 	
 	public boolean evaluarReglas() {
 		Iterator<Regla> it = reglas.iterator();
-		boolean flag = true;
 		boolean resultado = true;
-		while(it.hasNext() && flag) {
-			Regla regla = (Regla) it.next();
-			if (regla.evaluar(llamada) == false){
-				flag = false;
-				resultado = false;
-			}	
+		while(it.hasNext() && resultado) {
+			resultado = it.next().evaluar(llamada);
 		}
 		return resultado;
 	}
