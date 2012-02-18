@@ -171,3 +171,14 @@ Estadisticas:
     ok: integer
     fallidas: integer
     sospechosas: integer
+    
+EstadisticasLlamadas:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    fecha: string
+    llamadas_ok: integer
+    llamadas_sospechosas: integer
+    llamadas_fallidas: integer
