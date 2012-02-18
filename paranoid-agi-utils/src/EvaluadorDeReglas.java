@@ -46,8 +46,8 @@ public class EvaluadorDeReglas {
         	float costoMin;
             String nombreRegla;
             int importante;
-            String[] dias = { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"}; 
-        	
+            String[] dias = { "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"}; 
+        	//TODO ver que hacer si trae NULL
             while (rs.next()) {
             	idRegla = Integer.parseInt(rs.getString("id"));
             	importante = Integer.parseInt(rs.getString("importante"));
