@@ -260,25 +260,28 @@
 	<div id="mainGraphic" style="width: 800px; height: 400px; margin: 10 auto">	</div>
 	<div id="llamadasGraphic" style="width: 800px; height: 400px; margin: 10 auto"> </div>
 	<table>
+        <?php foreach ($estadisticas as $estadistica) { ?>
 		<tr>
 			<td>Usuarios</td>
-			<td>324</td>
+			<td><?php echo $estadistica->getUsuarios() ?></td>
 		</tr>
+
 		<tr>
 			<td>Llamadas totales</td>
-			<td>234243</td>
+			<td><?php echo $estadistica->getTotales() ?></td>
 		</tr>
 		<tr>
 			<td>Llamadas ok</td>
-			<td>3242</td>
+			<td><?php echo $estadistica->getOk() ?></td>
 		</tr>
 		<tr>
 			<td>Llamadas fallidas</td>
-			<td>6342</td>
+			<td><?php echo $estadistica->getFallidas() ?></td>
 		</tr>
 		<tr>
 			<td>Llamadas sospechosas</td>
-			<td>1005</td>
+			<td><?php echo $estadistica->getSospechosas() ?></td>
 		</tr>
+        <?php } ?>
 	</table>
 </div>

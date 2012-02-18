@@ -160,3 +160,14 @@ Notificaciones:
       type: one
 
 
+Estadisticas:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    usuarios: integer
+    totales: integer
+    ok: integer
+    fallidas: integer
+    sospechosas: integer
