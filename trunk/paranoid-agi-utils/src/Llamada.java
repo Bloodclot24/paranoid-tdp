@@ -1,14 +1,16 @@
 import java.util.Calendar;
 
+enum Destino {
+	INTERNO, LOCAL, NACIONAL, INTERNACIONAL	
+}
 
 public class Llamada {
 	
 	private int idUsuario;
-	private String destino;
-	private String dia;
+	private Destino destino;
 	private int diaEnum;
 	private int hora;
-	private int costoMin;
+	private float costoMin;
 	
 	private void obtenerFechaYHora() {
 		Calendar calendario = Calendar.getInstance();
@@ -16,23 +18,30 @@ public class Llamada {
 		this.hora = calendario.get(Calendar.HOUR_OF_DAY);
 	}
 	
-	Llamada(int idUsuario, String destino, int costoMin) {
+	Llamada(int idUsuario, String destino, float costoMin) {
 		this.idUsuario = idUsuario;
-		this.destino = destino;
+		if(destino.length() == 3 || destino.length() == 4)
+			this.destino = Destino.INTERNO;
+		else if(destino.startsWith("00"))
+			this.destino = Destino.INTERNACIONAL;
+		else if(destino.startsWith("0"))
+			this.destino = Destino.NACIONAL;
+		else
+			this.destino = Destino.LOCAL;
 		this.costoMin = costoMin;
 		obtenerFechaYHora();
 	}
 	
-	public String getDestino() {
+	public Destino getDestino() {
 		return this.destino;
 	}
 	
-	public int getCostoMinuto() {
+	public float getCostoMinuto() {
 		return this.costoMin;
 	}
 	
-	public String getDia() {
-		return this.dia;
+	public int getDia() {
+		return this.diaEnum;
 	}
 	
 	public int getIdUsuario() {
@@ -42,21 +51,4 @@ public class Llamada {
 	public int getHora() {
 		return this.hora;
 	}
-	
-	public void setDestino(String destino) {
-		this.destino = destino;
-	}
-	
-	public void setDia(String dia) {
-		this.dia = dia;
-	}
-	
-	public void setCostoMinuto(int costoMin) {
-		this.costoMin = costoMin;
-	}
-	
-	public void setIdUsario(int idUsuario) {
-		this.idUsuario = idUsuario;
-	}
-	
 }
