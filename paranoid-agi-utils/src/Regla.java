@@ -1,15 +1,28 @@
+import java.util.ArrayList;
+
 public class Regla {
 
-	private String regla;
-	private int tipo;
+	private String nombre;
+	private String tipo;
 	private int horarioDesde;
 	private int horarioHasta;
-	private String[] diaSemana;
+	private boolean[] diaSemana = {false, false, false, false, false, false, false};
 	private float costoMin;
 	private int idRegla;
+	private int importante;
 	
-	public String getRegla() {
-		return this.regla;
+	public Regla(int idRegla, int importante, String tipo, String nombre, int horarioDeste, int horarioHasta, float costoMin) {
+		this.nombre = nombre;
+		this.tipo = tipo;
+		this.horarioDesde = horarioDeste;
+		this.horarioHasta = horarioHasta;
+		this.importante = importante;
+		this.idRegla = idRegla;
+		this.costoMin = costoMin;
+	}
+	
+	public String getNombre() {
+		return this.nombre;
 	}
 	
 	public int getHorarioDesde() {
@@ -20,55 +33,39 @@ public class Regla {
 		return this.horarioHasta;
 	}
 	
-	public String[] getDiasSemana() {
-		return this.diaSemana;
+	public boolean getDiaSemana(int numero) {
+		return this.diaSemana[numero];
 	}
 	
 	public float getCostoMinuto() {
 		return this.costoMin;
 	}
 
-	public int getTipo() {
+	public String getTipo() {
 		return this.tipo;
 	}
-
-	public void setCostoMinuto(float costoMin) {
-		this.costoMin = costoMin;
-	}
-	public void setTipo(int tipo) {
-		this.tipo = tipo;
-	}
-
 	
-	public void setDiaSemana(String[] diaSemana) {
-		this.diaSemana = diaSemana;
+	public void agregarDia(int numero) {
+		diaSemana[numero] = true;
 	}
 
-	public void setRegla(String regla) {
-		this.regla = regla;
-	}
-
-	public void setHorarioDesde(int horarioDesde) {
-		this.horarioDesde = horarioDesde;
-	}
-
-	public void setHorarioHasta(int horarioHasta) {
-		this.horarioHasta = horarioHasta;
-	}
-	
 	public boolean evaluar(Llamada llamada) {
-		if(tipo == 1) {
+		boolean resultado = false;
+		if(tipo.equals("dias")) {
 			
 		}
-		return true;
+		if(tipo.equals("llamadas_simultaneas")) {
+			
+		}
+		
+		if(tipo.equals("costo_por_minuto")) {
+			
+		}
+		return resultado;
 	}
 
 	public int getIdRegla() {
 		return idRegla;
-	}
-
-	public void setIdRegla(int idRegla) {
-		this.idRegla = idRegla;
 	}
 
 }
