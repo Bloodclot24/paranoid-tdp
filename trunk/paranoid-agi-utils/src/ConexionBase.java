@@ -18,11 +18,19 @@ public class ConexionBase {
     static String nombreManager = "paranoid";
     static String passManager = "123456";
     private Connection miconexion;
+    static ConexionBase conexion;
     
-    ConexionBase() {
+    private ConexionBase() {
     	this.miconexion = null;
     	inicializarConexionBase();
     	
+    }
+    
+    static ConexionBase getInstance() {
+    	if(conexion == null) {
+    		conexion = new ConexionBase();
+    	}
+    	return conexion;
     }
     
     private void inicializarConexionBase(){
