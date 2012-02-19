@@ -67,8 +67,10 @@ public class EvaluadorDeReglas {
             	
             	this.reglas.add(regla);
             }
+            rs.close();
+            s.close();
         }catch (SQLException ex) {
-            System.out.println("Hubo un problema al intentar obetener lo datos");
+            System.out.println("Hubo un problema al intentar obtener lo datos");
         }
 		
 		
@@ -80,13 +82,17 @@ public class EvaluadorDeReglas {
 		cargarReglas();
 	}
 	
-	public boolean evaluarReglas() {
+	public Regla evaluarReglas() {
 		Iterator<Regla> it = reglas.iterator();
 		boolean resultado = true;
+		Regla regla = null;
 		while(it.hasNext() && resultado) {
-			resultado = it.next().evaluar(llamada);
+			regla = it.next();
+			resultado = regla.evaluar(llamada);
 		}
-		return resultado;
+		if (resultado == true)
+			regla = null;
+		return regla;
 	}
 	
 }
