@@ -11,6 +11,13 @@
     <script type="text/javascript">
         jQuery(function () {
             jQuery('ul.sf-menu').superfish();
+
+            var sfAction = "<?php echo url_for("notificaciones_nuevo/count") ?>";
+            setNumberOfNotifications(sfAction);
+            setInterval(function() {
+                setNumberOfNotifications(sfAction);
+            }, 10000);
+
         });
     </script>
 

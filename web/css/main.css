@@ -113,4 +113,8 @@ ul.error_list li {
     margin-right: 5px;
 }
 
+.notRead {
+    font-weight: bold;
+}
+
 

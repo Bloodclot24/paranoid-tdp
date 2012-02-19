@@ -12,4 +12,8 @@
  */
 class Notificaciones extends BaseNotificaciones
 {
+
+    public function toggleLeida() {
+        $this->setLeida(!$this->getLeida());
+    }
 }

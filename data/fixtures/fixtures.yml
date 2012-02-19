@@ -79,21 +79,21 @@ HistoricoAlarma:
 
 Notificaciones:
   not_1:
-    fecha: 2012/02/16
+    fecha: 2012/02/16 09:47
     accion: Dejó seguir como Lamolina
     masInfoURL: www.sarasa.men
     Regla: una_llamada
     Usuario: juan
     leida: false
   not_2:
-      fecha: 2012/02/16
+      fecha: 2009/02/16 09:32
       accion: Cortó como loco
       masInfoURL: www.sarasa.men
       Regla: dos_llamada
       Usuario: juan
       leida: true
   not_3:
-    fecha: 2012/02/16
+    fecha: 2010/02/16 12:21
     accion: Cortó como loco
     Regla: dos_llamada
     Usuario: User_admin
