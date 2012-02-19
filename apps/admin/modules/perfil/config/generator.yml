@@ -20,7 +20,8 @@ generator:
       list:
         title: Perfiles
         display: [=nombre]
-      filter:  ~
+      filter:
+        display: [nombre, descripcion]
       form:    ~
       edit:
         title: Editar perfil
