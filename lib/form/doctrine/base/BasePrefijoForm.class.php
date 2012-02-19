@@ -19,6 +19,7 @@ abstract class BasePrefijoForm extends BaseFormDoctrine
       'descripcion'    => new sfWidgetFormTextarea(),
       'numero'         => new sfWidgetFormInputText(),
       'costoPorMinuto' => new sfWidgetFormInputText(),
+      'reglas_list'    => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'ReglaDestino')),
     ));
 
     $this->setValidators(array(
@@ -26,6 +27,7 @@ abstract class BasePrefijoForm extends BaseFormDoctrine
       'descripcion'    => new sfValidatorString(array('required' => false)),
       'numero'         => new sfValidatorInteger(array('required' => false)),
       'costoPorMinuto' => new sfValidatorNumber(array('required' => false)),
+      'reglas_list'    => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'ReglaDestino', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('prefijo[%s]');
@@ -40,6 +42,62 @@ abstract class BasePrefijoForm extends BaseFormDoctrine
   public function getModelName()
   {
     return 'Prefijo';
+  }
+
+  public function updateDefaultsFromObject()
+  {
+    parent::updateDefaultsFromObject();
+
+    if (isset($this->widgetSchema['reglas_list']))
+    {
+      $this->setDefault('reglas_list', $this->object->Reglas->getPrimaryKeys());
+    }
+
+  }
+
+  protected function doSave($con = null)
+  {
+    $this->saveReglasList($con);
+
+    parent::doSave($con);
+  }
+
+  public function saveReglasList($con = null)
+  {
+    if (!$this->isValid())
+    {
+      throw $this->getErrorSchema();
+    }
+
+    if (!isset($this->widgetSchema['reglas_list']))
+    {
+      // somebody has unset this widget
+      return;
+    }
+
+    if (null === $con)
+    {
+      $con = $this->getConnection();
+    }
+
+    $existing = $this->object->Reglas->getPrimaryKeys();
+    $values = $this->getValue('reglas_list');
+    if (!is_array($values))
+    {
+      $values = array();
+    }
+
+    $unlink = array_diff($existing, $values);
+    if (count($unlink))
+    {
+      $this->object->unlink('Reglas', array_values($unlink));
+    }
+
+    $link = array_diff($values, $existing);
+    if (count($link))
+    {
+      $this->object->link('Reglas', array_values($link));
+    }
   }
 
 }

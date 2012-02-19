@@ -16,12 +16,14 @@ abstract class BasePrefijoFormFilter extends BaseFormFilterDoctrine
       'descripcion'    => new sfWidgetFormFilterInput(),
       'numero'         => new sfWidgetFormFilterInput(),
       'costoPorMinuto' => new sfWidgetFormFilterInput(),
+      'reglas_list'    => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'ReglaDestino')),
     ));
 
     $this->setValidators(array(
       'descripcion'    => new sfValidatorPass(array('required' => false)),
       'numero'         => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'costoPorMinuto' => new sfValidatorSchemaFilter('text', new sfValidatorNumber(array('required' => false))),
+      'reglas_list'    => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'ReglaDestino', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('prefijo_filters[%s]');
@@ -31,6 +33,24 @@ abstract class BasePrefijoFormFilter extends BaseFormFilterDoctrine
     $this->setupInheritance();
 
     parent::setup();
+  }
+
+  public function addReglasListColumnQuery(Doctrine_Query $query, $field, $values)
+  {
+    if (!is_array($values))
+    {
+      $values = array($values);
+    }
+
+    if (!count($values))
+    {
+      return;
+    }
+
+    $query
+      ->leftJoin($query->getRootAlias().'.ReglaPrefijo ReglaPrefijo')
+      ->andWhereIn('ReglaPrefijo.regla_id', $values)
+    ;
   }
 
   public function getModelName()
@@ -45,6 +65,7 @@ abstract class BasePrefijoFormFilter extends BaseFormFilterDoctrine
       'descripcion'    => 'Text',
       'numero'         => 'Number',
       'costoPorMinuto' => 'Number',
+      'reglas_list'    => 'ManyKey',
     );
   }
 }

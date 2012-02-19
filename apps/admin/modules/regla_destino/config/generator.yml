@@ -1,28 +1,26 @@
 generator:
   class: sfDoctrineGenerator
   param:
-    model_class:           Prefijo
+    model_class:           ReglaDestino
     theme:                 admin
     non_verbose_templates: true
     with_show:             false
     singular:              ~
     plural:                ~
-    route_prefix:          prefijo
+    route_prefix:          regla_destino
     with_doctrine_route:   true
     actions_base_class:    sfActions
 
     config:
       actions: ~
-      fields:
-        costoPorMinuto:
-          label: Costo
-          help: Costo por minuto
+      fields:  ~
       list:
-        title: Prefijos
+        title: Destinos
+        display: [nombre, importante]
       filter:  ~
       form:
-        display: [descripcion, numero, costoPorMinuto]
+        display: [nombre, importante, prefijos_list]
       edit:
-        title: Editar prefijo
+        title: Editar regla
       new:
-        title: Nuevo prefijo
+        title: Nueva regla
