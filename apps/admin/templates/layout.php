@@ -16,7 +16,7 @@
             setNumberOfNotifications(sfAction);
             setInterval(function() {
                 setNumberOfNotifications(sfAction);
-            }, 10000);
+            }, 15000);
 
         });
     </script>
