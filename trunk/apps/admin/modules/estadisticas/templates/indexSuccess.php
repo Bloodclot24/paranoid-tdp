@@ -155,37 +155,45 @@
 	//Llamadas graphic end
 
 </script>
-
+<style>
+	.titulo { font-size: 18px; }
+	.indicador { font-size: 35px; color:#6699FF }
+</style>
 <div>
-	
 	<div id="mainGraphic" style="width: 800px; height: 400px; margin: 10 auto">	</div>
-	<div id="llamadasGraphic" style="width: 800px; height: 400px; margin: 10 auto"> </div>
-	<table>
+	<div id="llamadasGraphic" style="width: 500px; height: 400px; margin: 10 auto;margin-left:30px;float:left"> </div>
+	<div id="indicadores" style="width: 300px; height: 400px; margin: 10 auto;margin-left:20px;float:left">
+		<table>
         <?php foreach ($estadisticas as $estadistica) { ?>
 		<tr>
-			<td>Usuarios</td>
-			<td><?php echo $estadistica->getUsuarios() ?></td>
+			<td class="titulo">Usuarios</td>
+		</tr><tr>
+			<td class="indicador"><?php echo $estadistica->getUsuarios() ?></td>
 		</tr>
 
 		<tr>
-			<td>Llamadas totales</td>
-			<td><?php echo $estadistica->getTotales() ?></td>
+			<td class="titulo">Llamadas totales</td>
+		</tr><tr>
+			<td class="indicador"><?php echo $estadistica->getTotales() ?></td>
 		</tr>
 		<tr>
-			<td>Llamadas ok</td>
-			<td><?php echo $estadistica->getOk() ?></td>
+			<td class="titulo">Llamadas ok</td>
+		</tr><tr>
+			<td class="indicador"><?php echo $estadistica->getOk() ?></td>
 		</tr>
 		<tr>
-			<td>Llamadas fallidas</td>
-			<td><?php echo $estadistica->getFallidas() ?></td>
+			<td class="titulo">Llamadas fallidas</td>
+		</tr><tr>
+			<td class="indicador"><?php echo $estadistica->getFallidas() ?></td>
 		</tr>
 		<tr>
-			<td>Llamadas sospechosas</td>
-			<td><?php echo $estadistica->getSospechosas() ?></td>
+			<td class="titulo">Llamadas sospechosas</td>
+		</tr><tr>
+			<td class="indicador"><?php echo $estadistica->getSospechosas() ?></td>
 		</tr>
         <?php } ?>
 	
 	</table>
-	
+	</div>
 </div>
 
