@@ -8,35 +8,78 @@ import org.asteriskjava.fastagi.BaseAgiScript;
 public class CallChecker extends BaseAgiScript {
 	
 	
-		private String rutaSonidos="/var/www/paranoid/web/records/";
 		private String Extensiondiscada;
+		private AgiChannel canal;
+		private AgiRequest dataCanal;
+		private String sAvisoGrabando="tt-weasels"; //sonido que avisa que se grabará la llamada
+		private String sAvisoCorte="tt-weasels";  //sonido que avisa que se va cortar la misma
 
 	    public void service(AgiRequest request, AgiChannel channel) throws AgiException
 	    {
 	    	
-	    	try {
+	    	this.canal = channel;
 	    	
-	    	this.Extensiondiscada = request.getExtension();
+	    	Notificacion alerta = UtilsFacade.estadoDeAlerta(request); //consulta si salto alguna alerta
 	    	
-	    	channel.answer();
-	    	
-	    	this.arrancaGrabar(channel, "superprueba");
-	    	
-	    	channel.exec("dial", "LOCAL/"+this.Extensiondiscada+"@llamadas");
-	    	        
-	        channel.hangup();
-	        
-	    	} catch (AgiHangupException ex){
-	    		System.out.println("la llamada ha sido cortada");
-	    		this.hangup(channel);
-	    	}
-	    	
+	    	switch (alerta.getEstadoDeAlerta()) {
+			case 3:
+				this.cortarYavisar();
+				break;
+			case 2:
+				this.cortarYavisar();
+				break;
+			case 1:
+				this.arrancaGrabar(alerta.getMasinfourl());
+				this.llamar();
+				break;
+			case 0:
+				this.llamar();
+				break;
+
+			default:
+				break;
+			}
+	
 	    }
 	    
-	    private void hangup(AgiChannel channel){
+	    
+	    /**
+	     * llama a destino
+	     */
+	    private void llamar(){
 	    	
 	    	try {
-				channel.exec("StopMonitor");
+				canal.exec("dial", "LOCAL/"+this.dataCanal.getExtension()+"@llamadas");
+				canal.hangup();
+			} catch (AgiException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	    }
+	    
+	    /**
+	     * 
+	     * 
+	     * @param channel
+	     */
+	    private void cortarYavisar(){
+	    	
+	    	try {
+	    		canal.streamFile(this.sAvisoCorte);   //aviso que le voy a cortar de sopeton
+				this.cortar();
+	    		
+			} catch (AgiException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	
+	    }
+	    
+	    private void cortar(){
+	    	
+	    	try {
+				canal.exec("StopMonitor");
+				canal.hangup();
 			} catch (AgiException e) {
 				// TODO Auto-generated catch block
 				System.out.println("no se ha podido detener el monitor");
@@ -44,31 +87,12 @@ public class CallChecker extends BaseAgiScript {
 	    	
 	    }
 	    
-	    private void router(){
 	    
-	    	
-	    }
-	    
-	    
-	    private int checkReglas(){
-	    	return 1;
-	    }
-	    
-	    private int checkRed(){
-	    	return 1;
-	    }
-	    
-	    
-	    
-	    public void getPerfilUsuario(){
-	    	
-	    }
-	    
-	    public void arrancaGrabar(AgiChannel channel, String nombrearch){
+	    public void arrancaGrabar(String nombrearch){
 	    	
 	    	try {
-	    		channel.streamFile("tt-weasels"); //le dice que va a estar siendo grabado
-				channel.exec("MixMonitor", rutaSonidos+nombrearch+".wav,mb");
+	    		canal.streamFile(this.sAvisoGrabando); //le dice que va a estar siendo grabado
+	    		canal.exec("MixMonitor", nombrearch +",mb");
 				
 			} catch (AgiException e) {
 				// TODO Auto-generated catch block
