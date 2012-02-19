@@ -68,4 +68,8 @@ public class Regla {
 		return idRegla;
 	}
 
+	public int getImportante() {
+		return importante;
+	}
+
 }

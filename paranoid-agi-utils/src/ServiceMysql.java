@@ -16,16 +16,37 @@ public class ServiceMysql {
 	 * @param IdRegla id de la regla que saltó
 	 * @param fecha fecha de la notificacion
 	 */
-	static void nuevaNotificacion(String accionTomada, String archivoSonido, int IdRegla, String fecha){
+//	static void nuevaNotificacion(String accionTomada, String archivoSonido, int IdRegla, String fecha){
+//		
+//		try{
+//		Statement s = (Statement) ConexionBase.getInstance().getConexion().createStatement();
+//		String consulta;
+//		
+//		if (archivoSonido != null){
+//			consulta = "INSERT INTO notificaciones (fecha, accion, masinfourl,regla_id) VALUES ('"+fecha+"','"+accionTomada+"','"+archivoSonido+"','"+IdRegla+"')";
+//		}else {
+//			consulta = "INSERT INTO notificaciones (fecha, accion, masinfourl,regla_id) VALUES ('"+fecha+"','"+accionTomada+"',NULL,'"+IdRegla+"')";
+//		}
+//		
+//			s.executeUpdate(consulta);
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			System.out.println("no se ha podido agregar la nueva notificacion");
+//			e.printStackTrace();
+//		}
+//	}
+	
+	
+	static void nuevaNotificacion(Notificacion notif){
 		
 		try{
 		Statement s = (Statement) ConexionBase.getInstance().getConexion().createStatement();
 		String consulta;
 		
-		if (archivoSonido != null){
-			consulta = "INSERT INTO notificaciones (fecha, accion, masinfourl,regla_id) VALUES ('"+fecha+"','"+accionTomada+"','"+archivoSonido+"','"+IdRegla+"')";
+		if (notif.hayQueGrabar()){
+			consulta = "INSERT INTO notificaciones (fecha, accion, masinfourl,regla_id) VALUES ('"+notif.getFecha()+"','"+notif.getAccion()+"','"+notif.getMasinfourl()+"','"+notif.getReglaIdAsociada()+"')";
 		}else {
-			consulta = "INSERT INTO notificaciones (fecha, accion, masinfourl,regla_id) VALUES ('"+fecha+"','"+accionTomada+"',NULL,'"+IdRegla+"')";
+			consulta = "INSERT INTO notificaciones (fecha, accion, masinfourl,regla_id) VALUES ('"+notif.getFecha()+"','"+notif.getAccion()+"',NULL,'"+notif.getReglaIdAsociada()+"')";
 		}
 		
 			s.executeUpdate(consulta);
@@ -36,11 +57,40 @@ public class ServiceMysql {
 		}
 	}
 	
+	
+	
 	static Boolean usuarioNotificacionActiva(){
 		
 		return true;
 		
 	}
+	
+	public static int getUserIdxExtension(String Extension){
+		
+		try {
+			
+			Statement s = (Statement) ConexionBase.getInstance().getConexion().createStatement();
+			String consulta;
+			
+			consulta = "SELECT id FROM usuario_pbx WHERE extension = '"+Extension+"';";
+			
+			ResultSet rs = s.executeQuery(consulta);
+			
+			if (!rs.next()){
+				return 0;
+			}else{
+				return rs.getInt("id");
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return 0;
+		}
+		
+		
+	}
+	
 	
 	public static UsuarioParanoid getUsuarioxId (int id){
 		
