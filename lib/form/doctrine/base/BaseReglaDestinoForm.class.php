@@ -17,7 +17,7 @@ abstract class BaseReglaDestinoForm extends ReglaForm
     parent::setupInheritance();
 
     $this->widgetSchema   ['prefijos_list'] = new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Prefijo'));
-    $this->validatorSchema['prefijos_list'] = new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Prefijo', 'required' => true));
+    $this->validatorSchema['prefijos_list'] = new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Prefijo', 'required' => false));
 
     $this->widgetSchema->setNameFormat('regla_destino[%s]');
   }
