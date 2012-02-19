@@ -24,11 +24,11 @@
 	    $llamadasSospechosas = 0;
 	    foreach ($dbh->query($sql) as $row)
 	    {
-		if( $row[0] == "Ok"){
+		if( $row[0] == "ok"){
 			$llamadasOk = $row[1];
 		}else if( $row[0] == "fallida"){
 			$llamadasFallidas = $row[1];
-		}else if( $row[0] == "Sospechosa"){
+		}else if( $row[0] == "sospechosa"){
 			$llamadasSospechosa = $row[1] ;
 		}
 	    }
@@ -156,7 +156,7 @@
 	         type: 'pie',
 	         name: 'Porcentaje de llamadas',
 	         data: [
-	            ['OK',   <?php echo $llamadasOk; ?>],
+	            ['Exitosas',   <?php echo $llamadasOk; ?>],
 	            ['Fallidas',    <?php echo $llamadasFallidas; ?>],
 	            ['Sospechosas',   <?php echo $llamadasSospechosas; ?>]
 	         ]
@@ -189,7 +189,7 @@
 			<td class="indicador"><?php echo ($llamadasOk+ $llamadasOk+ $llamadasSospechosas) ?></td>
 		</tr>
 		<tr>
-			<td class="titulo">Llamadas ok</td>
+			<td class="titulo">Llamadas exitosas</td>
 		</tr><tr>
 			<td class="indicador"><?php echo $llamadasOk ?></td>
 		</tr>
