@@ -12,6 +12,7 @@ class ReglaForm extends BaseReglaForm
 {
   public function configure()
   {
+      $this->validatorSchema['nombre'] = new sfValidatorString(array('required' => true));
       unset($this['type']);
   }
 }
