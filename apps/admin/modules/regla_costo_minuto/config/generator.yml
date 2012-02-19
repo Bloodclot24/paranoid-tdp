@@ -23,7 +23,12 @@ generator:
       list:
         display: [nombre, importante, costoMaximo]
         title: Costo por minuto
-      filter:  ~
+      filter:
+        fields:
+          importante:
+            label: Máxima seguridad
+            help:
+        display: [nombre, importante, costoMaximo]
       form:    ~
       edit:
         display: [nombre, importante, costoMaximo]

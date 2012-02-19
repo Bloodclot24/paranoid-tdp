@@ -23,7 +23,12 @@ generator:
       list:
         display: [nombre, importante, cantidadLlamadas]
         title: Llamadas simultáneas
-      filter:  ~
+      filter:
+        fields:
+          importante:
+            label: Máxima seguridad
+            help:
+        display: [nombre, importante, cantidadLlamadas]
       form:    ~
       edit:
         display: [nombre, importante, cantidadLlamadas]

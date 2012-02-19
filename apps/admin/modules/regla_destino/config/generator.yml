@@ -20,7 +20,15 @@ generator:
       list:
         title: Destinos
         display: [nombre, importante]
-      filter:  ~
+      filter:
+        fields:
+          importante:
+            label: Máxima seguridad
+            help:
+          prefijos_list:
+            label: Prefijos
+            help:
+        display: [nombre, importante, prefijos_list]
       form:
         display: [nombre, importante, prefijos_list]
       edit:
