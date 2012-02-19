@@ -1,6 +1,6 @@
 <div id="buttons">
     <ul class="sf-menu">
-        <li><?php echo link_to("Notificaciones (1)", 'notificaciones_nuevo/index') ?></li>
+        <li><a href="<?php echo url_for('notificaciones_nuevo/index') ?>" class="notReadModificationsLink">Notificaciones <span id="notReadNotifications" /></a></li>
         <li><?php echo link_to("Usuarios", 'sf_guard_user/index') ?></li>
         <li><?php echo link_to("Usuarios PBX", 'pbx_user/index') ?></li>
         <li><?php echo link_to("Perfiles", 'perfil/index') ?></li>

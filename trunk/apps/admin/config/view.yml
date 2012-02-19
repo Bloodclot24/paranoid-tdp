@@ -14,7 +14,7 @@ default:
 
   stylesheets:    [main.css, superfish.css, superfish-navbar.css]
 
-  javascripts:    [jquery-1.7.1.min.js, jquery.bgiframe.min.js, hoverIntent.js, superfish.js, supersubs.js]
+  javascripts:    [jquery-1.7.1.min.js, jquery.bgiframe.min.js, hoverIntent.js, superfish.js, supersubs.js, notificaciones.js]
 
   has_layout:     true
   layout:         layout
