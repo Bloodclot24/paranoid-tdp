@@ -18,15 +18,27 @@
 		{
 	    	$datos[] = $row[1];
 		}
-	
-    	  //  echo join($datos, ', ');
+	    $sql ="select userfield, count(*) from asteriskcdrdb.cdr group by 1";
+	    $llamadasOk = 0;
+	    $llamadasFallidas = 0;
+	    $llamadasSospechosas = 0;
+	    foreach ($dbh->query($sql) as $row)
+	    {
+		if( $row[0] == "Ok"){
+			$llamadasOk = $row[1];
+		}else if( $row[0] == "fallida"){
+			$llamadasFallidas = $row[1];
+		}else if( $row[0] == "Sospechosa"){
+			$llamadasSospechosa = $row[1] ;
+		}
+	    }
 	    /*** close the database connection ***/
 	    $dbh = null;
 	    }
 	catch(PDOException $e)
 	    {
 	    echo $e->getMessage();
-	    }
+	    } 
 	?>
 <script type="text/javascript">
 
@@ -144,9 +156,9 @@
 	         type: 'pie',
 	         name: 'Porcentaje de llamadas',
 	         data: [
-	            ['OK',   <?php echo $estadisticas[0]->getOk(); ?>],
-	            ['Fallidas',    <?php echo $estadisticas[0]->getFallidas(); ?>],
-	            ['Sospechosas',   <?php echo $estadisticas[0]->getSospechosas(); ?>]
+	            ['OK',   <?php echo $llamadasOk; ?>],
+	            ['Fallidas',    <?php echo $llamadasFallidas; ?>],
+	            ['Sospechosas',   <?php echo $llamadasSospechosas; ?>]
 	         ]
 	      }]
 	   });
@@ -174,22 +186,22 @@
 		<tr>
 			<td class="titulo">Llamadas totales</td>
 		</tr><tr>
-			<td class="indicador"><?php echo $estadistica->getTotales() ?></td>
+			<td class="indicador"><?php echo ($llamadasOk+ $llamadasOk+ $llamadasSospechosas) ?></td>
 		</tr>
 		<tr>
 			<td class="titulo">Llamadas ok</td>
 		</tr><tr>
-			<td class="indicador"><?php echo $estadistica->getOk() ?></td>
+			<td class="indicador"><?php echo $llamadasOk ?></td>
 		</tr>
 		<tr>
 			<td class="titulo">Llamadas fallidas</td>
 		</tr><tr>
-			<td class="indicador"><?php echo $estadistica->getFallidas() ?></td>
+			<td class="indicador"><?php echo $llamadasFallidas ?></td>
 		</tr>
 		<tr>
 			<td class="titulo">Llamadas sospechosas</td>
 		</tr><tr>
-			<td class="indicador"><?php echo $estadistica->getSospechosas() ?></td>
+			<td class="indicador"><?php echo $llamadasSospechosas?></td>
 		</tr>
         <?php } ?>
 	
