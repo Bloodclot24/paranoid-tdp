@@ -10,11 +10,16 @@
  */
 class ReglaDiasForm extends BaseReglaDiasForm
 {
-  /**
-   * @see ReglaForm
-   */
-  public function configure()
-  {
-    parent::configure();
-  }
+    /**
+     * @see ReglaForm
+     */
+    public function configure()
+    {
+        parent::configure();
+
+        $this->mergePostValidator(
+            new sfValidatorSchemaCompare('desde', '<=', 'hasta', array(), array('invalid' => 'La primera hora (%left_field%) debe ser menor que
+            la ultima (%right_field%)'))
+        );
+    }
 }
