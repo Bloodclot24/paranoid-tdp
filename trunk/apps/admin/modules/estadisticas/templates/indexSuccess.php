@@ -1,3 +1,33 @@
+<?php
+
+	/*** mysql hostname ***/
+	$hostname = '10.200.200.95';
+
+	/*** mysql username ***/
+	$username = 'root';
+
+	/*** mysql password ***/
+	$password = 'my123';
+	
+	try {
+	    $dbh = new PDO("mysql:host=$hostname;dbname=asteriskcdrdb", $username, $password);
+	    /*** echo a message saying we have connected ***/
+	    $sql = "SELECT datos.fecha, SUM(datos.cantidad) FROM (SELECT CONCAT(SUBSTRING(asteriskcdrdb.cdr.calldate, 1, 15), '0:00') AS fecha, COUNT(*) AS cantidad FROM asteriskcdrdb.cdr GROUP BY 1 UNION SELECT datefield AS fecha, 0 AS cantidad FROM asteriskcdrdb.calendar ) AS datos WHERE datos.fecha < NOW() GROUP BY 1";
+
+	    foreach ($dbh->query($sql) as $row)
+		{
+	    	$datos[] = $row[1];
+		}
+	
+    	  //  echo join($datos, ', ');
+	    /*** close the database connection ***/
+	    $dbh = null;
+	    }
+	catch(PDOException $e)
+	    {
+	    echo $e->getMessage();
+	    }
+	?>
 <script type="text/javascript">
 
 	//Main graphic begin
@@ -10,7 +40,7 @@
 				spacingRight: 20
 			},
 			title: {
-				text: 'Llamadas por hora'
+				text: 'Llamadas por intervalo de tiempo'
 			},
 			subtitle: {
 				text: document.ontouchstart === undefined ?
@@ -19,7 +49,7 @@
 			},
 			xAxis: {
 				type: 'datetime',
-				maxZoom:  5 * 24 * 3600000, // one day
+				maxZoom:   3600000, 
 				title: {
 					text: null
 				}
@@ -40,24 +70,18 @@
 			},
 			plotOptions: {
 				area: {
-					fillColor: {
-						linearGradient: [0, 0, 0, 300],
-						stops: [
-							[0, Highcharts.getOptions().colors[0]],
-							[1, 'rgba(2,0,0,0)']
-						]
-					},
+					
 					lineWidth: 1,
 					marker: {
 						enabled: false,
 						states: {
 							hover: {
 								enabled: true,
-								radius: 5
+								radius: 3
 							}
 						}
 					},
-					shadow: true,
+					shadow: false,
 					states: {
 						hover: {
 							lineWidth: 2
@@ -69,270 +93,13 @@
 			    enabled: false
 			},
 			series: [{
-         type: 'line',
-         name: 'USD to EUR',
-         pointInterval: 24 * 3600 * 1000,
-       	pointStart: Date.UTC(2011, 8, 15),
-				
-        data: [
-				35,
-				15,
-				236,
-				325,
-				437,
-				58,
-				5,
-				52,
-				66,
-				66,
-				26,
-				76,
-				146,
-				206,
-				487,
-				585,
-				642,
-				506,
-				363,
-				408,
-				458,
-				344,
-				72,
-				18,
-				14,
-				7,
-				7,
-				3,
-				2,
-				3,
-				2,
-				1,
-				3,
-				2,
-				5,
-				12,
-				2,
-				1,
-				1,
-				1,
-				1,
-				8,
-				6,
-				3,
-				5,
-				2,
-				1,
-				2,
-				1,
-				2,
-				2,
-				2,
-				2,
-				1,
-				1,
-				3,
-				7,
-				3,
-				3,
-				4,
-				37,
-				232,
-				399,
-				596,
-				584,
-				602,
-				327,
-				542,
-				496,
-				433,
-				106,
-				30,
-				9,
-				7,
-				10,
-				6,
-				6,
-				1,
-				3,
-				25,
-				209,
-				531,
-				692,
-				830,
-				571,
-				402,
-				603,
-				635,
-				370,
-				79,
-				41,
-				17,
-				7,
-				2,
-				2,
-				2,
-				2,
-				1,
-				28,
-				260,
-				538,
-				660,
-				767,
-				537,
-				462,
-				509,
-				525,
-				354,
-				55,
-				35,
-				9,
-				5,
-				3,
-				1,
-				2,
-				1,
-				1,
-				1,
-				16,
-				195,
-				467,
-				490,
-				557,
-				159
-				]
-      },
-				{
-				type: 'area',
-				name: 'Llamadas KO',
-				pointInterval: 24 * 3600 * 1000,
-				pointStart: Date.UTC(2011, 8, 15),
-				data: [
-				3,
-				1,
-				136,
-				325,
-				137,
-				18,
-				7,
-				12,
-				7,
-				3,
-				2,
-				7,
-				14,
-				206,
-				487,
-				585,
-				642,
-				506,
-				363,
-				408,
-				458,
-				344,
-				72,
-				18,
-				14,
-				7,
-				7,
-				3,
-				2,
-				3,
-				2,
-				1,
-				3,
-				2,
-				5,
-				12,
-				2,
-				1,
-				1,
-				1,
-				1,
-				8,
-				6,
-				3,
-				5,
-				2,
-				1,
-				2,
-				1,
-				2,
-				2,
-				2,
-				2,
-				1,
-				1,
-				3,
-				7,
-				3,
-				3,
-				4,
-				37,
-				232,
-				399,
-				596,
-				584,
-				602,
-				327,
-				542,
-				496,
-				433,
-				106,
-				30,
-				9,
-				7,
-				10,
-				6,
-				6,
-				1,
-				3,
-				25,
-				209,
-				531,
-				692,
-				830,
-				571,
-				402,
-				603,
-				635,
-				370,
-				79,
-				41,
-				17,
-				7,
-				2,
-				2,
-				2,
-				2,
-				1,
-				28,
-				260,
-				538,
-				660,
-				767,
-				537,
-				462,
-				509,
-				525,
-				354,
-				55,
-				35,
-				9,
-				5,
-				3,
-				1,
-				2,
-				1,
-				1,
-				1,
-				16,
-				195,
-				467,
-				490,
-				557,
-				159
-				]
-			}]
+			 type: 'area',
+			 name: 'Llamadas cada 10 minutos',
+			 pointInterval: 600 * 1000,
+		       	 pointStart: Date.UTC(2012, 01, 08),
+			 data: [<?php echo join($datos, ', ');?>]
+      			}]
+		
 		});
 
 	});
@@ -356,7 +123,7 @@
 	      },
 	      tooltip: {
 	         formatter: function() {
-	            return '<b>'+ this.point.name +'</b>: '+ this.percentage +' %';
+	            return '<b>'+ this.point.name +'</b>: '+ this.percentage.toFixed(2) +' %';
 	         }
 	      },
 	      plotOptions: {
@@ -368,7 +135,7 @@
 	               color:  '#000000',
 	               connectorColor: '#000000',
 	               formatter: function() {
-	                  return '<b>'+ this.point.name +'</b>: '+ this.percentage +' %';
+	                  return '<b>'+ this.point.name +'</b>: '+ this.percentage.toFixed(1) +' %';
 	               }
 	            }
 	         }
@@ -390,6 +157,7 @@
 </script>
 
 <div>
+	
 	<div id="mainGraphic" style="width: 800px; height: 400px; margin: 10 auto">	</div>
 	<div id="llamadasGraphic" style="width: 800px; height: 400px; margin: 10 auto"> </div>
 	<table>
@@ -418,34 +186,6 @@
         <?php } ?>
 	
 	</table>
-	<?php
-
-	/*** mysql hostname ***/
-	$hostname = '10.200.200.95';
-
-	/*** mysql username ***/
-	$username = 'root';
-
-	/*** mysql password ***/
-	$password = 'my123';
-
-	try {
-	    $dbh = new PDO("mysql:host=$hostname;dbname=asteriskcdrdb", $username, $password);
-	    /*** echo a message saying we have connected ***/
-	    echo 'Connected to database';
-	    $sql = "SELECT substring(calldate, 1, 13), count(*) FROM cdr group by 1";
-	    foreach ($dbh->query($sql) as $row)
-		{
-		print $row[0] .' - '. $row[1] . '<br />';
-		}
-
-	    /*** close the database connection ***/
-	    $dbh = null;
-	    }
-	catch(PDOException $e)
-	    {
-	    echo $e->getMessage();
-	    }
-	?>
+	
 </div>
 
