@@ -23,6 +23,7 @@
 
 </head>
 <body>
+<?php $sf_user->setCulture('es') ?>
 <div id="header">
     <span id="almostLogo">*</span><span id="headerTitle"><?php echo link_to('Paranoid', '@homepage')?></span>
     <?php if ($sf_user->isAuthenticated()): ?>

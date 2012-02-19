@@ -39,6 +39,9 @@ dev:
       delivery_strategy: none
 
 all:
+  user:
+    param:
+      culture: es
   routing:
     class: sfPatternRouting
     param:

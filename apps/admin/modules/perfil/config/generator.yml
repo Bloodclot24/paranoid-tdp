@@ -14,7 +14,7 @@ generator:
     config:
       actions: ~
       fields:
-        Reglas:
+        reglas_list:
           label: Reglas
           help: Reglas asociadas a este perfil
       list:

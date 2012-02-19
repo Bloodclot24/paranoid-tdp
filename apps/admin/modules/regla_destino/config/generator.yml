@@ -13,7 +13,10 @@ generator:
 
     config:
       actions: ~
-      fields:  ~
+      fields:
+        prefijos_list:
+          label: Prefijos
+          help: Prefijos donde el usuario tiene permitido llamar
       list:
         title: Destinos
         display: [nombre, importante]
