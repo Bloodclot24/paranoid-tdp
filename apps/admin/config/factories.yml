@@ -3,9 +3,9 @@
 
 prod:
   logger:
-    class:   sfNoLogger
+    class:   sfFileLogger
     param:
-      level:   err
+      level:   info
       loggers: ~
 
 test:
