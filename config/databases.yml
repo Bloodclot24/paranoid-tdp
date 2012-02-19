@@ -15,5 +15,5 @@ prod:
     class: sfDoctrineDatabase
     param:
       dsn:      mysql:host=localhost;dbname=paranoid
-      username: root
+      username: paranoid
       password: my123
