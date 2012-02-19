@@ -1,6 +1,7 @@
 
 import org.asteriskjava.fastagi.AgiChannel;
 import org.asteriskjava.fastagi.AgiException;
+import org.asteriskjava.fastagi.AgiHangupException;
 import org.asteriskjava.fastagi.AgiRequest;
 import org.asteriskjava.fastagi.BaseAgiScript;
 
@@ -13,6 +14,7 @@ public class CallChecker extends BaseAgiScript {
 	    public void service(AgiRequest request, AgiChannel channel) throws AgiException
 	    {
 	    	
+	    	try {
 	    	
 	    	this.Extensiondiscada = request.getExtension();
 	    	
@@ -23,22 +25,39 @@ public class CallChecker extends BaseAgiScript {
 	    	channel.exec("dial", "LOCAL/"+this.Extensiondiscada+"@llamadas");
 	    	        
 	        channel.hangup();
+	        
+	    	} catch (AgiHangupException ex){
+	    		System.out.println("la llamada ha sido cortada");
+	    		this.hangup(channel);
+	    	}
 	    	
 	    }
 	    
+	    private void hangup(AgiChannel channel){
+	    	
+	    	try {
+				channel.exec("StopMonitor");
+			} catch (AgiException e) {
+				// TODO Auto-generated catch block
+				System.out.println("no se ha podido detener el monitor");
+			}
+	    	
+	    }
 	    
 	    private void router(){
+	    
 	    	
 	    }
 	    
 	    
-	    public int checkReglas(){
+	    private int checkReglas(){
 	    	return 1;
 	    }
 	    
-	    public int checkRed(){
+	    private int checkRed(){
 	    	return 1;
 	    }
+	    
 	    
 	    
 	    public void getPerfilUsuario(){
