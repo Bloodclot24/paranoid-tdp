@@ -121,7 +121,7 @@ abstract class BaseRegla extends sfDoctrineRecord
         $this->setSubClasses(array(
              'ReglaDias' => 
              array(
-              'type' => 'regla_dias',
+              'type' => 'dias',
              ),
              'ReglaLlamadasSimultaneas' => 
              array(
@@ -130,6 +130,10 @@ abstract class BaseRegla extends sfDoctrineRecord
              'ReglaCostoPorMinuto' => 
              array(
               'type' => 'costo_por_minuto',
+             ),
+             'ReglaDestino' => 
+             array(
+              'type' => 'destino',
              ),
              ));
     }

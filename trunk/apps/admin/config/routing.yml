@@ -1,3 +1,12 @@
+regla_destino:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ReglaDestino
+    module:               regla_destino
+    prefix_path:          /regla_destino
+    column:               id
+    with_wildcard_routes: true
+
 notificaciones:
   class: sfDoctrineRouteCollection
   options:

@@ -126,6 +126,33 @@ ReglaCostoPorMinuto:
   columns:
     costoMaximo: float
 
+ReglaDestino:
+  inheritance:
+    extends: Regla
+    type: column_aggregation
+    keyField: type
+    keyValue: destino
+  relations:
+    Prefijos:
+      class: Prefijo
+      type: many
+      refClass: ReglaPrefijo
+      local: regla_id
+      foreign: prefijo_id
+      foreignAlias: Reglas
+
+
+
+ReglaPrefijo:
+  tableName: regla_prefijo
+  columns:
+    regla_id:
+      type: integer(4)
+      primary: true
+    prefijo_id:
+      type: integer(4)
+      primary: true
+
 Prefijo:
   columns:
     id:

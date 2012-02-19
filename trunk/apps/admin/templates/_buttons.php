@@ -11,6 +11,7 @@
                 <li><?php echo link_to("Horarios", "regla_horario/index") ?></li>
                 <li><?php echo link_to("Costo por minuto", "regla_costo_minuto/index") ?></li>
                 <li><?php echo link_to("Llamadas simultáneas", "regla_llamadas_simultaneas/index") ?></li>
+                <li><?php echo link_to("Destinos", "regla_destino/index") ?></li>
             </ul>
         </li>
         <li><?php echo link_to("Estadísticas", 'estadisticas/index') ?></li>
