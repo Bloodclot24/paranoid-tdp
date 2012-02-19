@@ -17,6 +17,9 @@ generator:
         informarAlertas:
           label: Informar
           help: Si está activado, se alertará al usuario sobre infracciones cometidas
+        PBXUser:
+          label: Usuario PBX
+          help:
       list:
         display: [=username, name, PBXUser]
         title: Usuarios Paranoid
@@ -24,10 +27,19 @@ generator:
           _edit: ~
           _delete: ~
           alarmas_historicas: ~
-      filter:  ~
+      filter:
+        display: [username, first_name, last_name, email_address]
       form:
         class: sfGuardUserAdminForm
       edit:
         title: Editar Usuario Paranoid
+        fields:
+          PBXUser:
+            label: Usuario PBX
+            help:
       new:
         title: Nuevo Usuario Paranoid
+        fields:
+          PBXUser:
+            label: Usuario PBX
+            help:
