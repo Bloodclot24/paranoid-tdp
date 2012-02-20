@@ -14,6 +14,11 @@ public class CallChecker extends BaseAgiScript {
 		private String sAvisoGrabando="tt-weasels"; //sonido que avisa que se grabará la llamada
 		private String sAvisoCorte="tt-weasels";  //sonido que avisa que se va cortar la misma
 
+		
+		//TODO agregar en el CDR ok, fallidas, sospechosas
+		 
+		
+		
 	    public void service(AgiRequest request, AgiChannel channel) throws AgiException
 	    {
 	    	
@@ -21,18 +26,29 @@ public class CallChecker extends BaseAgiScript {
 	    	
 	    	Notificacion alerta = UtilsFacade.estadoDeAlerta(request); //consulta si salto alguna alerta
 	    	
+	    	/**
+	    	 * 3 si no pasa y hay que alertar inmediatamente - alerta roja
+	    	 * 2 si no pasa y pero solo logueo - alerta naranja
+	    	 * 1 si pasa pero hay que alertar - alerta amarilla
+	    	 * 0 si pasa - no alerta
+	    	 */
+	    	
 	    	switch (alerta.getEstadoDeAlerta()) {
 			case 3:
+				this.agregaCDR("fallidas");
 				this.cortarYavisar();
 				break;
 			case 2:
+				this.agregaCDR("fallidas");
 				this.cortarYavisar();
 				break;
 			case 1:
+				this.agregaCDR("sospechosas");
 				this.arrancaGrabar(alerta.getMasinfourl());
 				this.llamar();
 				break;
 			case 0:
+				this.agregaCDR("ok");
 				this.llamar();
 				break;
 
@@ -57,9 +73,23 @@ public class CallChecker extends BaseAgiScript {
 			}
 	    }
 	    
+	    private void agregaCDR(String mensaje){
+	    	
+	    	try {
+				canal.setVariable("CDR(userfield)", mensaje);
+			} catch (AgiException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.out.println("no se ha podido cargar la variable al canal");
+				
+			}
+	    	
+	    	//same => n,Set(CDR(userfield)="llamada registrada paranoid")
+	    			
+	    			
+	    }
+	    
 	    /**
-	     * 
-	     * 
 	     * @param channel
 	     */
 	    private void cortarYavisar(){
