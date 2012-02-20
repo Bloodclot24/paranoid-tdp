@@ -10,12 +10,12 @@ enum Costo {
 public class RedNeuronal {
 
 	double nivelDecision;
-	HashMap redNeuronalUsuario;
+	//HashMap redNeuronalUsuario;
 	
 	public RedNeuronal() {
 		nivelDecision = 0.5;
-		redNeuronalUsuario = new HashMap<String,String>();
-		redNeuronalUsuario.put(0, "/home/karen/workspace/tdp/paranoid-tdp/paranoid-agi-utils/src/laboral.nnet");
+		//redNeuronalUsuario = new HashMap<String,String>();
+		//redNeuronalUsuario.put(0, "/usr/src/paranoid/laboral.nnet");
 		//redNeuronalUsuario.put(1, "/home/karen/workspace/tdp/paranoid-tdp/paranoid-agi-utils/src/laboralconalmuerzo.nnet");
 	}
 	
@@ -37,7 +37,7 @@ public class RedNeuronal {
 	}
 	
 	public boolean esHabitual(Llamada llamada) {
-		NeuralNetwork nnet = NeuralNetwork.load((String)redNeuronalUsuario.get(llamada.getIdUsuario()));
+		NeuralNetwork nnet = NeuralNetwork.load("/home/zeke/workspace/paranoid-agi-utils/src/laboral.nnet");
 		System.out.println("hora " + llamada.getHora() + " dia " + (llamada.getDia()-1) + " destino " + llamada.getDestino().ordinal() + " costo " + obtenerRangoCosto(llamada.getCostoMinuto()).ordinal());
 		nnet.setInput(llamada.getHora()/23.0,
 					(llamada.getDia()-1)/6.0, 
