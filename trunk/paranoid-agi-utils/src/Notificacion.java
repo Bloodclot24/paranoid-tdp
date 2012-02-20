@@ -10,6 +10,7 @@ public class Notificacion {
 	int userIdAsociado;
 	int estadoDeAlerta;
 	Boolean grabar;
+	Regla reglaAsociada;
 	
 	
 	private Notificacion(String accionTomada) {
@@ -37,15 +38,15 @@ public class Notificacion {
 		
 		switch (nivelDeAlerta) {
 		case 3:
-			Mensaje = "Se ha violado una regla marcada como importante";
+			Mensaje = "Se ha cortado la llamada y avisado inmediatamente al administrador";
 			return new Notificacion(Mensaje);
 
 		case 2:
-			Mensaje = "Se ha violado una regla no determinante";
+			Mensaje = "Se ha cortado la llamada";
 			return new Notificacion(Mensaje);
 			
 		case 1:
-			Mensaje = "La llamada no es normal para este usuario";
+			Mensaje = "El comportamiento no es habitual para el usuario, se graba la conversación";
 			return new Notificacion(Mensaje);
 
 		default:
@@ -117,6 +118,14 @@ public class Notificacion {
 
 	public void setGrabar(Boolean grabar) {
 		this.grabar = grabar;
+	}
+
+	public Regla getReglaAsociada() {
+		return reglaAsociada;
+	}
+
+	public void setReglaAsociada(Regla reglaAsociada) {
+		this.reglaAsociada = reglaAsociada;
 	}
 	
 	
