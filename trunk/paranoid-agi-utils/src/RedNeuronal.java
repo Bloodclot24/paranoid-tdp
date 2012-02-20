@@ -14,7 +14,8 @@ public class RedNeuronal {
 	public RedNeuronal() {
 		nivelDecision = 0.5;
 		redNeuronalUsuario = new HashMap<String,String>();
-		redNeuronalUsuario.put(0, "../condestino.nnet");
+		redNeuronalUsuario.put(0, "/home/karen/workspace/tdp/paranoid-tdp/paranoid-agi-utils/src/laboral.nnet");
+		//redNeuronalUsuario.put(1, "/home/karen/workspace/tdp/paranoid-tdp/paranoid-agi-utils/src/laboralconalmuerzo.nnet");
 	}
 	
 	private Costo obtenerRangoCosto(float costo) {
@@ -34,13 +35,29 @@ public class RedNeuronal {
 			nivelDecision = nuevoNivel;
 	}
 	
-	public boolean obtenerResultado(Llamada llamada) {
+	public boolean esHabitual(Llamada llamada) {
 		NeuralNetwork nnet = NeuralNetwork.load((String)redNeuronalUsuario.get(llamada.getIdUsuario()));
-		nnet.setInput(llamada.getHora()/24.0,
-					llamada.getDestino().ordinal()/4.0, 
-					llamada.getDia()/7.0, 
-					obtenerRangoCosto(llamada.getCostoMinuto()).ordinal()/4.0);
+		System.out.println("hora " + llamada.getHora() + " dia " + (llamada.getDia()-1) + " destino " + llamada.getDestino().ordinal() + " costo " + obtenerRangoCosto(llamada.getCostoMinuto()).ordinal());
+		nnet.setInput(llamada.getHora()/23.0,
+					(llamada.getDia()-1)/6.0, 
+					llamada.getDestino().ordinal()/3.0, 
+					obtenerRangoCosto(llamada.getCostoMinuto()).ordinal()/3.0);
 		nnet.calculate();
+		System.out.println(nnet.getOutput()[0]);
 		return nnet.getOutput()[0] > nivelDecision;
 	}
+	
+    public static void main(String args[]) {
+    	
+    	System.out.println("Red Neuronal entrenada para un perfil de usuario " +
+    			"que realiza\nllamadas internas, locales y nacionales en horario laboral de 9 a 18 " +
+    			"con un costo de entre 0 y 5 pesos");
+       	
+    	Llamada llamada = new Llamada(0, "180", 4);
+    	RedNeuronal red = new RedNeuronal();
+    	if(red.esHabitual(llamada))
+    		System.out.println("normal");
+    	else 
+    		System.out.println("anormal\t\tX");
+    }
 }
