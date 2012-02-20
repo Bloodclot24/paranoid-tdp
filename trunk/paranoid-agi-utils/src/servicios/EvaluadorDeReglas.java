@@ -30,16 +30,16 @@ public class EvaluadorDeReglas {
             
             String extension = Integer.toString(idUsuario);
             ResultSet rs = s.executeQuery (
-            		"select r.* " +
-                    "from sf_guard_user sgu" +
+            		"select r.*" +
+                    " from sf_guard_user sgu" +
                     ", regla_perfil rp" +
                     ", regla r" +
                     ", usuario_pbx up" +
-                    "where" +
-                    "sgu.perfil_id=rp.perfil_id" +
-                    "and rp.regla_id=r.id" +
-                    "and sgu.pbxuser_id=up.id" +
-                    "and up.extension='"+extension+"'"
+                    " where" +
+                    " sgu.perfil_id=rp.perfil_id" +
+                    " and rp.regla_id=r.id" +
+                    " and sgu.pbxuser_id=up.id" +
+                    " and up.extension='"+extension+"'"
                     );
             
             int idRegla;
@@ -74,6 +74,9 @@ public class EvaluadorDeReglas {
             rs.close();
             s.close();
         }catch (SQLException ex) {
+        	
+        	ex.printStackTrace();
+        	
             System.out.println("Hubo un problema al intentar obtener lo datos");
         }
 		
@@ -87,6 +90,10 @@ public class EvaluadorDeReglas {
 	}
 	
 	public Regla evaluarReglas() {
+		
+		if (reglas == null){
+			return null;
+		}
 		Iterator<Regla> it = reglas.iterator();
 		boolean resultado = true;
 		Regla regla = null;

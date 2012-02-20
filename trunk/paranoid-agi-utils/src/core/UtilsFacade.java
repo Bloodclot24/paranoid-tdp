@@ -59,6 +59,8 @@ public class UtilsFacade {
 		RedNeuronal red = new RedNeuronal();
 		Boolean esnormal = red.esHabitual(llamadaEnCuestion);
 		
+		System.out.println("devolucion: " + esnormal);
+		
 		if (!esnormal){
 			Notificacion alerta = generarAlerta(request, 1);
 			GrabarLlamada(alerta);

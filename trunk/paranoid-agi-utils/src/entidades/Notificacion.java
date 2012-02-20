@@ -35,24 +35,28 @@ public class Notificacion {
 
 	public static Notificacion getNotificacionDeAlerta(int nivelDeAlerta){
 		
-		String Mensaje;
+		String Mensaje = "";
 		
 		switch (nivelDeAlerta) {
 		case 3:
 			Mensaje = "Se ha cortado la llamada y avisado inmediatamente al administrador";
-			return new Notificacion(Mensaje);
-
+			break;
 		case 2:
 			Mensaje = "Se ha cortado la llamada";
-			return new Notificacion(Mensaje);
-			
+			break;
 		case 1:
 			Mensaje = "El comportamiento no es habitual para el usuario, se graba la conversación";
-			return new Notificacion(Mensaje);
-
+			break;
 		default:
-			return null;
+			break;
+
 		}
+		
+		Notificacion not = new Notificacion(Mensaje);
+		
+		not.setEstadoDeAlerta(nivelDeAlerta);
+		
+		return not;
 	}
 	
 
