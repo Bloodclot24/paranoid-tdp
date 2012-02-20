@@ -1,3 +1,8 @@
+package servicios;
+import entidades.Notificacion;
+import entidades.Regla;
+import entidades.UsuarioParanoid;
+
 
 public class Notificador {
 

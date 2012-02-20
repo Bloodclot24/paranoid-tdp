@@ -1,3 +1,4 @@
+package entidades;
 import java.util.Calendar;
 
 enum Destino {
@@ -18,7 +19,7 @@ public class Llamada {
 		this.hora = calendario.get(Calendar.HOUR_OF_DAY);
 	}
 	
-	Llamada(int idUsuario, String destino, float costoMin) {
+	public Llamada(int idUsuario, String destino, float costoMin) {
 		this.idUsuario = idUsuario;
 		if(destino.length() == 3 || destino.length() == 4)
 			this.destino = Destino.INTERNO;
