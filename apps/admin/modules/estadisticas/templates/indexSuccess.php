@@ -29,7 +29,7 @@
 		}else if( $row[0] == "fallida"){
 			$llamadasFallidas = $row[1];
 		}else if( $row[0] == "sospechosa"){
-			$llamadasSospechosa = $row[1] ;
+			$llamadasSospechosas = $row[1] ;
 		}
 	    }
 	    /*** close the database connection ***/
@@ -186,7 +186,7 @@
 		<tr>
 			<td class="titulo">Llamadas totales</td>
 		</tr><tr>
-			<td class="indicador"><?php echo ($llamadasOk+ $llamadasOk+ $llamadasSospechosas) ?></td>
+			<td class="indicador"><?php echo ($llamadasOk+ $llamadasFallidas+ $llamadasSospechosas) ?></td>
 		</tr>
 		<tr>
 			<td class="titulo">Llamadas exitosas</td>
