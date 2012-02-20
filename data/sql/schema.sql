@@ -4,7 +4,7 @@ CREATE TABLE historico_alarmas (id INT AUTO_INCREMENT, nombre TEXT, fecha DATE, 
 CREATE TABLE notificaciones (id INT AUTO_INCREMENT, fecha DATE, accion TEXT, masinfourl TEXT, regla_id INT, user_id BIGINT, leida TINYINT(1), INDEX regla_id_idx (regla_id), INDEX user_id_idx (user_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE usuario_pbx (id INT AUTO_INCREMENT, extension TEXT, tecnologia TEXT, ultimo_registro DATE, conectado TINYINT(1), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE perfil (id INT AUTO_INCREMENT, nombre TEXT, descripcion TEXT, PRIMARY KEY(id)) ENGINE = INNODB;
-CREATE TABLE prefijo (id INT AUTO_INCREMENT, descripcion TEXT, numero BIGINT, costoporminuto FLOAT(18, 2), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE prefijo (id INT AUTO_INCREMENT, descripcion TEXT, numero TEXT, costoporminuto FLOAT(18, 2), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE regla (id INT AUTO_INCREMENT, nombre TEXT, importante TINYINT(1), type VARCHAR(255), lunes TINYINT(1), martes TINYINT(1), miercoles TINYINT(1), jueves TINYINT(1), viernes TINYINT(1), sabado TINYINT(1), domingo TINYINT(1), desde TIME, hasta TIME, cantidadllamadas BIGINT, costomaximo FLOAT(18, 2), INDEX regla_type_idx (type), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE regla (id INT AUTO_INCREMENT, nombre TEXT, importante TINYINT(1), type VARCHAR(255), lunes TINYINT(1), martes TINYINT(1), miercoles TINYINT(1), jueves TINYINT(1), viernes TINYINT(1), sabado TINYINT(1), domingo TINYINT(1), desde TIME, hasta TIME, cantidadllamadas BIGINT, costomaximo FLOAT(18, 2), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE regla_perfil (regla_id INT, perfil_id INT, PRIMARY KEY(regla_id, perfil_id)) ENGINE = INNODB;

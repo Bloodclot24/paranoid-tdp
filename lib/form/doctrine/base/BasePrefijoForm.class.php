@@ -17,7 +17,7 @@ abstract class BasePrefijoForm extends BaseFormDoctrine
     $this->setWidgets(array(
       'id'             => new sfWidgetFormInputHidden(),
       'descripcion'    => new sfWidgetFormTextarea(),
-      'numero'         => new sfWidgetFormInputText(),
+      'numero'         => new sfWidgetFormTextarea(),
       'costoPorMinuto' => new sfWidgetFormInputText(),
       'reglas_list'    => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'ReglaDestino')),
     ));
@@ -25,7 +25,7 @@ abstract class BasePrefijoForm extends BaseFormDoctrine
     $this->setValidators(array(
       'id'             => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'descripcion'    => new sfValidatorString(array('required' => false)),
-      'numero'         => new sfValidatorInteger(array('required' => false)),
+      'numero'         => new sfValidatorString(array('required' => false)),
       'costoPorMinuto' => new sfValidatorNumber(array('required' => false)),
       'reglas_list'    => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'ReglaDestino', 'required' => false)),
     ));

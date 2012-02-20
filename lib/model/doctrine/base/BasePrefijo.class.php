@@ -7,13 +7,13 @@
  * 
  * @property integer $id
  * @property string $descripcion
- * @property integer $numero
+ * @property string $numero
  * @property float $costoPorMinuto
  * @property Doctrine_Collection $Reglas
  * 
  * @method integer             getId()             Returns the current record's "id" value
  * @method string              getDescripcion()    Returns the current record's "descripcion" value
- * @method integer             getNumero()         Returns the current record's "numero" value
+ * @method string              getNumero()         Returns the current record's "numero" value
  * @method float               getCostoPorMinuto() Returns the current record's "costoPorMinuto" value
  * @method Doctrine_Collection getReglas()         Returns the current record's "Reglas" collection
  * @method Prefijo             setId()             Sets the current record's "id" value
@@ -41,8 +41,8 @@ abstract class BasePrefijo extends sfDoctrineRecord
         $this->hasColumn('descripcion', 'string', null, array(
              'type' => 'string',
              ));
-        $this->hasColumn('numero', 'integer', null, array(
-             'type' => 'integer',
+        $this->hasColumn('numero', 'string', null, array(
+             'type' => 'string',
              ));
         $this->hasColumn('costoPorMinuto', 'float', null, array(
              'type' => 'float',
