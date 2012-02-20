@@ -32,6 +32,15 @@
 			$llamadasSospechosas = $row[1] ;
 		}
 	    }
+	
+	    $dbh1 = new PDO("mysql:host=$hostname;dbname=paranoid", 'root', 'my123');
+	    /*** echo a message saying we have connected ***/
+	    $sql1 = "SELECT COUNT(*) FROM paranoid.sf_guard_user ";
+
+	    foreach ($dbh1->query($sql1) as $row1)
+		{
+	    	$CantUsuarios = $row1[0];
+		}
 	    /*** close the database connection ***/
 	    $dbh = null;
 	    }
@@ -175,36 +184,34 @@
 	<div id="mainGraphic" style="width: 800px; height: 400px; margin: 10 auto">	</div>
 	<div id="llamadasGraphic" style="width: 500px; height: 400px; margin: 10 auto;margin-left:30px;float:left"> </div>
 	<div id="indicadores" style="width: 300px; height: 400px; margin: 10 auto;margin-left:20px;float:left">
-		<table>
-        <?php foreach ($estadisticas as $estadistica) { ?>
-		<tr>
-			<td class="titulo">Usuarios</td>
-		</tr><tr>
-			<td class="indicador"><?php echo $estadistica->getUsuarios() ?></td>
-		</tr>
+	<table>
+	<tr>
+		<td class="titulo">Usuarios</td>
+	</tr><tr>
+		<td class="indicador"><?php echo $CantUsuarios ?></td>
+	</tr>
 
-		<tr>
-			<td class="titulo">Llamadas totales</td>
-		</tr><tr>
-			<td class="indicador"><?php echo ($llamadasOk+ $llamadasFallidas+ $llamadasSospechosas) ?></td>
-		</tr>
-		<tr>
-			<td class="titulo">Llamadas exitosas</td>
-		</tr><tr>
-			<td class="indicador"><?php echo $llamadasOk ?></td>
-		</tr>
-		<tr>
-			<td class="titulo">Llamadas fallidas</td>
-		</tr><tr>
-			<td class="indicador"><?php echo $llamadasFallidas ?></td>
-		</tr>
-		<tr>
-			<td class="titulo">Llamadas sospechosas</td>
-		</tr><tr>
-			<td class="indicador"><?php echo $llamadasSospechosas?></td>
-		</tr>
-        <?php } ?>
-	
+	<tr>
+		<td class="titulo">Llamadas totales</td>
+	</tr><tr>
+		<td class="indicador"><?php echo ($llamadasOk+ $llamadasFallidas+ $llamadasSospechosas) ?></td>
+	</tr>
+	<tr>
+		<td class="titulo">Llamadas exitosas</td>
+	</tr><tr>
+		<td class="indicador"><?php echo $llamadasOk ?></td>
+	</tr>
+	<tr>
+		<td class="titulo">Llamadas fallidas</td>
+	</tr><tr>
+		<td class="indicador"><?php echo $llamadasFallidas ?></td>
+	</tr>
+	<tr>
+		<td class="titulo">Llamadas sospechosas</td>
+	</tr><tr>
+		<td class="indicador"><?php echo $llamadasSospechosas?></td>
+	</tr>
+
 	</table>
 	</div>
 </div>
