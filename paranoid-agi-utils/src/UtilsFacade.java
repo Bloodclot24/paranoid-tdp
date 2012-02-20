@@ -35,9 +35,14 @@ public class UtilsFacade {
 		
 		if (reglaMacheada != null){
 			if (reglaMacheada.getImportante() == 1){
-				return generarAlerta(request, 3, reglaMacheada);   //regla macheada e importante
+				
+				Notificacion not = generarAlerta(request, 3, reglaMacheada);   //regla macheada e importante
+				
+				return not;
 			}else{
-				return generarAlerta(request, 2, reglaMacheada);   //regla macheada pero no importante
+				Notificacion not = generarAlerta(request, 2, reglaMacheada);   //regla macheada pero no importante
+				notificar(not, reglaMacheada);
+				return not; 
 			}
 		}
 		
@@ -48,10 +53,24 @@ public class UtilsFacade {
 		if (!esnormal){
 			Notificacion alerta = generarAlerta(request, 1);
 			GrabarLlamada(alerta);
+			notificar(alerta, null);
 			return alerta ;      //comportamiento anormal se graba la llamada
 		}else{
 			return generarAlerta(request, 0);     // todo ok, comportamiento normal
 		}		
+	}
+	
+	
+	public static void notificar(Notificacion unanot, Regla reg){
+		
+		for (UsuarioParanoid unusuario : ServiceMysql.getAdminUsers()) {
+		
+			if (reg != null){
+				Notificador.getNotificador(unanot, unusuario, reg);
+			}else{
+				Notificador.getNotificador(unanot, unusuario);
+			}
+		}	
 	}
 	
 	
@@ -75,8 +94,8 @@ public class UtilsFacade {
 		if (nivel == 0){
 			return Notificacion.getNotificacionVerde();
 		}
-		
 		Notificacion miNotificacion = Notificacion.getNotificacionDeAlerta(nivel);
+		miNotificacion.setReglaAsociada(reglaMacheada);
 		miNotificacion.setReglaIdAsociada(reglaMacheada.getIdRegla());
 		String usuarioExtension = request.getCallerIdNumber();
 		miNotificacion.setUserIdAsociado(ServiceMysql.getUserIdxExtension(usuarioExtension));
