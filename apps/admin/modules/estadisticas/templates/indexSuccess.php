@@ -117,7 +117,7 @@
 			 type: 'area',
 			 name: 'Llamadas cada 10 minutos',
 			 pointInterval: 600 * 1000,
-		       	 pointStart: Date.UTC(2012, 01, 08),
+		       	 pointStart: Date.UTC(2012, 01, 09),
 			 data: [<?php echo join($datos, ', ');?>]
       			}]
 		
