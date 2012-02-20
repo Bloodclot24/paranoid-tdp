@@ -19,7 +19,8 @@ generator:
           help: Costo por minuto
       list:
         title: Prefijos
-      filter:  ~
+      filter:
+        display: [descripcion, numero, costoPorMinuto]
       form:
         display: [descripcion, numero, costoPorMinuto]
       edit:
