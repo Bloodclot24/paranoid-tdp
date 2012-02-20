@@ -1,3 +1,4 @@
+package servicios;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -5,6 +6,9 @@ import java.util.Iterator;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
+
+import entidades.Llamada;
+import entidades.Regla;
 
 
 
@@ -77,7 +81,7 @@ public class EvaluadorDeReglas {
 		
 	}
 		
-	EvaluadorDeReglas(Llamada llamada) {
+	public EvaluadorDeReglas(Llamada llamada) {
 		this.llamada = llamada;
 		cargarReglas();
 	}

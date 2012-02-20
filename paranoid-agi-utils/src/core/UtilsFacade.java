@@ -1,12 +1,21 @@
+package core;
 import java.sql.ResultSet;
 import java.util.Calendar;
 
-import javax.management.Notification;
-import javax.swing.text.StyledEditorKit.BoldAction;
-
 import org.asteriskjava.fastagi.AgiRequest;
 
+import servicios.ConexionBase;
+import servicios.EvaluadorDeReglas;
+import servicios.Notificador;
+import servicios.ServiceMysql;
+
 import com.mysql.jdbc.Statement;
+
+import entidades.Llamada;
+import entidades.Notificacion;
+import entidades.RedNeuronal;
+import entidades.Regla;
+import entidades.UsuarioParanoid;
 
 
 public class UtilsFacade {
@@ -48,7 +57,7 @@ public class UtilsFacade {
 		
 		//evaluo red
 		RedNeuronal red = new RedNeuronal();
-		Boolean esnormal = red.obtenerResultado(llamadaEnCuestion);
+		Boolean esnormal = red.esHabitual(llamadaEnCuestion);
 		
 		if (!esnormal){
 			Notificacion alerta = generarAlerta(request, 1);

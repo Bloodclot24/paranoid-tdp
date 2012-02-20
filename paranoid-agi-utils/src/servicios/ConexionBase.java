@@ -1,3 +1,4 @@
+package servicios;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,7 +27,7 @@ public class ConexionBase {
     	
     }
     
-    static ConexionBase getInstance() {
+    public static ConexionBase getInstance() {
     	if(conexion == null) {
     		conexion = new ConexionBase();
     	}

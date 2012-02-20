@@ -1,3 +1,4 @@
+package servicios;
 import java.awt.List;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -5,6 +6,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import com.mysql.jdbc.Statement;
+
+import entidades.Notificacion;
+import entidades.UsuarioParanoid;
 
 
 public class ServiceMysql {
