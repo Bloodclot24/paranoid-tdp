@@ -160,7 +160,7 @@ Prefijo:
       primary: true
       autoincrement: true
     descripcion: string
-    numero: integer
+    numero: string
     costoPorMinuto: float
 
 Notificaciones:
