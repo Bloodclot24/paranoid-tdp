@@ -1,24 +1,24 @@
 sfGuardUser:
   User_admin:
-    first_name:     John
-    last_name:      Doe
-    email_address:  john.doe@gmail.com
+    first_name:     Paranoid
+    last_name:      PBX
+    email_address:  jplagostena@gmail.com
     username:       admin
     password:       admin
     is_super_admin: true
     Groups:         [Group_admin]
-    PBXUser:        null
-    Perfil:         perfil_nacional
+    PBXUser:        pbx_100
+    Perfil:         perfil_findes
   juan:
     first_name:     Juan
     last_name:      Lagostena
-    email_address:  jplagostena@gmail.com
+    email_address:  jplagostena@yahoo.com.ar
     username:       juan
     password:       juan
     is_super_admin: false
     Groups:         [Group_admin]
-    PBXUser:        null
-    Perfil:         perfil_nacional
+    PBXUser:        pbx_100
+    Perfil:         perfil_findes
 
 sfGuardGroup:
   Group_admin:
@@ -31,10 +31,17 @@ sfGuardPermission:
     name:           admin
     description:    Administrator permission
 
+PBXUser:
+  pbx_100:
+    extension: 100
+    tecnologia: SIP
+    ultimo_registro: 2010/09/09
+    conectado: false
 
 Perfil:
-  perfil_nacional:
-    nombre: Nacional
+  perfil_findes:
+    nombre: Fines de semana
+    Reglas: [sabado]
 
   perfil_internacional:
     nombre: Internacional
@@ -48,6 +55,37 @@ ReglaLlamadasSimultaneas:
       cantidadLlamadas: 2
       nombre: Dos llamada
 
+ReglaDias:
+  sabado:
+    nombre: Sabado y domingo
+    lunes: false
+    martes: false
+    miercoles: false
+    jueves: false
+    viernes: false
+    sabado: true
+    domingo: true
+    desde: 10:00
+    hasta: 12:00
+
+
+Prefijo:
+  local:
+    descripcion: Local
+    numero: 4
+    costoPorMinuto: 0.5
+  interna:
+    descripcion: Interna
+    numero: 1
+    costoPorMinuto: 0
+  internacional:
+    descripcion: Internacional
+    numero: 00
+    costoPorMinuto: 10
+  nacional:
+    descripcion: Nacional
+    numero: 0
+    costoPorMinuto: 1
 
 HistoricoAlarma:
   hitorico_1:

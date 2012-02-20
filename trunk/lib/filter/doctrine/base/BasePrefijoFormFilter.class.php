@@ -21,7 +21,7 @@ abstract class BasePrefijoFormFilter extends BaseFormFilterDoctrine
 
     $this->setValidators(array(
       'descripcion'    => new sfValidatorPass(array('required' => false)),
-      'numero'         => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'numero'         => new sfValidatorPass(array('required' => false)),
       'costoPorMinuto' => new sfValidatorSchemaFilter('text', new sfValidatorNumber(array('required' => false))),
       'reglas_list'    => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'ReglaDestino', 'required' => false)),
     ));
@@ -63,7 +63,7 @@ abstract class BasePrefijoFormFilter extends BaseFormFilterDoctrine
     return array(
       'id'             => 'Number',
       'descripcion'    => 'Text',
-      'numero'         => 'Number',
+      'numero'         => 'Text',
       'costoPorMinuto' => 'Number',
       'reglas_list'    => 'ManyKey',
     );
