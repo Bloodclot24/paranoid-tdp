@@ -1,11 +1,11 @@
 package servicios;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
+
 import java.sql.SQLException;
-import java.util.Collection;
+
 
 import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.Statement;
+
 
 
 public class ConexionBase {
