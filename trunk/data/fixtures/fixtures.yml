@@ -348,9 +348,7 @@ sfGuardUser:
     last_name: PBX
     email_address: jplagostena@gmail.com
     username: admin
-    algorithm: sha1
-    salt: e4083d680f33c9307f574b419c48aa4c
-    password: 9c062476e810d861ff04a184b05fa7a5ef8bb83a
+    password: admin
     is_active: true
     is_super_admin: true
     last_login: '2012-02-21 17:34:55'
@@ -365,9 +363,7 @@ sfGuardUser:
     last_name: Lagostena
     email_address: jplagostena@yahoo.com.ar
     username: juan
-    algorithm: sha1
-    salt: 5aaf51b69b8e6dd3601042a4f2199925
-    password: 0ddedac6f9bbea31551a1a71c70c53924b78da32
+    password: juan
     is_active: true
     is_super_admin: false
     last_login: null
@@ -382,9 +378,7 @@ sfGuardUser:
     last_name: Leite
     email_address: exequiel.leite@gmail.com
     username: zeke
-    algorithm: sha1
-    salt: 985b6c242c5a47f9f5e0140d01dc6f82
-    password: 55dbb62af5b799093eb682b3bef874312fca9654
+    password: zeke
     is_active: true
     is_super_admin: false
     last_login: null
