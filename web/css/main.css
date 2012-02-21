@@ -15,10 +15,8 @@ body {
     font-size: 12pt;
     margin-bottom: 2em;
 }
-#almostLogo {
-    font-size: 50pt;
-    color: #ff8c00;
-    font-weight: bold;
+#logo {
+  width: 200px;
 }
 
 #headerTitle a {
