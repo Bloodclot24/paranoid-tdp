@@ -5,7 +5,7 @@
     <?php include_http_metas() ?>
     <?php include_metas() ?>
     <?php include_title() ?>
-    <link rel="shortcut icon" href="/paranoid/favicon.ico"/>
+    <link rel="shortcut icon" href="/paranoid/favicon.jpg"/>
     <?php include_stylesheets() ?>
     <?php include_javascripts() ?>
 
