@@ -210,4 +210,8 @@ div#signInContainer input[type="checkbox"] {
 	height: 100px;
 }
 
+#tooltip.fancy.viewport-right {
+	background: url('../images/tooltip2.png');
+}
+
 
