@@ -61,6 +61,7 @@ abstract class BaseNotificaciones extends sfDoctrineRecord
              ));
         $this->hasColumn('regla_id', 'integer', 4, array(
              'type' => 'integer',
+             'notnull' => false,
              'length' => 4,
              ));
         $this->hasColumn('user_id', 'integer', null, array(
