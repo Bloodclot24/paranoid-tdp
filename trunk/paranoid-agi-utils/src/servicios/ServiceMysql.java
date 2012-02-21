@@ -40,24 +40,26 @@ public class ServiceMysql {
 //	}
 	
 	
-	public static void nuevaNotificacion(Notificacion notif){
+	public static Boolean nuevaNotificacion(Notificacion notif){
 		
 		try{
 		Statement s = (Statement) ConexionBase.getInstance().getConexion().createStatement();
 		String consulta;
 		
-		if (notif.hayQueGrabar()){
-			consulta = "INSERT INTO notificaciones (fecha, accion, masinfourl,regla_id) VALUES ('"+notif.getFecha()+"','"+notif.getAccion()+"','"+notif.getMasinfourl()+"','"+notif.getReglaIdAsociada()+"')";
+		if (notif.hayQueGrabar() != null && notif.hayQueGrabar()){
+			consulta = "INSERT INTO notificaciones (fecha, accion, masinfourl,regla_id, user_id) VALUES ('"+notif.getFecha()+"','"+notif.getAccion()+"','"+notif.getMasinfourl()+"','"+notif.getReglaIdAsociada()+"','"+notif.getUserIdAsociado()+"')";
 		}else {
-			consulta = "INSERT INTO notificaciones (fecha, accion, masinfourl,regla_id) VALUES ('"+notif.getFecha()+"','"+notif.getAccion()+"',NULL,'"+notif.getReglaIdAsociada()+"')";
+			consulta = "INSERT INTO notificaciones (fecha, accion, masinfourl,regla_id, user_id) VALUES ('"+notif.getFecha()+"','"+notif.getAccion()+"',NULL,'"+notif.getReglaIdAsociada()+"','"+notif.getUserIdAsociado()+"')";
 		}
-		
+			System.out.println(consulta);
 			s.executeUpdate(consulta);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			System.out.println("no se ha podido agregar la nueva notificacion");
 			e.printStackTrace();
+			return false;
 		}
+		return true;
 	}
 	
 	
