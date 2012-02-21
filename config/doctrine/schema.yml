@@ -172,7 +172,9 @@ Notificaciones:
     fecha: date
     accion: string
     masInfoURL: string
-    regla_id: integer(4)
+    regla_id:
+      type: integer(4)
+      notnull: false
     user_id: integer
     leida: boolean
   relations:
