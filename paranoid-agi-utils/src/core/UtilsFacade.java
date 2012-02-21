@@ -81,7 +81,8 @@ public class UtilsFacade {
 			}else{
 				Notificador.getNotificador(unanot, unusuario);
 			}
-		}	
+		}
+		ServiceMysql.nuevaNotificacion(unanot);
 	}
 	
 	
@@ -114,9 +115,6 @@ public class UtilsFacade {
 		return miNotificacion;
 		
 	}
-	
-	
-	
 	
 	/**
 	 * 
