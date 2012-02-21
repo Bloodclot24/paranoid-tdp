@@ -1,5 +1,8 @@
 package entidades;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class Regla {
 
 	private String nombre;
@@ -10,6 +13,7 @@ public class Regla {
 	private float costoMin;
 	private int idRegla;
 	private int importante;
+	private ArrayList<String> prefijos;
 	
 	public Regla(int idRegla, int importante, String tipo, String nombre, int horarioDeste, int horarioHasta, float costoMin) {
 		this.nombre = nombre;
@@ -55,13 +59,26 @@ public class Regla {
 			if(horarioDesde < llamada.getHora() && llamada.getHora() < horarioHasta && diaSemana[llamada.getDia()])
 				resultado = true;
 		}
+		
 		if(tipo.equals("llamadas_simultaneas")) {
 			
 		}
+		
 		if(tipo.equals("costo_por_minuto")) {
 			if(llamada.getCostoMinuto() < costoMin)
 				resultado = true;
 		}
+		
+		if(tipo.equals("destino")) {
+			Iterator<String> it = prefijos.iterator();
+			String destino = llamada.getNumeroDestino();
+			while(it.hasNext()){
+				String pref = it.next();
+				if(destino.matches("^\\" + pref +".*"))
+					resultado = true;
+			}	
+		}
+		
 		return resultado;
 	}
 
@@ -71,6 +88,10 @@ public class Regla {
 
 	public int getImportante() {
 		return importante;
+	}
+	
+	public void agregarDestino(String prefijo) {
+		this.prefijos.add(prefijo);
 	}
 
 }
