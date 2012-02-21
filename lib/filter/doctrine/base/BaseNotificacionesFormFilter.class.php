@@ -23,7 +23,7 @@ abstract class BaseNotificacionesFormFilter extends BaseFormFilterDoctrine
     ));
 
     $this->setValidators(array(
-      'fecha'      => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDateTime(array('required' => false)))),
+      'fecha'      => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'accion'     => new sfValidatorPass(array('required' => false)),
       'masInfoURL' => new sfValidatorPass(array('required' => false)),
       'llamada'    => new sfValidatorPass(array('required' => false)),
