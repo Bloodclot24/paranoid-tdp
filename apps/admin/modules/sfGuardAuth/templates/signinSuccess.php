@@ -1,4 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <?php include_http_metas() ?>
+    <?php include_metas() ?>
+    <?php include_title() ?>
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <?php include_stylesheets() ?>
+    <?php include_javascripts() ?>
+
+</head>
+<body>
+<div id="signIn">
+
+<div id="bienvenido">Bienvenido a Paranoid</div>
+<div id="slogan">controle sus llamadas, duerma tranquilo</div>
+
 <br />
+<div id="signInContainer">
 <form action="<?php echo url_for('@signin') ?>" method="post">
     <div>
         <?php echo $form->renderGlobalErrors() ?>
@@ -32,7 +51,7 @@
         <tr>
             <td colspan="2">
                 <br />
-                <input type="submit" value="<?php echo __('main:login') ?>"/>
+                <input type="submit" id="submitLogin" value="<?php echo __('main:login') ?>"/>
                 <?php $routes = $sf_context->getRouting()->getRoutes() ?>
                 <?php if (isset($routes['sf_guard_forgot_password'])): ?>
                 <a href="<?php echo url_for('@sf_guard_forgot_password') ?>"><?php echo __('Forgot your password?', null, 'sf_guard') ?></a>
@@ -50,4 +69,10 @@
     <?php echo $form['_csrf_token']->render() ?>
     
 </form>
- 
+</div>
+
+</div>
+
+</body>
+</html>
+
