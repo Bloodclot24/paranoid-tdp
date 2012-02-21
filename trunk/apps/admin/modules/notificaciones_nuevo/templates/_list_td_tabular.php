@@ -1,6 +1,7 @@
 <?php
     $leida = $notificaciones->getLeida();
     $id = $notificaciones->getId();
+    $tooltip = $notificaciones->getLlamada();
 ?>
 <td class="sf_admin_date sf_admin_list_td_fecha">
     <?php echo false !== strtotime($notificaciones->getFecha()) ? format_date($notificaciones->getFecha(), "dd/MM/yyyy hh:mm") : '&nbsp;' ?>
@@ -29,5 +30,5 @@
         $sfAction = url_for("notificaciones_nuevo/toggle?id=$id");
         echo image_tag("$imagen.png", array("title" => $title, "alt" => $title, "class" => "admin_icon", "onclick" => "javascript:toggleMarkAsRead(this, $id, '$sfAction')"))
     ?>
-    <?php echo image_tag("more_info.jpg", array("class" => "admin_icon", "onmouseover" => "showTooltip()")); ?>
+    <?php echo image_tag("more_info.jpg", array("class" => "admin_icon tooltip","title" => "$tooltip")); ?>
 </td>

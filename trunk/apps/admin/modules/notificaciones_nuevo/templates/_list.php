@@ -38,5 +38,21 @@ function checkAll()
 {
   var boxes = document.getElementsByTagName('input'); for(var index = 0; index < boxes.length; index++) { box = boxes[index]; if (box.type == 'checkbox' && box.className == 'sf_admin_batch_checkbox') box.checked = document.getElementById('sf_admin_list_batch_checkbox').checked } return true;
 }
+
+$(".tooltip").tooltip({
+	track: true,
+	delay: 0,
+	showURL: false,
+	opacity: 1,
+	fixPNG: true,
+	showBody: " - ",
+	extraClass: "pretty fancy",
+	top: -15,
+	left: 5
+});
+
 /* ]]> */
+
+
 </script>
+
