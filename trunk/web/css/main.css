@@ -214,11 +214,11 @@ div#signInContainer input[type="checkbox"] {
 	background: url('../images/tooltip2.png');
 }
 
-#tooltip.fancy.viewport-bottom {
-    background: url('../images/tooltip_bottom.png');
-    padding-top: 5em;
-    background-repeat: no-repeat;
-    height: 100px;
-}
+/*#tooltip.fancy.viewport-bottom {*/
+    /*background: url('../images/tooltip_bottom.png');*/
+    /*padding-bottom: 15em;*/
+    /*background-repeat: no-repeat;*/
+    /*height: 100px;*/
+/*}*/
 
 
