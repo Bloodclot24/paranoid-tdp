@@ -39,15 +39,30 @@ public class EvaluadorDeReglas {
                     " sgu.perfil_id=rp.perfil_id" +
                     " and rp.regla_id=r.id" +
                     " and sgu.pbxuser_id=up.id" +
-                    " and up.extension='"+extension+"'"
+                    " and up.extension='"+extension+"';"
                     );
             
+            ResultSet rs1 = s.executeQuery (
+            		"select pref.*" +
+            		" from" + 
+            		" sf_guard_user sgu" +
+            		", regla_perfil rp" +
+            		", regla_prefijo rpref" +
+            		", prefijo pref" +
+            		", usuario_pbx up" +
+            		" where" +
+            		" sgu.perfil_id=rp.perfil_id" +
+            		" and rp.regla_id=rpref.regla_id" +
+            		" and rpref.prefijo_id=pref.id" +
+            		" and sgu.pbxuser_id=up.id" +
+            		" and up.extension='"+extension+"';"
+            		);
             int idRegla;
             String tipo;
-        	int horarioDesde;
-        	int horarioHasta;
+        	int horarioDesde = -1;
+        	int horarioHasta = -1;
         	String[] diaSemana;
-        	float costoMin;
+        	float costoMin = -1;
             String nombreRegla;
             int importante;
             String[] dias = { "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"}; 
@@ -57,16 +72,28 @@ public class EvaluadorDeReglas {
             	importante = Integer.parseInt(rs.getString("importante"));
             	tipo = rs.getString("type");
             	nombreRegla = rs.getString("nombre");
-            	horarioDesde = Integer.parseInt(rs.getString("desde").substring(0, 2));
-            	horarioHasta = Integer.parseInt(rs.getString("hasta").substring(0, 2));
-            //	costoMin = Float.parseFloat(rs.getString("costomaximo"));
             	
-           // 	Regla regla = new Regla(idRegla, importante, tipo, nombreRegla, horarioDesde, horarioHasta, costoMin);
-            	Regla regla = new Regla(idRegla, importante, tipo, nombreRegla, horarioDesde, horarioHasta, 0);
+            	if(tipo.equals("costo_por_minuto"))
+            		costoMin = Float.parseFloat(rs.getString("costomaximo"));
             	
-            	for (int i = 0; i < 7; i++) {
-            		if(rs.getString(dias[i])!= null) {
-            			regla.agregarDia(i);
+            	if(tipo.equals("dias")) {
+            		horarioDesde = Integer.parseInt(rs.getString("desde").substring(0, 2));
+            		horarioHasta = Integer.parseInt(rs.getString("hasta").substring(0, 2));
+            	}
+            	
+            	Regla regla = new Regla(idRegla, importante, tipo, nombreRegla, horarioDesde, horarioHasta, costoMin);
+            	
+            	if(tipo.equals("dias")) {
+            		for (int i = 0; i < 7; i++) {
+            			if(rs.getString(dias[i])!= null) {
+            				regla.agregarDia(i);
+            			}
+            		}
+            	}
+            	
+            	if(tipo.equals("destino")) {
+            		while(rs1.next()){
+            			regla.agregarDestino(rs1.getString("numero"));
             		}
             	}
             	
@@ -74,13 +101,13 @@ public class EvaluadorDeReglas {
             }
             rs.close();
             s.close();
+            
         }catch (SQLException ex) {
         	
         	ex.printStackTrace();
         	
             System.out.println("Hubo un problema al intentar obtener lo datos");
         }
-		
 		
 		
 	}

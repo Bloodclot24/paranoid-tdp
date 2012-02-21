@@ -12,6 +12,7 @@ public class Llamada {
 	private int diaEnum;
 	private int hora;
 	private float costoMin;
+	private String numeroDestino;
 	
 	private void obtenerFechaYHora() {
 		Calendar calendario = Calendar.getInstance();
@@ -30,11 +31,16 @@ public class Llamada {
 		else
 			this.destino = Destino.LOCAL;
 		this.costoMin = costoMin;
+		this.numeroDestino = destino;
 		obtenerFechaYHora();
 	}
 	
 	public Destino getDestino() {
 		return this.destino;
+	}
+	
+	public String getNumeroDestino() {
+		return this.numeroDestino;
 	}
 	
 	public float getCostoMinuto() {
