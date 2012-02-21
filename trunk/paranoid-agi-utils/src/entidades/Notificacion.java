@@ -12,6 +12,7 @@ public class Notificacion {
 	int estadoDeAlerta;
 	Boolean grabar;
 	Regla reglaAsociada;
+	String datoLlamada;
 	
 	
 	private Notificacion(String accionTomada) {
@@ -130,6 +131,14 @@ public class Notificacion {
 
 	public void setReglaAsociada(Regla reglaAsociada) {
 		this.reglaAsociada = reglaAsociada;
+	}
+
+	public String getDatoLlamada() {
+		return datoLlamada;
+	}
+
+	public void setDatoLlamada(String datoLlamada) {
+		this.datoLlamada = datoLlamada;
 	}
 	
 	
