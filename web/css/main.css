@@ -183,3 +183,30 @@ div#signInContainer input[type="checkbox"] {
 }
 
 
+/******** TOOLTIP *************/
+
+#tooltip.pretty {
+	font-family: Arial;
+	border: none;
+	width: 210px;
+	padding:20px;
+	height: 135px;
+	opacity: 0.8;
+	background: url('../images/tooltip.png');
+}
+#tooltip.pretty h3 {
+	margin-bottom: 0.75em;
+	font-size: 12pt;
+	width: 220px;
+	text-align: center;
+}
+#tooltip.pretty div { width: 220px; text-align: left; }
+
+#tooltip.fancy {
+    background: url('../images/tooltip.png');
+    background-repeat: no-repeat;
+	padding-top: 5em;
+	height: 100px;
+}
+
+
