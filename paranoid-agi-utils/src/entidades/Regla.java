@@ -57,8 +57,10 @@ public class Regla {
 	public boolean evaluar(Llamada llamada) {
 		boolean resultado = false;
 		if(tipo.equals("dias")) {
-			if(horarioDesde < llamada.getHora() && llamada.getHora() < horarioHasta && diaSemana[llamada.getDia()])
-				resultado = true;
+			if(this.horarioDesde < this.horarioHasta) 
+				resultado = estaDentro (llamada.getHora(), llamada.getDia(), this.horarioDesde, this.horarioHasta);
+			else
+				resultado = estaDentro(llamada.getHora(), llamada.getDia(), this.horarioDesde, 24) || estaDentro(llamada.getHora(), llamada.getDia(), 0, this.horarioHasta);
 		}
 		
 		if(tipo.equals("llamadas_simultaneas")) {
@@ -80,6 +82,13 @@ public class Regla {
 			}	
 		}
 		
+		return resultado;
+	}
+	
+	private boolean estaDentro(int horarioLlamada, int diaLlamada, int desde, int hasta) {
+		boolean resultado = false;
+		if( horarioDesde < horarioLlamada && horarioLlamada < horarioHasta && diaSemana[diaLlamada])
+			resultado = true;
 		return resultado;
 	}
 
