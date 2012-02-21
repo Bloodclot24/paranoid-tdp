@@ -21,7 +21,7 @@ class UrlRuleHelper {
         $ruleClass = get_class($rule);
         switch ($ruleClass) {
             case "ReglaDias":
-                $moduleName .= "regla_dias";
+                $moduleName .= "regla_horario";
                 break;
             case "ReglaLlamadasSimultaneas":
                 $moduleName .= "regla_llamadas_simultaneas";
