@@ -17,9 +17,9 @@ class ReglaDiasForm extends BaseReglaDiasForm
     {
         parent::configure();
 
-        $this->mergePostValidator(
-            new sfValidatorSchemaCompare('desde', '<=', 'hasta', array(), array('invalid' => 'La primera hora (%left_field%) debe ser menor que
-            la ultima (%right_field%)'))
-        );
+//        $this->mergePostValidator(
+//            new sfValidatorSchemaCompare('desde', '<=', 'hasta', array(), array('invalid' => 'La primera hora (%left_field%) debe ser menor que
+//            la ultima (%right_field%)'))
+//        );
     }
 }
