@@ -17,7 +17,7 @@ sfGuardUser:
     password:       juan
     is_super_admin: false
     Groups:         [Group_admin]
-    PBXUser:        pbx_100
+    PBXUser:        pbx_101
     Perfil:         perfil_findes
 
 sfGuardGroup:
@@ -32,6 +32,12 @@ sfGuardPermission:
     description:    Administrator permission
 
 PBXUser:
+  pbx_101:
+    extension: 101
+    tecnologia: SIP
+    ultimo_registro: 2010/09/09
+    conectado: false
+
   pbx_100:
     extension: 100
     tecnologia: SIP
