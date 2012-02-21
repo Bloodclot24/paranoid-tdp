@@ -77,7 +77,7 @@ public class Regla {
 			String destino = llamada.getNumeroDestino();
 			while(it.hasNext()){
 				String pref = it.next();
-				if(destino.matches("^\\" + pref +".*"))
+				if(destino.matches("^" + pref +".*"))
 					resultado = true;
 			}	
 		}
@@ -87,7 +87,7 @@ public class Regla {
 	
 	private boolean estaDentro(int horarioLlamada, int diaLlamada, int desde, int hasta) {
 		boolean resultado = false;
-		if( horarioDesde < horarioLlamada && horarioLlamada < horarioHasta && diaSemana[diaLlamada])
+		if(desde <= horarioLlamada && horarioLlamada <= hasta && diaSemana[diaLlamada])
 			resultado = true;
 		return resultado;
 	}
