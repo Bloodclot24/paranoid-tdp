@@ -25,7 +25,7 @@
 <body>
 <?php $sf_user->setCulture('es') ?>
 <div id="header">
-    <span id="almostLogo">*</span><span id="headerTitle"><?php echo link_to('Paranoid', '@homepage')?></span>
+    <span id="headerTitle"><?php echo link_to(image_tag("paranoid_logo.png", array("alt"=>"Paranoid", "title" => "Paranoid", "id" => "logo")), '@homepage')?></span>
     <?php if ($sf_user->isAuthenticated()): ?>
     <?php include_partial("global/buttons"); ?>
     <div
