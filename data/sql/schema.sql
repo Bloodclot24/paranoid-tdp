@@ -1,7 +1,7 @@
 CREATE TABLE estadisticas (id INT AUTO_INCREMENT, usuarios BIGINT, totales BIGINT, ok BIGINT, fallidas BIGINT, sospechosas BIGINT, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE estadisticas_llamadas (id INT AUTO_INCREMENT, fecha TEXT, llamadas_ok BIGINT, llamadas_sospechosas BIGINT, llamadas_fallidas BIGINT, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE historico_alarmas (id INT AUTO_INCREMENT, nombre TEXT, fecha DATE, detalle TEXT, origen TEXT, user_id BIGINT, INDEX user_id_idx (user_id), PRIMARY KEY(id)) ENGINE = INNODB;
-CREATE TABLE notificaciones (id INT AUTO_INCREMENT, fecha DATE, accion TEXT, masinfourl TEXT, regla_id INT, user_id BIGINT, leida TINYINT(1), INDEX regla_id_idx (regla_id), INDEX user_id_idx (user_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE notificaciones (id INT AUTO_INCREMENT, fecha DATE, accion TEXT, masinfourl TEXT, llamada TEXT, regla_id INT, user_id BIGINT, leida TINYINT(1) DEFAULT '0', INDEX regla_id_idx (regla_id), INDEX user_id_idx (user_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE usuario_pbx (id INT AUTO_INCREMENT, extension TEXT, tecnologia TEXT, ultimo_registro DATE, conectado TINYINT(1), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE perfil (id INT AUTO_INCREMENT, nombre TEXT, descripcion TEXT, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE prefijo (id INT AUTO_INCREMENT, descripcion TEXT, numero TEXT, costoporminuto FLOAT(18, 2), PRIMARY KEY(id)) ENGINE = INNODB;

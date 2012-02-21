@@ -9,6 +9,7 @@
  * @property date $fecha
  * @property string $accion
  * @property string $masInfoURL
+ * @property string $llamada
  * @property integer $regla_id
  * @property integer $user_id
  * @property boolean $leida
@@ -19,6 +20,7 @@
  * @method date           getFecha()      Returns the current record's "fecha" value
  * @method string         getAccion()     Returns the current record's "accion" value
  * @method string         getMasInfoURL() Returns the current record's "masInfoURL" value
+ * @method string         getLlamada()    Returns the current record's "llamada" value
  * @method integer        getReglaId()    Returns the current record's "regla_id" value
  * @method integer        getUserId()     Returns the current record's "user_id" value
  * @method boolean        getLeida()      Returns the current record's "leida" value
@@ -28,6 +30,7 @@
  * @method Notificaciones setFecha()      Sets the current record's "fecha" value
  * @method Notificaciones setAccion()     Sets the current record's "accion" value
  * @method Notificaciones setMasInfoURL() Sets the current record's "masInfoURL" value
+ * @method Notificaciones setLlamada()    Sets the current record's "llamada" value
  * @method Notificaciones setReglaId()    Sets the current record's "regla_id" value
  * @method Notificaciones setUserId()     Sets the current record's "user_id" value
  * @method Notificaciones setLeida()      Sets the current record's "leida" value
@@ -59,6 +62,9 @@ abstract class BaseNotificaciones extends sfDoctrineRecord
         $this->hasColumn('masInfoURL', 'string', null, array(
              'type' => 'string',
              ));
+        $this->hasColumn('llamada', 'string', null, array(
+             'type' => 'string',
+             ));
         $this->hasColumn('regla_id', 'integer', 4, array(
              'type' => 'integer',
              'notnull' => false,
@@ -69,6 +75,7 @@ abstract class BaseNotificaciones extends sfDoctrineRecord
              ));
         $this->hasColumn('leida', 'boolean', null, array(
              'type' => 'boolean',
+             'default' => false,
              ));
     }
 
