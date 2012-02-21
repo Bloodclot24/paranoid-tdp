@@ -17,6 +17,16 @@ sfGuardUser:
     password:       juan
     is_super_admin: false
     Groups:         [Group_admin]
+    PBXUser:        pbx_100
+    Perfil:         perfil_findes
+  zeke:
+    first_name:     Exequiel
+    last_name:      Leite
+    email_address:  exequiel.leite@gmail.com
+    username:       zeke
+    password:       zeke
+    is_super_admin: false
+    Groups:         [Group_admin]
     PBXUser:        pbx_101
     Perfil:         perfil_findes
 
