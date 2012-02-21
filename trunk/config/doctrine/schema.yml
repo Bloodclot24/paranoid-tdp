@@ -169,7 +169,7 @@ Notificaciones:
       type: integer(4)
       primary: true
       autoincrement: true
-    fecha: date
+    fecha: timestamp
     accion: string
     masInfoURL: string
     llamada: string(500)

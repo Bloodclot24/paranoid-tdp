@@ -16,7 +16,7 @@ abstract class BaseNotificacionesForm extends BaseFormDoctrine
   {
     $this->setWidgets(array(
       'id'         => new sfWidgetFormInputHidden(),
-      'fecha'      => new sfWidgetFormDate(),
+      'fecha'      => new sfWidgetFormDateTime(),
       'accion'     => new sfWidgetFormTextarea(),
       'masInfoURL' => new sfWidgetFormTextarea(),
       'llamada'    => new sfWidgetFormTextarea(),
@@ -27,10 +27,10 @@ abstract class BaseNotificacionesForm extends BaseFormDoctrine
 
     $this->setValidators(array(
       'id'         => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'fecha'      => new sfValidatorDate(array('required' => false)),
+      'fecha'      => new sfValidatorDateTime(array('required' => false)),
       'accion'     => new sfValidatorString(array('required' => false)),
       'masInfoURL' => new sfValidatorString(array('required' => false)),
-      'llamada'    => new sfValidatorString(array('required' => false)),
+      'llamada'    => new sfValidatorString(array('max_length' => 500, 'required' => false)),
       'regla_id'   => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Regla'), 'required' => false)),
       'user_id'    => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Usuario'), 'required' => false)),
       'leida'      => new sfValidatorBoolean(array('required' => false)),
