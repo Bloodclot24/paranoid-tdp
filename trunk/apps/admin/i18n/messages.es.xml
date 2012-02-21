@@ -410,9 +410,13 @@
                 <target>Grupos</target>
             </trans-unit>
             <trans-unit>
-                            <source>Permissions</source>
-                            <target>Permisos</target>
-                        </trans-unit>
+                <source>Permissions</source>
+                <target>Permisos</target>
+            </trans-unit>
+            <trans-unit>
+                <source>The username and/or password is invalid.'</source>
+                <target>El usuario y/o contraseña es inv&aacute;lida</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

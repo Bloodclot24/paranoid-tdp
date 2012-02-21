@@ -117,4 +117,60 @@ ul.error_list li {
     font-weight: bold;
 }
 
+/**** Estilos signin ****/
+
+div#signInContainer {
+    border: 1px solid black;
+    padding: 2em;
+    height: 200px;
+    width: 30%;
+    background-color: white;
+    font: normal 12pt Verdana, Tahoma, sans-serif;
+    font-weight: bold;
+    position: relative;
+    top: 35px;
+    left: 30%
+}
+
+div#signIn {
+    background: url(../images/fondo_login.jpg);
+    height: 800px;
+}
+
+div#signInContainer input {
+    padding: 8px;
+    border: solid 1.5px #E5E5E5;
+    font-size: 11pt;
+    width: 15em;
+    background: #FFFFFF;
+    margin-bottom: 1em;
+    margin-left: 1em;
+}
+
+div#signInContainer input[type="checkbox"] {
+    width: 1em;
+}
+
+#bienvenido {
+    margin-left: 1em;
+    padding-top: 1em;
+    font-size: 22pt;
+    color: white;
+    font-weight: bold;
+}
+
+#slogan {
+    margin-left: 3em;
+    color: white;
+    font-size: 16pt;
+    font-weight: bold;
+    font-variant: all-petite-caps
+}
+
+#submitLogin {
+    position: relative;
+    top: 1px;
+    left: 20%;
+}
+
 
