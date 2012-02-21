@@ -172,6 +172,7 @@ Notificaciones:
     fecha: date
     accion: string
     masInfoURL: string
+    llamada: string
     regla_id:
       type: integer(4)
       notnull: false

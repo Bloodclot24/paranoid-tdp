@@ -40,5 +40,5 @@
 <?php end_slot(); ?>
 <?php include_slot('sf_admin.current_header') ?>
 <th>
-    Leido
+    Acciones
 </th>
