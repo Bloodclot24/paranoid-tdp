@@ -120,11 +120,20 @@ ul.error_list li {
 /**** Estilos signin ****/
 
 div#signInContainer {
-    border: 1px solid black;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+	background: rgba(150, 150, 150, 0.8);
+	border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	box-shadow: 0 2px 16px white, 0 0 1px white, 0 0 1px white;
+	-o-box-shadow: 0 2px 16px white, 0 0 1px white, 0 0 1px white;
+	-webkit-box-shadow: 0 2px 16px white, 0 0 1px white, 0 0 1px white;
+	-moz-box-shadow: 0 2px 16px white, 0 0 1px white, 0 0 1px white;
+	text-shadow: 0 0 15px white, 0 0 15px white;
+    
     padding: 2em;
     height: 200px;
     width: 30%;
-    background-color: white;
     font: normal 12pt Verdana, Tahoma, sans-serif;
     font-weight: bold;
     position: relative;

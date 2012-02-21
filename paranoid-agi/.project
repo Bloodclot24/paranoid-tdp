@@ -3,6 +3,7 @@
 	<name>paranoid-agi</name>
 	<comment></comment>
 	<projects>
+		<project>paranoid-agi-utils</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
