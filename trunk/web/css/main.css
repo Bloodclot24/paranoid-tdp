@@ -143,6 +143,7 @@ div#signInContainer {
 
 div#signIn {
     background: url(../images/fondo_login.jpg);
+    background-repeat: repeat-y;
     height: 800px;
 }
 
