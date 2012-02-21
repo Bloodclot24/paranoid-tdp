@@ -46,7 +46,7 @@ public class UtilsFacade {
 			if (reglaMacheada.getImportante() == 1){
 				
 				Notificacion not = generarAlerta(request, 3, reglaMacheada);   //regla macheada e importante
-				
+				notificar(not, reglaMacheada);
 				return not;
 			}else{
 				Notificacion not = generarAlerta(request, 2, reglaMacheada);   //regla macheada pero no importante
@@ -96,7 +96,7 @@ public class UtilsFacade {
 		String usuarioExtension = request.getCallerIdNumber();
 		miNotificacion.setUserIdAsociado(ServiceMysql.getUserIdxExtension(usuarioExtension));
 		
-		String datoLlam="CallerId: "+request.getCallerIdNumber()+" - "+request.getCallerIdName()+", Numero Discado: "+request.getExtension();
+		String datoLlam="CallerId: "+request.getCallerIdNumber()+" "+request.getCallerIdName()+", Numero Discado: "+request.getExtension();
 		
 		miNotificacion.setDatoLlamada(datoLlam);
 		
@@ -116,7 +116,7 @@ public class UtilsFacade {
 		String usuarioExtension = request.getCallerIdNumber();
 		miNotificacion.setUserIdAsociado(ServiceMysql.getUserIdxExtension(usuarioExtension));
 		
-		String datoLlam="CallerId: "+request.getCallerIdNumber()+" - "+request.getCallerIdName()+", Numero Discado: "+request.getExtension();
+		String datoLlam="CallerId: "+request.getCallerIdNumber()+" "+request.getCallerIdName()+", Numero Discado: "+request.getExtension();
 		
 		miNotificacion.setDatoLlamada(datoLlam);
 		
