@@ -176,7 +176,9 @@ Notificaciones:
       type: integer(4)
       notnull: false
     user_id: integer
-    leida: boolean
+    leida:
+      type: boolean
+      default: false
   relations:
     Regla:
       class: Regla
