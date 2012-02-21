@@ -25,9 +25,10 @@ public class EvaluadorDeReglas {
 		int idUsuario = llamada.getIdUsuario();
 		Connection conexion = ConexionBase.getInstance().getConexion();
 		Statement s;
+		Statement s1;
         try {
             s =(Statement) conexion.createStatement();
-            
+            s1 =(Statement) conexion.createStatement();
             String extension = Integer.toString(idUsuario);
             ResultSet rs = s.executeQuery (
             		"select r.*" +
@@ -42,7 +43,7 @@ public class EvaluadorDeReglas {
                     " and up.extension='"+extension+"';"
                     );
             
-            ResultSet rs1 = s.executeQuery (
+            ResultSet rs1 = s1.executeQuery (
             		"select pref.*" +
             		" from" + 
             		" sf_guard_user sgu" +
@@ -114,6 +115,7 @@ public class EvaluadorDeReglas {
 		
 	public EvaluadorDeReglas(Llamada llamada) {
 		this.llamada = llamada;
+		this.reglas = new ArrayList<Regla>();
 		cargarReglas();
 	}
 	
