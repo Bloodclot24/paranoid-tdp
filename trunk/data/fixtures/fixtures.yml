@@ -51,9 +51,11 @@ ReglaLlamadasSimultaneas:
   una_llamada:
     cantidadLlamadas: 1
     nombre: Una llamada
+    importante: false
   dos_llamada:
       cantidadLlamadas: 2
       nombre: Dos llamada
+      importante: false
 
 ReglaDias:
   sabado:
