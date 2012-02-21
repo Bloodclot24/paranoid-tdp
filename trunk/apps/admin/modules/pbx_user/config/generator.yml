@@ -15,12 +15,15 @@ generator:
       actions: ~
       fields:  ~
       list:
+        display: [extension, tecnologia, conectado]
+        sort: [extension, asc]
         title: Usuarios PBX
         #solo queremos que sea un listado para ver usuarios y no para editarlos
         actions: {}
         object_actions: {}
         batch_actions: {}
-      filter:  ~
+      filter:
+        display: [extension, tecnologia, conectado]
       form:    ~
       edit:    ~
       new:     ~
