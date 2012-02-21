@@ -7,8 +7,8 @@ public class Notificacion {
 	Date Fecha;
 	String accion;
 	String masinfourl;
-	int reglaIdAsociada;
-	int userIdAsociado;
+	public int reglaIdAsociada;
+	public int userIdAsociado;
 	int estadoDeAlerta;
 	Boolean grabar;
 	Regla reglaAsociada;
@@ -19,7 +19,6 @@ public class Notificacion {
 		this.accion = accionTomada;
 		java.util.Date today = new java.util.Date();
 		this.Fecha = new java.sql.Date(today.getTime());
-
 
 	}
 	

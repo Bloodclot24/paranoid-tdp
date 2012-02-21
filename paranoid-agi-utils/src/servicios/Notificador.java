@@ -1,4 +1,8 @@
 package servicios;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 import entidades.Notificacion;
 import entidades.Regla;
 import entidades.UsuarioParanoid;
@@ -7,7 +11,8 @@ import entidades.UsuarioParanoid;
 public class Notificador {
 
 	
-	private String rutaMutt="/usr/src/paranoid/mutconf";
+	//private String rutaMutt="/usr/src/paranoid/mutconf";
+	private String rutaMutt="/home/zeke/workspace/paranoid-agi-utils/mutconf";
 
 	private Notificacion nota;
 	private UsuarioParanoid usuario;
@@ -49,9 +54,15 @@ public class Notificador {
 	 * si lo que se quebró fue una regla importante se le envia tambien un mail
 	 * 
 	 */
-	public void Notificar(){
+	public Boolean Notificar(){
 		if(usuario.getInformarAlertas()){
-			this.EnviaMail();
+			try {
+				this.EnviaMail();
+			} catch (IOException e) {
+				System.out.println("No se ha podido enviar el mail de notificacion");
+				e.printStackTrace();
+				return false;
+			}
 			
 			if (this.unregla != null){
 				
@@ -59,12 +70,12 @@ public class Notificador {
 					this.EnviaSms();
 				}
 			}
-			
-		}	
+		}
+		return true;
 	}
 	
 	
-	private void EnviaMail(){
+	private void EnviaMail() throws IOException{
 		
 		String asunto ="Notificacion desde Paranoid";
 		
@@ -75,13 +86,12 @@ public class Notificador {
 		
 		String comando="mutt -F "+rutaMutt+" -s \""+asunto+"\" \""+destinatario+"\" <<< \""+Texto+"\"";
 		
-		try {
-			Runtime.getRuntime().exec(comando);
-			}
-		catch (Exception err) {
-			err.printStackTrace();
-			}
+		System.out.println(comando);
 		
+		Process proc = Runtime.getRuntime().exec(comando);
+		
+		System.out.println(proc.exitValue());
+
 		
 	}
 	
