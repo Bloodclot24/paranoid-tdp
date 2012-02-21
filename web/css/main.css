@@ -216,7 +216,7 @@ div#signInContainer input[type="checkbox"] {
 
 #tooltip.fancy.viewport-bottom {
     background: url('../images/tooltip_bottom.png');
-    padding-bottom: 5em;
+    padding-top: 5em;
     background-repeat: no-repeat;
     height: 100px;
 }
