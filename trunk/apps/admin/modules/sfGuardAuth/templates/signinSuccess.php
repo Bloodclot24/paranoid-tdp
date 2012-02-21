@@ -14,7 +14,7 @@
 <div id="signIn">
 
 <div id="bienvenido">Bienvenido a Paranoid</div>
-<div id="slogan">controle sus llamadas, duerma tranquilo</div>
+<div id="slogan">protegiendo tus comunicaciones</div>
 
 <br />
 <div id="signInContainer">
