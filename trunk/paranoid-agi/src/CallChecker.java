@@ -45,19 +45,23 @@ public class CallChecker extends BaseAgiScript {
 	    	
 	    	switch (alerta.getEstadoDeAlerta()) {
 			case 3:
+				System.out.println("la llamada macheo una regla muy importante: " +alerta.getReglaAsociada().getNombre() + ", se corta");
 				this.agregaCDR("fallidas");
 				this.cortarYavisar();
 				break;
 			case 2:
+				System.out.println("la llamada macheo una regla NO muy importante: "+alerta.getReglaAsociada().getNombre() +", se corta");
 				this.agregaCDR("fallidas");
 				this.cortarYavisar();
 				break;
 			case 1:
+				System.out.println("la llamada no macheo la red neuronal, se graba y sigue");
 				this.agregaCDR("sospechosas");
 				this.arrancaGrabar(alerta.getMasinfourl());
 				this.llamar();
 				break;
 			case 0:
+				System.out.println("la llamada está OK se llama normalmente");
 				this.agregaCDR("ok");
 				this.llamar();
 				break;
@@ -65,7 +69,6 @@ public class CallChecker extends BaseAgiScript {
 			default:
 				break;
 			}
-	
 	    }
 	    
 	    
@@ -103,6 +106,8 @@ public class CallChecker extends BaseAgiScript {
 	    private void cortarYavisar(){
 	    	
 	    	try {
+	    		canal.answer();
+	    		canal.exec("wait","0.5");
 	    		canal.streamFile(this.sAvisoCorte);   //aviso que le voy a cortar de sopeton
 				this.cortar();
 	    		
