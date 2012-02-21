@@ -30,5 +30,5 @@
         $sfAction = url_for("notificaciones_nuevo/toggle?id=$id");
         echo image_tag("$imagen.png", array("title" => $title, "alt" => $title, "class" => "admin_icon", "onclick" => "javascript:toggleMarkAsRead(this, $id, '$sfAction')"))
     ?>
-    <?php echo image_tag("more_info.jpg", array("class" => "admin_icon tooltip","title" => "$tooltip")); ?>
+    <?php echo image_tag("more_info.jpg", array("class" => "admin_icon tooltip","title" => "Datos llamada - $tooltip")); ?>
 </td>
