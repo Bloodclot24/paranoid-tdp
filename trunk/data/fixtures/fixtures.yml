@@ -76,6 +76,7 @@ ReglaLlamadasSimultaneas:
 ReglaDias:
   sabado:
     nombre: Sabado y domingo
+    importante: false
     lunes: false
     martes: false
     miercoles: false
