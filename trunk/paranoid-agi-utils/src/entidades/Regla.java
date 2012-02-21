@@ -23,6 +23,7 @@ public class Regla {
 		this.importante = importante;
 		this.idRegla = idRegla;
 		this.costoMin = costoMin;
+		this.prefijos = new ArrayList<String>();
 	}
 	
 	public String getNombre() {
