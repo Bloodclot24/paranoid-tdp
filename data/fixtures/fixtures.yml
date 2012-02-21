@@ -268,30 +268,6 @@ ReglaPrefijo:
     ReglaDestino: ReglaDestino_11
     Prefijo: Prefijo_5
 Notificaciones:
-  Notificaciones_1:
-    fecha: '2012-02-16'
-    accion: 'Dejó seguir como Lamolina'
-    masInfoURL: www.sarasa.men
-    llamada: 'Datos de la llamada, bla, bla, bla, bla'
-    Regla: ReglaLlamadasSimultaneas_2
-    Usuario: sfGuardUser_2
-    leida: true
-  Notificaciones_2:
-    fecha: '2009-02-16'
-    accion: 'Cortó como loco'
-    masInfoURL: www.sarasa.men
-    llamada: 'Datos de la llamada, bla, bla, bla, bla'
-    Regla: ReglaLlamadasSimultaneas_3
-    Usuario: sfGuardUser_2
-    leida: true
-  Notificaciones_3:
-    fecha: '2010-02-16'
-    accion: 'Cortó como loco'
-    masInfoURL: null
-    llamada: 'Datos de la llamada, bla, bla, bla, bla'
-    Regla: ReglaLlamadasSimultaneas_3
-    Usuario: sfGuardUser_1
-    leida: true
   Notificaciones_4:
     fecha: '2012-02-21'
     accion: 'Se ha cortado la llamada y avisado inmediatamente al administrador'
