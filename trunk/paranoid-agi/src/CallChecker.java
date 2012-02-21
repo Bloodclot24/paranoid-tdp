@@ -1,6 +1,7 @@
 
 import org.asteriskjava.fastagi.AgiChannel;
 import org.asteriskjava.fastagi.AgiException;
+import org.asteriskjava.fastagi.AgiHangupException;
 import org.asteriskjava.fastagi.AgiRequest;
 import org.asteriskjava.fastagi.BaseAgiScript;
 
@@ -58,7 +59,6 @@ public class CallChecker extends BaseAgiScript {
 				break;
 			case 0:
 				this.agregaCDR("ok");
-				System.out.println(this);
 				this.llamar();
 				break;
 
@@ -74,22 +74,18 @@ public class CallChecker extends BaseAgiScript {
 	     */
 	    private void llamar(){
 	    	
-	    	try {
-	    		
-	    		System.out.println(this.dataCanal);
-	    		
-	    		System.out.println(this.dataCanal.getExtension());
-	    		
-	    		System.out.println(canal);
-	    		
+	    	try {    		
 				canal.exec("dial", "LOCAL/"+this.dataCanal.getExtension()+"@llamadas");
 				canal.hangup();
-			} catch (AgiException e) {
+			}catch (AgiHangupException a){
+				System.out.println("la llamada ha sido cortada");
+			}catch (AgiException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	    }
 	    
+	    //TODO verificar si esto funciona
 	    private void agregaCDR(String mensaje){
 	    	
 	    	try {
