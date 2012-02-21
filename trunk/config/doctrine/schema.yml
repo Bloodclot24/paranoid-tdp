@@ -172,7 +172,7 @@ Notificaciones:
     fecha: date
     accion: string
     masInfoURL: string
-    llamada: string
+    llamada: string(500)
     regla_id:
       type: integer(4)
       notnull: false
