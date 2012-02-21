@@ -57,11 +57,12 @@ public class EvaluadorDeReglas {
             	importante = Integer.parseInt(rs.getString("importante"));
             	tipo = rs.getString("type");
             	nombreRegla = rs.getString("nombre");
-            	horarioDesde = Integer.parseInt(rs.getString("desde"));
-            	horarioHasta = Integer.parseInt(rs.getString("hasta"));
-            	costoMin = Float.parseFloat(rs.getString("costomaximo"));
+            	horarioDesde = Integer.parseInt(rs.getString("desde").substring(0, 2));
+            	horarioHasta = Integer.parseInt(rs.getString("hasta").substring(0, 2));
+            //	costoMin = Float.parseFloat(rs.getString("costomaximo"));
             	
-            	Regla regla = new Regla(idRegla, importante, tipo, nombreRegla, horarioDesde, horarioHasta, costoMin);
+           // 	Regla regla = new Regla(idRegla, importante, tipo, nombreRegla, horarioDesde, horarioHasta, costoMin);
+            	Regla regla = new Regla(idRegla, importante, tipo, nombreRegla, horarioDesde, horarioHasta, 0);
             	
             	for (int i = 0; i < 7; i++) {
             		if(rs.getString(dias[i])!= null) {

@@ -40,7 +40,7 @@ public class ServiceMysql {
 //	}
 	
 	
-	static void nuevaNotificacion(Notificacion notif){
+	public static void nuevaNotificacion(Notificacion notif){
 		
 		try{
 		Statement s = (Statement) ConexionBase.getInstance().getConexion().createStatement();
@@ -90,8 +90,6 @@ public class ServiceMysql {
 			e.printStackTrace();
 			return 0;
 		}
-		
-		
 	}
 	
 	
