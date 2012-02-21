@@ -1,0 +1,396 @@
+Estadisticas:
+  Estadisticas_1:
+    usuarios: '50'
+    totales: '350'
+    ok: '250'
+    fallidas: '75'
+    sospechosas: '25'
+Regla: {  }
+ReglaDias:
+  ReglaDias_1:
+    nombre: 'Fin de Semana - Diurno'
+    importante: false
+    type: dias
+    lunes: false
+    martes: false
+    miercoles: false
+    jueves: false
+    viernes: false
+    sabado: true
+    domingo: true
+    desde: '08:00:00'
+    hasta: '18:00:00'
+    cantidadLlamadas: null
+    costoMaximo: null
+  ReglaDias_5:
+    nombre: 'Dias Laborales - Diurno'
+    importante: true
+    type: dias
+    lunes: true
+    martes: true
+    miercoles: true
+    jueves: true
+    viernes: true
+    sabado: true
+    domingo: false
+    desde: '08:00:00'
+    hasta: '18:00:00'
+    cantidadLlamadas: null
+    costoMaximo: null
+  ReglaDias_6:
+    nombre: 'Dias Laborales - Nocturno'
+    importante: false
+    type: dias
+    lunes: true
+    martes: true
+    miercoles: true
+    jueves: true
+    viernes: true
+    sabado: false
+    domingo: false
+    desde: '18:00:00'
+    hasta: '08:00:00'
+    cantidadLlamadas: null
+    costoMaximo: null
+  ReglaDias_7:
+    nombre: 'Fin de Semana - Nocturno'
+    importante: false
+    type: dias
+    lunes: false
+    martes: false
+    miercoles: false
+    jueves: false
+    viernes: false
+    sabado: true
+    domingo: true
+    desde: '18:00:00'
+    hasta: '08:00:00'
+    cantidadLlamadas: null
+    costoMaximo: null
+ReglaLlamadasSimultaneas:
+  ReglaLlamadasSimultaneas_2:
+    nombre: 'Una llamada'
+    importante: false
+    type: llamadas_simultaneas
+    lunes: null
+    martes: null
+    miercoles: null
+    jueves: null
+    viernes: null
+    sabado: null
+    domingo: null
+    desde: null
+    hasta: null
+    cantidadLlamadas: '1'
+    costoMaximo: null
+  ReglaLlamadasSimultaneas_3:
+    nombre: 'Dos llamada'
+    importante: false
+    type: llamadas_simultaneas
+    lunes: null
+    martes: null
+    miercoles: null
+    jueves: null
+    viernes: null
+    sabado: null
+    domingo: null
+    desde: null
+    hasta: null
+    cantidadLlamadas: '2'
+    costoMaximo: null
+ReglaDestino:
+  ReglaDestino_4:
+    nombre: 'Locales AMBA'
+    importante: false
+    type: destino
+    lunes: false
+    martes: false
+    miercoles: false
+    jueves: false
+    viernes: false
+    sabado: false
+    domingo: false
+    desde: null
+    hasta: null
+    cantidadLlamadas: null
+    costoMaximo: null
+  ReglaDestino_8:
+    nombre: Internas
+    importante: false
+    type: destino
+    lunes: false
+    martes: false
+    miercoles: false
+    jueves: false
+    viernes: false
+    sabado: false
+    domingo: false
+    desde: null
+    hasta: null
+    cantidadLlamadas: null
+    costoMaximo: null
+  ReglaDestino_9:
+    nombre: 'Locales e Internas'
+    importante: false
+    type: destino
+    lunes: false
+    martes: false
+    miercoles: false
+    jueves: false
+    viernes: false
+    sabado: false
+    domingo: false
+    desde: null
+    hasta: null
+    cantidadLlamadas: null
+    costoMaximo: null
+  ReglaDestino_10:
+    nombre: 'Todos los sitios'
+    importante: false
+    type: destino
+    lunes: false
+    martes: false
+    miercoles: false
+    jueves: false
+    viernes: false
+    sabado: false
+    domingo: false
+    desde: null
+    hasta: null
+    cantidadLlamadas: null
+    costoMaximo: null
+  ReglaDestino_11:
+    nombre: Celulares
+    importante: false
+    type: destino
+    lunes: false
+    martes: false
+    miercoles: false
+    jueves: false
+    viernes: false
+    sabado: false
+    domingo: false
+    desde: null
+    hasta: null
+    cantidadLlamadas: null
+    costoMaximo: null
+HistoricoAlarma:
+  HistoricoAlarma_1:
+    nombre: 'Historico 1'
+    fecha: '2007-10-04'
+    detalle: 'llamada internacional no permitida'
+    origen: entidad
+    sfGuardUser: sfGuardUser_1
+  HistoricoAlarma_2:
+    nombre: 'Historico 2'
+    fecha: '2007-10-06'
+    detalle: 'Prefijo no permitido'
+    origen: entidad
+    sfGuardUser: sfGuardUser_1
+Perfil:
+  Perfil_1:
+    nombre: 'Telemarketer - Turno 1'
+    descripcion: 'Telemarketers diurnos'
+  Perfil_2:
+    nombre: 'Soporte técnico - Diurno'
+    descripcion: 'Callcenter Diurno'
+  Perfil_3:
+    nombre: Gerencia
+    descripcion: 'Gerentes y Jefes'
+ReglaPerfil:
+  ReglaPerfil_5_1:
+    ReglaDias: ReglaDias_5
+    Perfil: Perfil_1
+  ReglaPerfil_8_2:
+    ReglaDias: ReglaDias_7
+    Perfil: Perfil_2
+  ReglaPerfil_10_3:
+    ReglaDias: ReglaDias_7
+    Perfil: Perfil_3
+Prefijo:
+  Prefijo_1:
+    descripcion: 'Local AMBA'
+    numero: '4'
+    costoPorMinuto: '0.50'
+  Prefijo_2:
+    descripcion: Interna
+    numero: '1'
+    costoPorMinuto: '0.00'
+  Prefijo_3:
+    descripcion: DDI
+    numero: '00'
+    costoPorMinuto: '10.00'
+  Prefijo_4:
+    descripcion: DDN
+    numero: '0'
+    costoPorMinuto: '1.00'
+  Prefijo_5:
+    descripcion: Celulares
+    numero: '15'
+    costoPorMinuto: '2.00'
+PBXUser:
+  PBXUser_1:
+    extension: '101'
+    tecnologia: SIP
+    ultimo_registro: '2010-09-09'
+    conectado: false
+  PBXUser_2:
+    extension: '100'
+    tecnologia: SIP
+    ultimo_registro: '2010-09-09'
+    conectado: false
+ReglaPrefijo:
+  ReglaPrefijo_9_1:
+    ReglaDestino: ReglaDestino_9
+    Prefijo: Prefijo_1
+  ReglaPrefijo_10_1:
+    ReglaDestino: ReglaDestino_10
+    Prefijo: Prefijo_1
+  ReglaPrefijo_8_2:
+    ReglaDestino: ReglaDestino_8
+    Prefijo: Prefijo_2
+  ReglaPrefijo_9_2:
+    ReglaDestino: ReglaDestino_9
+    Prefijo: Prefijo_2
+  ReglaPrefijo_10_2:
+    ReglaDestino: ReglaDestino_10
+    Prefijo: Prefijo_2
+  ReglaPrefijo_10_3:
+    ReglaDestino: ReglaDestino_10
+    Prefijo: Prefijo_3
+  ReglaPrefijo_10_4:
+    ReglaDestino: ReglaDestino_10
+    Prefijo: Prefijo_4
+  ReglaPrefijo_10_5:
+    ReglaDestino: ReglaDestino_10
+    Prefijo: Prefijo_5
+  ReglaPrefijo_11_5:
+    ReglaDestino: ReglaDestino_11
+    Prefijo: Prefijo_5
+Notificaciones:
+  Notificaciones_1:
+    fecha: '2012-02-16'
+    accion: 'Dejó seguir como Lamolina'
+    masInfoURL: www.sarasa.men
+    llamada: 'Datos de la llamada, bla, bla, bla, bla'
+    Regla: ReglaLlamadasSimultaneas_2
+    Usuario: sfGuardUser_2
+    leida: true
+  Notificaciones_2:
+    fecha: '2009-02-16'
+    accion: 'Cortó como loco'
+    masInfoURL: www.sarasa.men
+    llamada: 'Datos de la llamada, bla, bla, bla, bla'
+    Regla: ReglaLlamadasSimultaneas_3
+    Usuario: sfGuardUser_2
+    leida: true
+  Notificaciones_3:
+    fecha: '2010-02-16'
+    accion: 'Cortó como loco'
+    masInfoURL: null
+    llamada: 'Datos de la llamada, bla, bla, bla, bla'
+    Regla: ReglaLlamadasSimultaneas_3
+    Usuario: sfGuardUser_1
+    leida: true
+  Notificaciones_4:
+    fecha: '2012-02-21'
+    accion: 'Se ha cortado la llamada y avisado inmediatamente al administrador'
+    masInfoURL: null
+    llamada: 'CallerId: 101 - exequiel , Numero Discado: 1569979353'
+    Regla: ReglaDias_1
+    Usuario: sfGuardUser_1
+    leida: true
+  Notificaciones_5:
+    fecha: '2012-02-21'
+    accion: 'Se ha cortado la llamada'
+    masInfoURL: null
+    llamada: 'CallerId: 101 - 101, Numero Discado: 103'
+    Regla: ReglaDias_1
+    Usuario: sfGuardUser_1
+    leida: true
+sfGuardGroup:
+  sfGuardGroup_1:
+    name: admin
+    description: 'Administrator group'
+    created_at: '2012-02-21 16:42:27'
+    updated_at: '2012-02-21 16:42:27'
+sfGuardPermission:
+  sfGuardPermission_1:
+    name: admin
+    description: 'Administrator permission'
+    created_at: '2012-02-21 16:42:27'
+    updated_at: '2012-02-21 16:42:27'
+sfGuardUserGroup:
+  sfGuardUserGroup_1_1:
+    User: sfGuardUser_1
+    Group: sfGuardGroup_1
+    created_at: '2012-02-21 16:42:27'
+    updated_at: '2012-02-21 16:42:27'
+  sfGuardUserGroup_2_1:
+    User: sfGuardUser_2
+    Group: sfGuardGroup_1
+    created_at: '2012-02-21 16:42:27'
+    updated_at: '2012-02-21 16:42:27'
+  sfGuardUserGroup_3_1:
+    User: sfGuardUser_3
+    Group: sfGuardGroup_1
+    created_at: '2012-02-21 16:42:27'
+    updated_at: '2012-02-21 16:42:27'
+sfGuardGroupPermission:
+  sfGuardGroupPermission_1_1:
+    Group: sfGuardGroup_1
+    Permission: sfGuardPermission_1
+    created_at: '2012-02-21 16:42:27'
+    updated_at: '2012-02-21 16:42:27'
+sfGuardUser:
+  sfGuardUser_1:
+    first_name: Paranoid
+    last_name: PBX
+    email_address: jplagostena@gmail.com
+    username: admin
+    algorithm: sha1
+    salt: e4083d680f33c9307f574b419c48aa4c
+    password: 9c062476e810d861ff04a184b05fa7a5ef8bb83a
+    is_active: true
+    is_super_admin: true
+    last_login: '2012-02-21 17:34:55'
+    PBXUser: PBXUser_2
+    Perfil: Perfil_1
+    informarAlertas: null
+    telefono: null
+    created_at: '2012-02-21 16:42:27'
+    updated_at: '2012-02-21 17:34:55'
+  sfGuardUser_2:
+    first_name: Juan
+    last_name: Lagostena
+    email_address: jplagostena@yahoo.com.ar
+    username: juan
+    algorithm: sha1
+    salt: 5aaf51b69b8e6dd3601042a4f2199925
+    password: 0ddedac6f9bbea31551a1a71c70c53924b78da32
+    is_active: true
+    is_super_admin: false
+    last_login: null
+    PBXUser: PBXUser_2
+    Perfil: Perfil_1
+    informarAlertas: null
+    telefono: null
+    created_at: '2012-02-21 16:42:27'
+    updated_at: '2012-02-21 16:42:27'
+  sfGuardUser_3:
+    first_name: Exequiel
+    last_name: Leite
+    email_address: exequiel.leite@gmail.com
+    username: zeke
+    algorithm: sha1
+    salt: 985b6c242c5a47f9f5e0140d01dc6f82
+    password: 55dbb62af5b799093eb682b3bef874312fca9654
+    is_active: true
+    is_super_admin: false
+    last_login: null
+    PBXUser: PBXUser_1
+    Perfil: Perfil_1
+    informarAlertas: false
+    telefono: ''
+    created_at: '2012-02-21 16:42:27'
+    updated_at: '2012-02-21 17:59:59'
