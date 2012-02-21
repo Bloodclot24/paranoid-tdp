@@ -96,6 +96,10 @@ public class UtilsFacade {
 		String usuarioExtension = request.getCallerIdNumber();
 		miNotificacion.setUserIdAsociado(ServiceMysql.getUserIdxExtension(usuarioExtension));
 		
+		String datoLlam="CallerId: "+request.getCallerIdNumber()+" - "+request.getCallerIdName()+", Numero Discado: "+request.getExtension();
+		
+		miNotificacion.setDatoLlamada(datoLlam);
+		
 		return miNotificacion;
 		
 	}
@@ -111,6 +115,10 @@ public class UtilsFacade {
 		miNotificacion.setReglaIdAsociada(reglaMacheada.getIdRegla());
 		String usuarioExtension = request.getCallerIdNumber();
 		miNotificacion.setUserIdAsociado(ServiceMysql.getUserIdxExtension(usuarioExtension));
+		
+		String datoLlam="CallerId: "+request.getCallerIdNumber()+" - "+request.getCallerIdName()+", Numero Discado: "+request.getExtension();
+		
+		miNotificacion.setDatoLlamada(datoLlam);
 		
 		return miNotificacion;
 		

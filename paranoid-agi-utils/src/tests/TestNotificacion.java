@@ -20,12 +20,8 @@ public class TestNotificacion {
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		
 		not = Notificacion .getNotificacionDeAlerta(3);
-		
 		us = new UsuarioParanoid("exequiel", "exequiel.leite@gmail.com", true, "101", true, "1569979353");
-		
-		
 	}
 
 	@AfterClass
@@ -34,7 +30,7 @@ public class TestNotificacion {
 
 	@Test
 	public void testNotificar() {
-		
+		//no anda hasta que no se pruebe en el server por el mutt
 		Notificador notifier = Notificador.getNotificador(not, us);
 		
 		assertTrue(notifier.Notificar());
@@ -46,6 +42,9 @@ public class TestNotificacion {
 		//not.hayQueGrabar()
 		not.reglaIdAsociada = 1;
 		not.userIdAsociado = 1;
+		
+		not.setDatoLlamada("CallerId: 101 - exequiel , Numero Discado: 1569979353");
+		
 		assertTrue(ServiceMysql.nuevaNotificacion(not));
 		
 	}
