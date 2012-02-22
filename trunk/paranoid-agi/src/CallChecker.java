@@ -134,10 +134,11 @@ public class CallChecker extends BaseAgiScript {
 	    public void arrancaGrabar(String nombrearch){
 	    	
 	    	try {
+	    		String rutaprevia = "/var/www";
 	    		canal.answer();
 	    		canal.exec("wait","0.5");
 	    		canal.streamFile(this.sAvisoGrabando); //le dice que va a estar siendo grabado
-	    		canal.exec("MixMonitor", nombrearch +",mb");
+	    		canal.exec("MixMonitor", rutaprevia+nombrearch +",mb");
 				
 			} catch (AgiException e) {
 				// TODO Auto-generated catch block
