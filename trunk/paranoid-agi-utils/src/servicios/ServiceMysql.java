@@ -47,8 +47,14 @@ public class ServiceMysql {
 		String consulta;
 		
 		if (notif.hayQueGrabar() != null && notif.hayQueGrabar()){
-			consulta = "INSERT INTO notificaciones (fecha, accion, masinfourl,regla_id, user_id, llamada) VALUES ('"+notif.getFecha()+"','"+notif.getAccion()+"','"+
+			
+			if (notif.getReglaIdAsociada() == 0){
+				consulta = "INSERT INTO notificaciones (fecha, accion, masinfourl, regla_id, user_id, llamada) VALUES ('"+notif.getFecha()+"','"+notif.getAccion()+"','"+
+						notif.getMasinfourl()+"',NULL,'"+notif.getUserIdAsociado()+"','"+notif.getDatoLlamada()+"')";
+			}else {
+			consulta = "INSERT INTO notificaciones (fecha, accion, masinfourl, regla_id, user_id, llamada) VALUES ('"+notif.getFecha()+"','"+notif.getAccion()+"','"+
 					notif.getMasinfourl()+"','"+notif.getReglaIdAsociada()+"','"+notif.getUserIdAsociado()+"','"+notif.getDatoLlamada()+"')";
+			}
 		}else {
 			consulta = "INSERT INTO notificaciones (fecha, accion, masinfourl,regla_id, user_id, llamada) VALUES ('"+notif.getFecha()+"','"+notif.getAccion()+"',NULL,'"+notif.getReglaIdAsociada()+
 					"','"+notif.getUserIdAsociado()+"','"+notif.getDatoLlamada()+"')";
