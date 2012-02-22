@@ -10,15 +10,22 @@
  */
 class estadisticasActions extends sfActions
 {
- /**
-  * Executes index action
-  *
-  * @param sfRequest $request A request object
-  */
-  public function executeIndex(sfWebRequest $request)
-  {
+    /**
+     * Executes index action
+     *
+     * @param sfRequest $request A request object
+     */
+    public function executeIndex(sfWebRequest $request)
+    {
 
-      $this->estadisticas = EstadisticasTable::getInstance()->createQuery()->execute();
+        $this->estadisticas = EstadisticasTable::getInstance()->createQuery()->execute();
 
-  }
+    }
+
+    public function executeHistorial(sfWebRequest $request)
+    {
+
+
+
+    }
 }

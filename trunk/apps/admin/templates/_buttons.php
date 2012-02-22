@@ -14,6 +14,13 @@
                 <li><?php echo link_to("Destinos", "regla_destino/index") ?></li>
             </ul>
         </li>
-        <li><?php echo link_to("Estadísticas", 'estadisticas/index') ?></li>
+        <li>
+            <a hred="#">Estadisticas</a>
+            <ul>
+                <li><?php echo link_to("Estadísticas", 'estadisticas/index') ?></li>
+                <li><?php echo link_to("Historial llamadas", 'estadisticas/historial') ?></li>
+            </ul>
+
+        </li>
     </ul>
 </div>
