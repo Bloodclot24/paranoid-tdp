@@ -18,6 +18,7 @@
 
 <br />
 <div id="signInContainer">
+<div id="logoContainer"><?php echo image_tag("paranoid_logo.png", array("alt"=>"Paranoid", "title" => "Paranoid", "id" => "logo")) ?></div>
 <form action="<?php echo url_for('@signin') ?>" method="post">
     <div>
         <?php echo $form->renderGlobalErrors() ?>

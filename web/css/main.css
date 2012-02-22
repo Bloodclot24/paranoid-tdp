@@ -181,6 +181,10 @@ div#signInContainer input[type="checkbox"] {
     left: 20%;
 }
 
+#logoContainer {
+    text-align: right;
+}
+
 
 /******** TOOLTIP *************/
 
