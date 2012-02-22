@@ -37,8 +37,26 @@ public class RedNeuronal {
 	}
 	
 	public boolean esHabitual(Llamada llamada) {
-		NeuralNetwork nnet = NeuralNetwork.load("/home/zeke/workspace/paranoid-agi-utils/src/laboral.nnet");
-		System.out.println("hora " + llamada.getHora() + " dia " + (llamada.getDia()-1) + " destino " + llamada.getDestino().ordinal() + " costo " + obtenerRangoCosto(llamada.getCostoMinuto()).ordinal());
+		NeuralNetwork nnet;
+	
+		switch (llamada.getIdUsuario()) {
+		case 101:
+				nnet = NeuralNetwork.load("/home/zeke/workspace/paranoid-agi-utils/src/laboral.nnet");
+				System.out.println("hora " + llamada.getHora() + " dia " + (llamada.getDia()-1) + " destino " + llamada.getDestino().ordinal() + " costo " + obtenerRangoCosto(llamada.getCostoMinuto()).ordinal());
+				break;
+		case 102:
+				nnet = NeuralNetwork.load("/home/zeke/workspace/paranoid-agi-utils/src/nocturno.nnet");
+				System.out.println("hora " + llamada.getHora() + " dia " + (llamada.getDia()-1) + " destino " + llamada.getDestino().ordinal() + " costo " + obtenerRangoCosto(llamada.getCostoMinuto()).ordinal());
+				break;
+		case 103:
+				nnet = NeuralNetwork.load("/home/zeke/workspace/paranoid-agi-utils/src/nocturnosininternacional.nnet");
+				System.out.println("hora " + llamada.getHora() + " dia " + (llamada.getDia()-1) + " destino " + llamada.getDestino().ordinal() + " costo " + obtenerRangoCosto(llamada.getCostoMinuto()).ordinal());
+				break;
+		default:
+				nnet = NeuralNetwork.load("/home/zeke/workspace/paranoid-agi-utils/src/nocturno.nnet");
+				System.out.println("hora " + llamada.getHora() + " dia " + (llamada.getDia()-1) + " destino " + llamada.getDestino().ordinal() + " costo " + obtenerRangoCosto(llamada.getCostoMinuto()).ordinal());
+				break;
+		}
 		nnet.setInput(llamada.getHora()/23.0,
 					(llamada.getDia()-1)/6.0, 
 					llamada.getDestino().ordinal()/3.0, 
