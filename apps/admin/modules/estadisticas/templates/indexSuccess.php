@@ -1,10 +1,10 @@
 <?php
 
 	/*** mysql hostname ***/
-	$hostname = '10.200.200.95';
+	$hostname = 'localhost';
 
 	/*** mysql username ***/
-	$username = 'root';
+	$username = 'paranoid';
 
 	/*** mysql password ***/
 	$password = 'my123';
@@ -33,7 +33,7 @@
 		}
 	    }
 	
-	    $dbh1 = new PDO("mysql:host=$hostname;dbname=paranoid", 'root', 'my123');
+	    $dbh1 = new PDO("mysql:host=$hostname;dbname=paranoid", $username, $password);
 	    /*** echo a message saying we have connected ***/
 	    $sql1 = "SELECT COUNT(*) FROM paranoid.sf_guard_user ";
 
