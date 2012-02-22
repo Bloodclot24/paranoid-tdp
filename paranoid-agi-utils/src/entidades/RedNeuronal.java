@@ -37,7 +37,7 @@ public class RedNeuronal {
 	}
 	
 	public boolean esHabitual(Llamada llamada) {
-		NeuralNetwork nnet = NeuralNetwork.load("/home/zeke/workspace/paranoid-agi-utils/src/nocturno.nnet");
+		NeuralNetwork nnet = NeuralNetwork.load("/home/zeke/workspace/paranoid-agi-utils/src/laboral.nnet");
 		System.out.println("hora " + llamada.getHora() + " dia " + (llamada.getDia()-1) + " destino " + llamada.getDestino().ordinal() + " costo " + obtenerRangoCosto(llamada.getCostoMinuto()).ordinal());
 		nnet.setInput(llamada.getHora()/23.0,
 					(llamada.getDia()-1)/6.0, 

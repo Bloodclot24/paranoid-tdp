@@ -187,7 +187,7 @@ public class UtilsFacade {
 	
 	public static void GrabarLlamada(Notificacion miNot){
 		
-		String rutaSonidos="/var/www/paranoid/web/records/";
+		String rutaSonidos="/paranoid/web/records/";
 		miNot.setGrabar(true);
 		
 		Calendar fecha = Calendar.getInstance();
