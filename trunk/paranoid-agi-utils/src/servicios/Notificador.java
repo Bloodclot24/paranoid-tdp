@@ -2,7 +2,12 @@ package servicios;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
+import org.asteriskjava.manager.AuthenticationFailedException;
+import org.asteriskjava.manager.ManagerConnection;
+import org.asteriskjava.manager.ManagerConnectionFactory;
+import org.asteriskjava.manager.TimeoutException;
+import org.asteriskjava.manager.action.CommandAction;
+import org.asteriskjava.manager.response.CommandResponse;
 import entidades.Notificacion;
 import entidades.Regla;
 import entidades.UsuarioParanoid;
@@ -13,6 +18,9 @@ public class Notificador {
 	
 	//private String rutaMutt="/usr/src/paranoid/mutconf";
 	private String rutaMutt="/home/zeke/workspace/paranoid-agi-utils/mutconf";
+	private String diripAsterisk = "192.168.1.10";
+    private String nombreManager = "paranoid";
+    private String passManager = "123456";
 
 	private Notificacion nota;
 	private UsuarioParanoid usuario;
@@ -96,8 +104,59 @@ public class Notificador {
 	}
 	
 	private void EnviaSms(){
-		
-	}
-
 	
+	
+		ManagerConnection managerConnection;
+		String boardDefinition="b0"; //definicion estatica de la placa de salida
+		
+		ManagerConnectionFactory factory = new ManagerConnectionFactory(this.diripAsterisk,this.nombreManager,this.passManager);
+		managerConnection = factory.createManagerConnection();
+		
+		CommandAction comando = new CommandAction();
+		CommandResponse respuesta;
+
+		String lineaComando = "khomp sms "+boardDefinition+" "+ this.usuario.getTelefono() +" "+ "PARANOID se ha producido una alerta que requiere su atencion";
+
+		comando.setCommand(lineaComando);
+		
+		try {
+			managerConnection.login();
+			respuesta = (CommandResponse) managerConnection.sendAction(comando, 2000);
+		} catch (Exception e) {
+		}
+		managerConnection.logoff();
+		}
+			
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
