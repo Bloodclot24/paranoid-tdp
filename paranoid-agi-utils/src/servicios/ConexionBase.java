@@ -13,9 +13,9 @@ public class ConexionBase {
     static String baseNombre = "paranoid";
     static String loginBase = "root";
     static String passwordBase = "my123";
-    static String diripBase = "10.200.200.95";
+    static String diripBase = "192.168.1.10";
     static String url = "jdbc:mysql://"+diripBase+"/"+baseNombre;
-    static String diripAsterisk = "10.200.200.95";
+    static String diripAsterisk = "192.168.1.10";
     static String nombreManager = "paranoid";
     static String passManager = "123456";
     private Connection miconexion;

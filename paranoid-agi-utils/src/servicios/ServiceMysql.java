@@ -1,8 +1,14 @@
 package servicios;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
+
+import javax.print.attribute.standard.DateTimeAtCompleted;
 
 import com.mysql.jdbc.Statement;
 
@@ -46,17 +52,35 @@ public class ServiceMysql {
 		Statement s = (Statement) ConexionBase.getInstance().getConexion().createStatement();
 		String consulta;
 		
+		
+		java.util.Date date = null;
+		java.sql.Timestamp timeStamp = null;
+		
+		Calendar calendar=Calendar.getInstance();
+		calendar.setTime(new Date());
+		java.sql.Date dt = new java.sql.Date(calendar.getTimeInMillis());
+		java.sql.Time sqlTime=new java.sql.Time(calendar.getTime().getTime());
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		try {
+			date = simpleDateFormat.parse(dt.toString()+" "+sqlTime.toString());
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		timeStamp = new java.sql.Timestamp(date.getTime());
+		
+		
 		if (notif.hayQueGrabar() != null && notif.hayQueGrabar()){
 			
 			if (notif.getReglaIdAsociada() == 0){
-				consulta = "INSERT INTO notificaciones (fecha, accion, masinfourl, regla_id, user_id, llamada) VALUES ('"+notif.getFecha()+"','"+notif.getAccion()+"','"+
+				consulta = "INSERT INTO notificaciones (fecha, accion, masinfourl, regla_id, user_id, llamada) VALUES ('"+timeStamp+"','"+notif.getAccion()+"','"+
 						notif.getMasinfourl()+"',NULL,'"+notif.getUserIdAsociado()+"','"+notif.getDatoLlamada()+"')";
 			}else {
-			consulta = "INSERT INTO notificaciones (fecha, accion, masinfourl, regla_id, user_id, llamada) VALUES ('"+notif.getFecha()+"','"+notif.getAccion()+"','"+
+			consulta = "INSERT INTO notificaciones (fecha, accion, masinfourl, regla_id, user_id, llamada) VALUES ('"+timeStamp+"','"+notif.getAccion()+"','"+
 					notif.getMasinfourl()+"','"+notif.getReglaIdAsociada()+"','"+notif.getUserIdAsociado()+"','"+notif.getDatoLlamada()+"')";
 			}
 		}else {
-			consulta = "INSERT INTO notificaciones (fecha, accion, masinfourl,regla_id, user_id, llamada) VALUES ('"+notif.getFecha()+"','"+notif.getAccion()+"',NULL,'"+notif.getReglaIdAsociada()+
+			consulta = "INSERT INTO notificaciones (fecha, accion, masinfourl,regla_id, user_id, llamada) VALUES ('"+timeStamp+"','"+notif.getAccion()+"',NULL,'"+notif.getReglaIdAsociada()+
 					"','"+notif.getUserIdAsociado()+"','"+notif.getDatoLlamada()+"')";
 		}
 			System.out.println(consulta);

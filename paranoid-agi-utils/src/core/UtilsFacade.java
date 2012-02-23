@@ -77,9 +77,9 @@ public class UtilsFacade {
 		for (UsuarioParanoid unusuario : ServiceMysql.getAdminUsers()) {
 		
 			if (reg != null){
-				Notificador.getNotificador(unanot, unusuario, reg);
+				Notificador.getNotificador(unanot, unusuario, reg).Notificar();
 			}else{
-				Notificador.getNotificador(unanot, unusuario);
+				Notificador.getNotificador(unanot, unusuario).Notificar();
 			}
 		}
 		ServiceMysql.nuevaNotificacion(unanot);
